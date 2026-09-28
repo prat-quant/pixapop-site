@@ -47,7 +47,33 @@
     </div>
   </div>
   <p class="lead rv" style="--d:100ms;margin-top:28px;font-size:clamp(19px,2vw,24px)">Vous avez plus de 40 ans, une carrière solide, et l’envie de changer de métier. Nouveau Cap vous aide à passer de l’idée au projet, puis du projet au nouveau poste, <em style="color:var(--text)">avec une méthode claire et un Copilote IA qui connaît votre parcours.</em></p>
+  <div class="btns rv" style="--d:150ms;margin-top:28px"><a class="btn btn-light" href="#liste">Être prévenu du lancement <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
   <div class="gallery rv" style="--d:200ms" aria-label="Captures d’écran de l’app"><div class="phone glass "><img src="/assets/app/home.jpg" alt="Accueil : le mot du Copilote et le bilan" width="390" height="844" loading="eager" decoding="async"></div><div class="phone glass "><img src="/assets/app/finances.jpg" alt="Finances : votre runway en mois" width="390" height="844" loading="eager" decoding="async"></div><div class="phone glass "><img src="/assets/app/pistes.jpg" alt="Pistes : comparer les métiers visés" width="390" height="844" loading="eager" decoding="async"></div><div class="phone glass "><img src="/assets/app/plan.jpg" alt="Plan 90 jours : les étapes de la semaine" width="390" height="844" loading="eager" decoding="async"></div></div>
+</div></section>
+
+<section id="liste" aria-labelledby="w"><div class="wrap">
+  <div class="waitlist glass rv">
+    <span class="pill solo">Liste d’attente</span>
+    <h2 id="w">Soyez prévenu <em>du lancement.</em></h2>
+    <p class="lead">Nouveau Cap sort d’abord sur Android. Laissez votre adresse : vous recevrez un seul e-mail, le jour de la sortie. Vous êtes sur iPhone&nbsp;? Indiquez-le, cela nous aide à décider de la version iPhone.</p>
+    <form class="wl-form" data-waitlist data-endpoint="https://nidcxvwmdezaxurcwivv.supabase.co/functions/v1/liste-attente" data-app="nouveau-cap" data-source="/nouveau-cap/" novalidate>
+      <div class="wl-row">
+        <label class="wl-label" for="wl-email">Votre adresse e-mail</label>
+        <input class="wl-input" id="wl-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="prenom.nom@exemple.fr" required maxlength="254">
+      </div>
+      <fieldset class="wl-row wl-phones">
+        <legend class="wl-label">Votre téléphone <span class="wl-opt">(facultatif)</span></legend>
+        <label><input type="radio" name="platform" value="android"> Android</label>
+        <label><input type="radio" name="platform" value="iphone"> iPhone</label>
+        <label><input type="radio" name="platform" value="autre"> Autre</label>
+      </fieldset>
+      <div class="wl-hp" aria-hidden="true"><label>Ne pas remplir ce champ <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <label class="wl-check"><input type="checkbox" name="consent" required> <span data-consent>J’accepte que Pixapop conserve mon adresse e-mail uniquement pour me prévenir du lancement de Nouveau Cap. Elle est effacée après l’annonce, et au plus tard 12 mois après mon inscription.</span></label>
+      <button class="btn btn-light" type="submit">Prévenez-moi au lancement <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></button>
+      <p class="wl-status" role="status" aria-live="polite"></p>
+    </form>
+    <p class="note">Pas de publicité, pas de revente, désinscription en un clic. <a href="/mentions-legales/">Comment nous utilisons votre adresse</a>.</p>
+  </div>
 </div></section>
 
 <section aria-labelledby="f" style="padding-top:40px"><div class="wrap">
