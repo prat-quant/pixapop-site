@@ -74,7 +74,7 @@ def page(path, title, description, body, *, canonical=None, jsonld=None, noindex
 {body}
 </main>
 <footer><div class="wrap"><div class="row">
-  <p>© {YEAR} Pixapop · {esc(PUB['name'])}, entrepreneur individuel</p>
+  <p>© {YEAR} Pixapop</p>
   <nav aria-label="Liens légaux">
     <a href="/mentions-legales/">Mentions légales</a>
     <a href="/nouveau-cap/confidentialite/">Confidentialité de Nouveau Cap</a>
