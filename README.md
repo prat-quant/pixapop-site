@@ -16,7 +16,7 @@ Ne jamais modifier `docs/` à la main.
 
 ## Choix
 
-- Aucun cookie, aucune mesure d'audience, aucune ressource tierce : les polices (Unbounded, Figtree,
-  licence SIL OFL 1.1) sont dans `assets/fonts/`. Pas de bandeau cookies nécessaire.
+- Aucun cookie, aucune mesure d'audience, aucune ressource tierce : les polices (Geist et Instrument
+  Serif, licence SIL OFL 1.1) sont dans `assets/fonts/`. Pas de bandeau cookies nécessaire.
 - Adresses publiques de Nouveau Cap pour Google Play : `/nouveau-cap/confidentialite/` et
   `/nouveau-cap/suppression-donnees/`.
