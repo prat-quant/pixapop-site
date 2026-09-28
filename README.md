@@ -14,16 +14,9 @@ Hébergé gratuitement par GitHub Pages, à partir du dossier `docs/` de la bran
 
 Ne jamais modifier `docs/` à la main.
 
-## Liste d'attente
-
-Le formulaire « Prévenez-moi au lancement » (page Nouveau Cap) envoie l'adresse à la fonction
-`liste-attente` du projet Supabase « pixapop-marketing » (source et règles dans le dépôt AIOS,
-`projects/nouveau-cap-marketing/supabase/`). Page de désinscription : `/nouveau-cap/desinscription/`
-(non indexée, désinscription au clic). Texte de confidentialité : mentions légales du site.
-
 ## Choix
 
-- Aucun cookie, aucune mesure d'audience, aucune ressource tierce chargée à l'affichage (seul le formulaire de liste d'attente envoie des données, quand on le valide) : les polices (Unbounded, Figtree,
+- Aucun cookie, aucune mesure d'audience, aucune ressource tierce : les polices (Unbounded, Figtree,
   licence SIL OFL 1.1) sont dans `assets/fonts/`. Pas de bandeau cookies nécessaire.
 - Adresses publiques de Nouveau Cap pour Google Play : `/nouveau-cap/confidentialite/` et
   `/nouveau-cap/suppression-donnees/`.

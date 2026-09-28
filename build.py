@@ -19,10 +19,6 @@ PUB = LEGAL["publisher"]
 PRICES = LEGAL["prices"]
 EMAIL = PUB["email"]
 PROJECT_EMAIL = "projet@pixapop.fr"  # new app projects, shown in the home contact block
-# Launch waitlist: Supabase project pixapop-marketing, function liste-attente (source in the AIOS repo).
-WAITLIST_URL = "https://nidcxvwmdezaxurcwivv.supabase.co/functions/v1/liste-attente"
-CONSENT = ("J’accepte que Pixapop conserve mon adresse e-mail uniquement pour me prévenir du lancement de Nouveau Cap. "
-           "Elle est effacée après l’annonce, et au plus tard 12 mois après mon inscription.")
 YEAR = date.today().year
 esc = html.escape
 
@@ -215,44 +211,6 @@ def home():
                 body, jsonld=ld)
 
 
-def waitlist_block(app, source):
-    return f"""<section id="liste" aria-labelledby="w"><div class="wrap">
-  <div class="waitlist glass rv">
-    <span class="pill solo">Liste d’attente</span>
-    <h2 id="w">Soyez prévenu <em>du lancement.</em></h2>
-    <p class="lead">Nouveau Cap sort d’abord sur Android. Laissez votre adresse : vous recevrez un seul e-mail, le jour de la sortie. Vous êtes sur iPhone&nbsp;? Indiquez-le, cela nous aide à décider de la version iPhone.</p>
-    <form class="wl-form" data-waitlist data-endpoint="{WAITLIST_URL}" data-app="{app}" data-source="{source}" novalidate>
-      <div class="wl-row">
-        <label class="wl-label" for="wl-email">Votre adresse e-mail</label>
-        <input class="wl-input" id="wl-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="prenom.nom@exemple.fr" required maxlength="254">
-      </div>
-      <fieldset class="wl-row wl-phones">
-        <legend class="wl-label">Votre téléphone <span class="wl-opt">(facultatif)</span></legend>
-        <label><input type="radio" name="platform" value="android"> Android</label>
-        <label><input type="radio" name="platform" value="iphone"> iPhone</label>
-        <label><input type="radio" name="platform" value="autre"> Autre</label>
-      </fieldset>
-      <div class="wl-hp" aria-hidden="true"><label>Ne pas remplir ce champ <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-      <label class="wl-check"><input type="checkbox" name="consent" required> <span data-consent>{esc(CONSENT)}</span></label>
-      <button class="btn btn-light" type="submit">Prévenez-moi au lancement {ARROW}</button>
-      <p class="wl-status" role="status" aria-live="polite"></p>
-    </form>
-    <p class="note">Pas de publicité, pas de revente, désinscription en un clic. <a href="/mentions-legales/">Comment nous utilisons votre adresse</a>.</p>
-  </div>
-</div></section>"""
-
-
-def unsubscribe():
-    body = f"""<section class="hero" style="min-height:80svh;align-items:center"><div class="wrap">
-  <span class="pill solo">Liste d’attente</span>
-  <h1>Se <em>désinscrire</em></h1>
-  <p class="lead">Vous ne recevrez plus d’e-mail au sujet du lancement, et votre adresse sera effacée de notre liste.</p>
-  <div class="btns" style="justify-content:center"><button class="btn btn-light" type="button" data-unsubscribe data-endpoint="{WAITLIST_URL}">Confirmer la désinscription</button></div>
-  <p class="wl-status" role="status" aria-live="polite"></p>
-</div></section>"""
-    page("/nouveau-cap/desinscription/", "Se désinscrire · Nouveau Cap", "Se désinscrire de la liste d’attente de Nouveau Cap.", body, noindex=True)
-
-
 def nouveau_cap():
     p = PRICES
     features = [
@@ -274,11 +232,8 @@ def nouveau_cap():
     </div>
   </div>
   <p class="lead rv" style="--d:100ms;margin-top:28px;font-size:clamp(19px,2vw,24px)">Vous avez plus de 40 ans, une carrière solide, et l’envie de changer de métier. Nouveau Cap vous aide à passer de l’idée au projet, puis du projet au nouveau poste, <em style="color:var(--text)">avec une méthode claire et un Copilote IA qui connaît votre parcours.</em></p>
-  <div class="btns rv" style="--d:150ms;margin-top:28px"><a class="btn btn-light" href="#liste">Être prévenu du lancement {ARROW}</a></div>
   <div class="gallery rv" style="--d:200ms" aria-label="Captures d’écran de l’app">{gallery}</div>
 </div></section>
-
-{waitlist_block("nouveau-cap", "/nouveau-cap/")}
 
 <section aria-labelledby="f" style="padding-top:40px"><div class="wrap">
   <div class="head rv"><span class="pill solo">L’app</span><h2 id="f">Tout pour changer de cap, <em>pas à pas.</em></h2></div>
@@ -366,16 +321,9 @@ def legal_pages():
             f"Directeur de la publication : {PUB['director']}.", f"Contact : {EMAIL}."]},
         {"title": "Hébergement", "lines": ["GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis (service GitHub Pages)."]},
         {"title": "Données personnelles et cookies", "lines": [
-            "Ce site ne dépose aucun cookie, n’utilise aucun outil de mesure d’audience et ne charge aucune ressource d’un site tiers : les polices de caractères sont hébergées sur le site lui-même. Seul le formulaire de liste d’attente envoie des données, et uniquement quand vous le validez.",
+            "Ce site ne dépose aucun cookie, n’utilise aucun outil de mesure d’audience et ne charge aucune ressource d’un site tiers : les polices de caractères sont hébergées sur le site lui-même.",
             "L’hébergeur peut conserver temporairement l’adresse IP des visiteurs pour la sécurité du service. Si vous nous écrivez, votre message sert uniquement à vous répondre.",
             "Les données de l’application Nouveau Cap sont décrites dans sa politique de confidentialité."]},
-        {"title": "Liste d’attente de Nouveau Cap", "lines": [
-            "Responsable : Pixapop. Finalité : vous prévenir par e-mail du lancement de l’application Nouveau Cap, et rien d’autre. Base : votre consentement, donné en cochant la case du formulaire.",
-            "Données : votre adresse e-mail, le type de téléphone si vous l’indiquez, la page d’inscription, la date et le texte accepté. Pour limiter les abus, une empreinte non réversible de votre connexion est conservée 24 heures.",
-            "Hébergement : Supabase, serveurs situés à Paris. Aucune revente, aucune publicité, aucun partage.",
-            "Durée : l’adresse est effacée 30 jours après l’e-mail de lancement, et au plus tard 12 mois après l’inscription.",
-            f"Vos droits : chaque e-mail contient un lien de désinscription immédiate. Vous pouvez aussi écrire à {EMAIL} pour accéder à vos données, les corriger ou les effacer, et saisir la CNIL (cnil.fr).",
-            ]},
         {"title": "Propriété intellectuelle", "lines": [
             "Les textes, images et logos de ce site appartiennent à Pixapop, sauf mention contraire. Toute reproduction sans autorisation est interdite.",
             "Polices Geist et Instrument Serif, sous licence SIL Open Font License 1.1."]},
@@ -404,7 +352,6 @@ def main():
     (OUT / ".nojekyll").write_text("", encoding="utf-8")
     paths = [home(), nouveau_cap(), *legal_pages()]
     not_found()
-    unsubscribe()
     today = date.today().isoformat()
     (OUT / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
