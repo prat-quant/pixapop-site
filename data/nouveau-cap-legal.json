@@ -91,6 +91,13 @@
       ]
     },
     {
+      "title": "La protection contre les robots",
+      "lines": [
+        "Quand l’app crée le compte anonyme de votre téléphone, une vérification automatique s’assure qu’il s’agit bien d’une personne et non d’un programme : elle protège le service et son budget contre les faux comptes. Le plus souvent, elle est invisible ; parfois, elle vous demande de cocher une case.",
+        "Cette vérification est Turnstile, de Cloudflare (États-Unis). Elle examine des informations techniques sur votre appareil et votre connexion (adresse IP, caractéristiques de l’affichage intégré à l’app), sans cookie publicitaire, et ne nous transmet qu’un jeton de validation, qui n’est pas conservé. Ce transfert hors de l’Union européenne est encadré par les clauses contractuelles types de la Commission européenne."
+      ]
+    },
+    {
       "title": "Les paiements",
       "lines": [
         "Les abonnements et les achats se font par Google Play. Vos coordonnées bancaires restent chez Google : nous ne les recevons jamais.",
@@ -144,7 +151,7 @@
     {
       "title": "Qui y a accès",
       "lines": [
-        "Seuls Cyril Gayet et ses prestataires techniques y ont accès, chacun pour ce qui le concerne : Supabase (serveur), Anthropic (IA), Expo (notifications), RevenueCat (suivi des achats), et Google ou Apple (distribution de l’app et paiements)."
+        "Seuls Cyril Gayet et ses prestataires techniques y ont accès, chacun pour ce qui le concerne : Supabase (serveur), Anthropic (IA), Expo (notifications), RevenueCat (suivi des achats), Cloudflare (protection contre les robots), et Google ou Apple (distribution de l’app et paiements)."
       ]
     },
     {

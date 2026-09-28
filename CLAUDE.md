@@ -5,6 +5,12 @@ nom commercial Pixapop). En ligne sur https://www.pixapop.fr. Comment le constru
 
 ## Règles pour chaque session
 
+- **Avant toute modification** : récupérer la dernière version de `main` de ce dépôt et d'AIOS
+  (`prat-quant/aios`, à ajouter à la session s'il n'y est pas), puis lire
+  `docs/JOURNAL-MISES-A-JOUR.md` d'AIOS (entrées récentes, celles du site, tâches « À répercuter »,
+  tableau des dépendances). Après : y ajouter une entrée et l'envoyer sur `main` d'AIOS. Les autres
+  conversations (App, Marketing) modifient parfois le site : ce journal est la seule façon de le
+  savoir.
 - Écrire à Cyril **en français uniquement**, y compris les courtes phrases d'avancement. Il n'est
   pas développeur : simplement, une étape à la fois quand c'est lui qui agit. Pas de tiret cadratin.
 - Méthode : `.claude/rules/working-method.md` du dépôt AIOS (plan d'abord, un chantier à la fois,
