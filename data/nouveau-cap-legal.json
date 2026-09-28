@@ -10,7 +10,8 @@
     "rcs": "",
     "vat": "",
     "director": "Cyril Gayet",
-    "email": "contact@pixapop.fr"
+    "email": "contact@pixapop.fr",
+    "website": "www.pixapop.fr"
   },
   "prices": {
     "pilote": "19,90 €",
@@ -31,7 +32,8 @@
         "Adresse : 4775 RD 2085, 06330 Roquefort-les-Pins, France.",
         "SIRET : 820 684 330 00021.",
         "Directeur de la publication : Cyril Gayet.",
-        "Contact : contact@pixapop.fr."
+        "Contact : contact@pixapop.fr.",
+        "Site : www.pixapop.fr."
       ]
     },
     {
@@ -239,14 +241,14 @@
     {
       "title": "Vos données",
       "lines": [
-        "Leur traitement est décrit dans la politique de confidentialité, accessible depuis Réglages et sur notre page publique."
+        "Leur traitement est décrit dans la politique de confidentialité, accessible depuis Réglages et sur la page www.pixapop.fr/nouveau-cap/confidentialite/."
       ]
     },
     {
       "title": "Réclamations et médiation",
       "lines": [
         "Pour toute réclamation, écrivez-nous par e-mail à contact@pixapop.fr. Nous répondons sous un mois.",
-        "En cas de litige non résolu avec nous, vous pouvez recourir gratuitement à un médiateur de la consommation : ses coordonnées sont à compléter."
+        "En cas de litige non résolu avec nous, vous pouvez recourir gratuitement à un médiateur de la consommation. Ses coordonnées à jour figurent sur la page www.pixapop.fr/nouveau-cap/conditions/."
       ]
     },
     {
