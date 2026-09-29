@@ -67,7 +67,8 @@ nom commercial Pixapop). En ligne sur https://www.pixapop.fr. Comment le constru
 ## À venir
 
 - Lien vers la fiche Google Play de Nouveau Cap dès la publication de l'app.
-- Blog SEO (idées : se reconvertir après 40 ans, calculer son runway, la VAE expliquée) : les
-  articles viendront de la conversation Marketing (`context/nouveau-cap-marketing.md` d'AIOS) ; ce
-  dépôt accueille la rubrique blog.
+- Le blog et la liste d'attente de Nouveau Cap vivent sur le site de l'app,
+  https://nouveaucap.pixapop.fr (dépôt `prat-quant/nouveaucap-site`), décision de Cyril du 29/09/2026 :
+  **aucun formulaire sur pixapop.fr**. Ce site renvoie vers le site de l'app (page `/nouveau-cap/` et
+  étude de cas de l'accueil).
 - Une page par nouvelle app de Pixapop, sur le même modèle que `/nouveau-cap/`.

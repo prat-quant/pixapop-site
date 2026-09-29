@@ -19,6 +19,7 @@ PUB = LEGAL["publisher"]
 PRICES = LEGAL["prices"]
 EMAIL = PUB["email"]
 PROJECT_EMAIL = "projet@pixapop.fr"  # new app projects, shown in the home contact block
+APP_SITE = "https://nouveaucap.pixapop.fr/"  # the app's own website (waitlist, blog)
 YEAR = date.today().year
 esc = html.escape
 
@@ -165,7 +166,7 @@ def home():
       <h2 id="t3">Nouveau Cap, <em>le copilote de la reconversion</em></h2>
       <p class="lead">Pour les cadres de plus de 40 ans qui veulent changer de métier : un plan de 90 jours, les finances sous contrôle, un CV et un profil LinkedIn réécrits, et un Copilote IA qui connaît leur parcours.</p>
       <div class="chips"><span>Copilote IA</span><span>Plan 90 jours</span><span>Runway financier</span><span>CV PDF et Word</span><span>Notifications</span><span>Abonnements</span></div>
-      <div class="btns"><a class="btn btn-light" href="/nouveau-cap/">Voir l’app {ARROW}</a></div>
+      <div class="btns"><a class="btn btn-light" href="/nouveau-cap/">Voir l’app {ARROW}</a><a class="btn btn-glass" href="{APP_SITE}">Le site de Nouveau Cap</a></div>
     </div>
     <div class="phones" data-tilt aria-hidden="true">
       {phone('pistes', 'Écran Pistes de Nouveau Cap', 'b')}
@@ -232,6 +233,7 @@ def nouveau_cap():
     </div>
   </div>
   <p class="lead rv" style="--d:100ms;margin-top:28px;font-size:clamp(19px,2vw,24px)">Vous avez plus de 40 ans, une carrière solide, et l’envie de changer de métier. Nouveau Cap vous aide à passer de l’idée au projet, puis du projet au nouveau poste, <em style="color:var(--text)">avec une méthode claire et un Copilote IA qui connaît votre parcours.</em></p>
+  <div class="btns rv" style="--d:150ms;margin-top:28px"><a class="btn btn-light" href="{APP_SITE}">Le site de Nouveau Cap {ARROW}</a><a class="btn btn-glass" href="{APP_SITE}#liste">Être prévenu du lancement</a></div>
   <div class="gallery rv" style="--d:200ms" aria-label="Captures d’écran de l’app">{gallery}</div>
 </div></section>
 
@@ -264,7 +266,7 @@ def nouveau_cap():
 </div></div></section>
 """
     ld = {"@context": "https://schema.org", "@type": "MobileApplication", "name": "Nouveau Cap", "operatingSystem": "Android",
-          "applicationCategory": "BusinessApplication", "inLanguage": "fr", "url": SITE + "/nouveau-cap/",
+          "applicationCategory": "BusinessApplication", "inLanguage": "fr", "url": APP_SITE, "sameAs": [SITE + "/nouveau-cap/"],
           "publisher": {"@type": "Organization", "name": "Pixapop", "url": SITE},
           "offers": [{"@type": "Offer", "name": "Gratuit", "price": "0", "priceCurrency": "EUR"},
                      {"@type": "Offer", "name": "Pilote", "price": p["pilote"].replace(" €", "").replace(",", "."), "priceCurrency": "EUR"},
