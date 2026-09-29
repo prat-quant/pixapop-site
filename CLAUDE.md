@@ -38,7 +38,8 @@ nom commercial Pixapop). En ligne sur https://www.pixapop.fr. Comment le constru
 
 ## Pages
 
-- `/` accueil de l'agence ; `/nouveau-cap/` page de l'app ; `/mentions-legales/` de l'agence
+- `/` accueil de l'agence ; `/nouveau-cap/` page de l'app ; `/studio/` page de Pixapop Studio (en
+  construction, captures réelles dans `assets/studio/`, prises depuis l'aperçu du dépôt `pixapop-studio`) ; `/mentions-legales/` de l'agence
   (hébergeur GitHub) ; pages légales de Nouveau Cap : `/nouveau-cap/confidentialite/`,
   `/conditions/`, `/suppression-donnees/`, `/mentions-legales/` ; page 404.
 - Les textes légaux de Nouveau Cap ne s'écrivent pas ici : ils viennent du dépôt `nouveau-cap`

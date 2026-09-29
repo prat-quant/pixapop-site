@@ -68,6 +68,7 @@ def page(path, title, description, body, *, canonical=None, jsonld=None, noindex
   <nav class="nav" aria-label="Menu principal">
     <a href="/#savoir-faire" class="hide-sm">Savoir-faire</a>
     <a href="/nouveau-cap/">Nouveau Cap</a>
+    <a href="/studio/">Studio</a>
     <a href="/#contact" class="cta">Contact</a>
   </nav>
 </div></div></header>
@@ -95,8 +96,8 @@ def page(path, title, description, body, *, canonical=None, jsonld=None, noindex
 ARROW = '<svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>'
 
 
-def phone(src, alt, cls=""):
-    return f'<div class="phone glass {cls}"><img src="/assets/app/{src}.jpg" alt="{esc(alt)}" width="390" height="844" loading="eager" decoding="async"></div>'
+def phone(src, alt, cls="", folder="app"):
+    return f'<div class="phone glass {cls}"><img src="/assets/{folder}/{src}.jpg" alt="{esc(alt)}" width="390" height="844" loading="eager" decoding="async"></div>'
 
 
 MARQUEE = ["Apps iPhone et Android", "IA vraiment utile", "Design sur mesure", "Notifications", "Abonnements et paiements",
@@ -277,6 +278,68 @@ def nouveau_cap():
                 body, jsonld=ld)
 
 
+def studio():
+    features = [
+        ("La publication <em>du jour</em>", ["Chaque matin, ce qui est prévu aujourd’hui et ce qui vient ensuite", "Une fiche complète par contenu : objectif, mot-clé visé, plan, visuels", "Des prompts d’images prêts à copier dans votre outil de création"]),
+        ("Rien ne part <em>sans vous</em>", ["Chaque contenu passe par votre validation avant d’être publié", "Un réglage par type de contenu : vous choisissez ce qui peut partir seul", "Les exemples de démonstration ne peuvent jamais être publiés"]),
+        ("Un plan <em>clair</em>", ["Le plan par semaine et par canal, en liste ou en calendrier", "Les idées à trier et la bibliothèque de ce qui est publié", "Les mots-clés suivis, avec leurs volumes de recherche"]),
+        ("Une mémoire <em>d’atelier</em>", ["Vos règles, décisions et demandes, relues avant chaque opération", "La documentation tenue à jour, chaque version gardée", "Un journal de tout ce qui a été fait, que personne ne peut modifier"]),
+        ("Plusieurs marketings, <em>un seul Studio</em>", ["Le marketing de l’entreprise et celui de chaque produit, séparés", "Les objectifs et les mesures de chacun", "Votre équipe, sur invitation, avec un rôle pour chacun"]),
+        ("Des agents <em>avec une méthode</em>", ["Préparateur, Rédacteur, Publieur, Analyste, Stratège, Veilleur", "Chacun a sa méthode écrite, que vous pouvez adapter", "Ils proposent, vous décidez : aucun ne peut valider à votre place"]),
+    ]
+    feats = "".join(f'<article class="glass lit rv" style="--d:{(k % 2) * 70}ms"><h3>{t}</h3><ul>{"".join(f"<li>{esc(x)}</li>" for x in items)}</ul></article>' for k, (t, items) in enumerate(features))
+    shots = [("aujourdhui", "Aujourd’hui : la publication du jour et ce qui attend votre validation"), ("fiche", "La fiche d’un article : objectif, mot-clé, plan"),
+             ("valider", "À valider : un post LinkedIn d’exemple, prêt à relire"), ("plan", "Le plan : les contenus de la semaine, par canal")]
+    gallery = "".join(phone(f, alt, folder="studio") for f, alt in shots)
+    mail = f"mailto:{EMAIL}?subject=Pixapop%20Studio"
+    body = f"""
+<section class="apphero" aria-labelledby="t" style="padding-bottom:40px"><div class="wrap">
+  <div class="top-row rv">
+    <img class="appicon" src="/assets/studio-icon.svg" alt="Icône de Pixapop Studio : la grille de pixels de Pixapop" width="128" height="128">
+    <div style="display:grid;gap:14px;justify-items:start">
+      <span class="pill"><b>En construction</b> Utilisé d’abord pour notre marketing</span>
+      <h1 id="t">Pixapop Studio</h1>
+    </div>
+  </div>
+  <p class="lead rv" style="--d:100ms;margin-top:28px;font-size:clamp(19px,2vw,24px)">Le marketing préparé par des agents IA, validé par vous. Studio tient votre plan de publication, rassemble pour chaque contenu son objectif, son mot-clé et ses visuels, garde la mémoire de vos décisions, <em style="color:var(--text)">et ne publie rien sans votre accord.</em> Les agents arrivent avec le branchement de votre propre IA.</p>
+  <div class="btns rv" style="--d:150ms;margin-top:28px"><a class="btn btn-light" href="{mail}">Être prévenu de l’ouverture {ARROW}</a><a class="btn btn-glass" href="/nouveau-cap/">Voir Nouveau Cap</a></div>
+  <div class="gallery rv" style="--d:200ms" aria-label="Captures d’écran de Pixapop Studio">{gallery}</div>
+  <p class="note rv" style="margin-top:6px">Captures réelles de notre propre Studio, qui prépare le marketing de Nouveau Cap. Le post LinkedIn affiché est un exemple.</p>
+</div></section>
+
+<section aria-labelledby="f" style="padding-top:40px"><div class="wrap">
+  <div class="head rv"><span class="pill solo">L’outil</span><h2 id="f">Votre marketing, <em>tenu comme un atelier.</em></h2></div>
+  <div class="features">{feats}</div>
+</div></section>
+
+<section aria-labelledby="c"><div class="wrap"><div style="max-width:780px">
+  <div class="head rv"><span class="pill solo">Déjà au travail</span><h2 id="c">Il prépare le marketing <em>de Nouveau Cap.</em></h2></div>
+  <p class="lead rv">Nous avons construit Studio pour notre propre app avant de le proposer à d’autres. Il suit aujourd’hui les 8 articles publiés sur le blog de Nouveau Cap, les 34 contenus du plan de publication et les 44 mots-clés mesurés dans Google.</p>
+</div></div></section>
+
+<section aria-labelledby="b"><div class="wrap">
+  <div class="head rv"><span class="pill solo">Bientôt</span><h2 id="b">Pour vous aussi, <em>avec votre IA.</em></h2><p class="lead">Ce qui arrive, dans cet ordre. Rien n’est encore en vente.</p></div>
+  <div class="plans">
+    <article class="glass lit rv"><h3>Votre IA <em class="grad">aux commandes</em></h3><p>Vous branchez Studio à votre propre IA, par exemple Claude, et vous lui parlez depuis son application comme d’habitude. Elle lit la mémoire et les consignes du Studio, prépare, et vous validez.</p></article>
+    <article class="glass lit rv" style="--d:70ms"><h3>Par abonnement</h3><p>Studio ouvert aux indépendants et aux entreprises, hébergé par Pixapop, avec votre propre IA. Offres et prix annoncés à l’ouverture.</p></article>
+    <article class="glass lit rv" style="--d:140ms"><h3>En marque blanche</h3><p>Pour les agences et les consultants : Studio sous votre nom, à vos couleurs et à votre adresse, pour préparer le marketing de vos clients.</p></article>
+  </div>
+</div></section>
+
+<section aria-labelledby="d"><div class="wrap"><div style="max-width:780px">
+  <div class="head rv"><span class="pill solo">Vos données</span><h2 id="d">Votre marketing <em>vous appartient.</em></h2></div>
+  <p class="lead rv">Les données de Studio sont hébergées à Paris. Chaque entreprise ne voit que les siennes, et c’est la base de données elle-même qui l’impose. Rien n’est publié sans validation, chaque action est notée au journal, et Studio est conçu pour que ce soit votre propre IA qui travaille, avec votre abonnement.</p>
+  <div class="btns rv" style="margin-top:28px"><a class="btn btn-light" href="{mail}">Nous écrire {ARROW}</a></div>
+</div></div></section>
+"""
+    ld = {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Pixapop Studio", "operatingSystem": "Web",
+          "applicationCategory": "BusinessApplication", "inLanguage": "fr", "url": SITE + "/studio/",
+          "publisher": {"@type": "Organization", "name": "Pixapop", "url": SITE}}
+    return page("/studio/", "Pixapop Studio · Le marketing préparé par l’IA, validé par vous",
+                "Pixapop Studio prépare votre marketing avec des agents IA : plan de publication, fiches de contenu, mémoire de vos décisions. Rien ne part sans votre validation. En construction, par Pixapop.",
+                body, jsonld=ld)
+
+
 def legal_page(path, title, description, intro, sections, crumbs):
     blocks = "".join(f"<h2>{esc(s['title'])}</h2>" + "".join(f"<p>{esc(l)}</p>" for l in s["lines"]) for s in sections)
     updated = date.fromisoformat(LEGAL["updated"])
@@ -353,7 +416,7 @@ def main():
     (OUT / "favicon.svg").write_text(FAVICON, encoding="utf-8")
     (OUT / "CNAME").write_text("www.pixapop.fr\n", encoding="utf-8")
     (OUT / ".nojekyll").write_text("", encoding="utf-8")
-    paths = [home(), nouveau_cap(), *legal_pages()]
+    paths = [home(), nouveau_cap(), studio(), *legal_pages()]
     not_found()
     today = date.today().isoformat()
     (OUT / "sitemap.xml").write_text(
