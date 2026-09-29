@@ -215,10 +215,11 @@ def home():
 def nouveau_cap():
     p = PRICES
     features = [
-        ("Faire <em>le point</em>", ["Votre runway : combien de mois vous pouvez tenir pendant la transition", "Le comparateur de pistes de métier", "Un plan de départ construit sur votre situation"]),
+        ("Faire <em>le point</em>", ["Votre runway : combien de mois vous pouvez tenir pendant la transition", "Le comparateur de pistes de métier et un plan de départ", "Le score de votre CV et l’essentiel de la VAE, gratuitement"]),
+        ("Trouver <em>et financer</em>", ["Des idées de métier proposées par le Copilote à partir de votre parcours", "Projet de transition professionnelle, CPF, démission, immersion : étapes, délais, dossier", "Avec Premium : la présentation écrite de votre projet, rédigée avec l’IA"]),
         ("Avancer <em>chaque semaine</em>", ["Un plan d’action de 90 jours, en étapes concrètes", "Des fiches « Comment faire » avec méthode et scripts", "Des tests de pistes sur le terrain, avec un verdict", "Le feu vert financier et des sessions Focus"]),
-        ("Votre CV <em>et LinkedIn</em>", ["Le score de votre CV et vos corrections prioritaires", "L’analyse d’une annonce : ce que le recruteur attend", "La réécriture par l’IA, sans jamais inventer de chiffre", "Créer son CV : PDF et Word adaptés à chaque annonce"]),
-        ("Le Copilote <em>IA</em>", ["Vos questions à tout moment, par un assistant qui connaît votre parcours", "Des actions à ajouter à votre plan en un geste", "Avec Premium : un bilan de progression toutes les deux semaines", "Un module VAE : diagnostic, dossier et entraînement au jury"]),
+        ("Votre CV <em>et LinkedIn</em>", ["Vos corrections prioritaires et l’analyse d’une annonce", "La réécriture par l’IA, sans jamais inventer de chiffre", "Créer son CV : PDF et Word adaptés à chaque annonce", "Votre titre et votre résumé LinkedIn"]),
+        ("Le Copilote <em>IA</em>", ["Vos questions à tout moment, par un assistant qui connaît votre parcours (Pilote et Premium)", "Des actions à ajouter à votre plan en un geste", "Avec Premium : un bilan de progression toutes les deux semaines", "Avec Premium : le module VAE complet, diagnostic, dossier et jury"]),
     ]
     feats = "".join(f'<article class="glass lit rv" style="--d:{k * 70}ms"><h3>{t}</h3><ul>{"".join(f"<li>{esc(x)}</li>" for x in items)}</ul></article>' for k, (t, items) in enumerate(features))
     shots = [("home", "Accueil : le mot du Copilote et le bilan"), ("finances", "Finances : votre runway en mois"), ("pistes", "Pistes : comparer les métiers visés"), ("plan", "Plan 90 jours : les étapes de la semaine")]
