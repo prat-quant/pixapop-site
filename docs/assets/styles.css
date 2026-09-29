@@ -220,6 +220,11 @@ footer a:hover { color: var(--text); }
 .apphero .top-row { display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; }
 .appicon { width: clamp(88px, 12vw, 128px); border-radius: 28%; box-shadow: 0 0 0 1px rgba(255,255,255,.2), 0 20px 60px -10px rgba(28,116,219,.7); }
 @media (max-width: 620px) { .apphero .top-row { grid-template-columns: 1fr; } }
+.apphero .top-row > * { min-width: 0; grid-template-columns: minmax(0, 1fr); }
+.apphero .top-row .pill { width: auto; flex-wrap: wrap; row-gap: 4px; border-radius: 18px; }
+/* Four menu entries (logo, Nouveau Cap, Studio, Contact) do not fit on a small phone: keep the pixel logo, drop the wordmark. */
+@media (max-width: 480px) { .brand span { display: none; } .nav { gap: 2px; } .nav a { padding: 8px 9px; } }
+@media (max-width: 374px) { .pill { flex-wrap: wrap; row-gap: 4px; border-radius: 18px; width: auto; } .hero .wrap > * { min-width: 0; max-width: 100%; } .nav { font-size: 14px; } .nav a { padding: 7px 7px; } .top .bar { gap: 8px; padding-right: 8px; padding-left: 12px; } }
 .gallery { display: flex; gap: 18px; overflow-x: auto; padding: 40px 4px 20px; scroll-snap-type: x mandatory; scrollbar-width: none; }
 .gallery::-webkit-scrollbar { display: none; }
 .gallery .phone { flex: none; scroll-snap-align: center; transition: transform .5s var(--ease); }
