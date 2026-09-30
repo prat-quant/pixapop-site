@@ -20,6 +20,7 @@ PRICES = LEGAL["prices"]
 EMAIL = PUB["email"]
 PROJECT_EMAIL = "projet@pixapop.fr"  # new app projects, shown in the home contact block
 APP_SITE = "https://nouveaucap.pixapop.fr/"  # the app's own website (waitlist, blog)
+YOUTUBE = "https://www.youtube.com/channel/UCwgrPyMgV04sl71rjCPfBGQ"  # the Pixapop YouTube channel (Cyril, 30/09/2026)
 YEAR = date.today().year
 esc = html.escape
 
@@ -78,6 +79,7 @@ def page(path, title, description, body, *, canonical=None, jsonld=None, noindex
 <footer><div class="wrap"><div class="row">
   <p>© {YEAR} Pixapop</p>
   <nav aria-label="Liens légaux">
+    <a href="{YOUTUBE}" rel="me">YouTube</a>
     <a href="/mentions-legales/">Mentions légales</a>
     <a href="/nouveau-cap/confidentialite/">Confidentialité de Nouveau Cap</a>
     <a href="/nouveau-cap/conditions/">Conditions de Nouveau Cap</a>
@@ -206,7 +208,7 @@ def home():
 </div></section>
 """
     ld = {"@context": "https://schema.org", "@type": "Organization", "name": "Pixapop", "url": SITE, "email": EMAIL,
-          "logo": SITE + "/favicon.svg", "legalName": f"{PUB['name']}, entrepreneur individuel",
+          "logo": SITE + "/favicon.svg", "sameAs": [YOUTUBE], "legalName": f"{PUB['name']}, entrepreneur individuel",
           "address": {"@type": "PostalAddress", "streetAddress": "4775 RD 2085", "postalCode": "06330", "addressLocality": "Roquefort-les-Pins", "addressCountry": "FR"}}
     return page("/", "Pixapop · Agence de création d’applications mobiles",
                 "Pixapop conçoit et développe des applications mobiles élégantes pour iPhone et Android, avec une IA utile. Première app : Nouveau Cap, pour réussir sa reconversion après 40 ans.",
