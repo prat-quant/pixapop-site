@@ -262,3 +262,19 @@ footer a:hover { color: var(--text); }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .js .rv, .js .rv.wait { opacity: 1; transform: none; filter: none; }
 }
+
+/* Cookies (consent.js, 07/10/2026): Google Analytics only after « Accepter »; « Refuser » is just as visible. Glass, like the rest. */
+.linkish { border: 0; background: none; padding: 0; font: inherit; color: var(--muted); cursor: pointer; }
+.linkish:hover { color: var(--text); }
+.px-consent { position: fixed; z-index: 60; left: 16px; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); display: flex; justify-content: center; pointer-events: none; }
+.px-consent-in { pointer-events: auto; max-width: 660px; width: 100%; display: flex; align-items: center; gap: 14px 20px; flex-wrap: wrap; padding: 16px 18px; border-radius: 22px;
+  background: rgba(13, 11, 23, .78); border: 1px solid var(--edge-2); color: var(--text); -webkit-backdrop-filter: blur(18px) saturate(140%); backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: 0 24px 60px -30px rgba(0, 0, 0, .8); font: 14px/1.5 var(--sans); }
+.px-consent p { margin: 0; flex: 1 1 300px; min-width: 0; display: grid; gap: 3px; }
+.px-consent p b { font-weight: 600; }
+.px-consent p span { color: var(--muted); }
+.px-consent a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+.px-consent-b { display: flex; gap: 8px; }
+.px-consent-b button { font: 500 14px/1 var(--sans); padding: 11px 20px; border-radius: 999px; border: 1px solid var(--edge-2); background: var(--glass); color: var(--text); cursor: pointer; min-width: 108px; }
+.px-consent-b button:hover { border-color: var(--text); }
+@media (max-width: 560px) { .px-consent-b { width: 100%; } .px-consent-b button { flex: 1; } }

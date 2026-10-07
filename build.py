@@ -81,11 +81,14 @@ def page(path, title, description, body, *, canonical=None, jsonld=None, noindex
   <nav aria-label="Liens légaux">
     <a href="{YOUTUBE}" rel="me">YouTube</a>
     <a href="/mentions-legales/">Mentions légales</a>
+    <a href="/confidentialite/">Confidentialité</a>
+    <button type="button" class="linkish" data-consent-open>Cookies</button>
     <a href="/nouveau-cap/confidentialite/">Confidentialité de Nouveau Cap</a>
     <a href="/nouveau-cap/conditions/">Conditions de Nouveau Cap</a>
   </nav>
 </div></div></footer>
 <script src="/assets/site.js" defer></script>
+<script src="/assets/consent.js" defer></script>
 </body>
 </html>
 """
@@ -342,9 +345,9 @@ def studio():
                 body, jsonld=ld)
 
 
-def legal_page(path, title, description, intro, sections, crumbs):
+def legal_page(path, title, description, intro, sections, crumbs, updated=None):
     blocks = "".join(f"<h2>{esc(s['title'])}</h2>" + "".join(f"<p>{esc(l)}</p>" for l in s["lines"]) for s in sections)
-    updated = date.fromisoformat(LEGAL["updated"])
+    updated = date.fromisoformat(updated or LEGAL["updated"])
     months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
     body = f"""
 <div class="wrap narrow legal">
@@ -389,7 +392,7 @@ def legal_pages():
             f"Directeur de la publication : {PUB['director']}.", f"Contact : {EMAIL}."]},
         {"title": "Hébergement", "lines": ["GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis (service GitHub Pages)."]},
         {"title": "Données personnelles et cookies", "lines": [
-            "Ce site ne dépose aucun cookie, n’utilise aucun outil de mesure d’audience et ne charge aucune ressource d’un site tiers : les polices de caractères sont hébergées sur le site lui-même.",
+            "Ce site mesure son audience avec Google Analytics, seulement si vous l’acceptez : rien n’est déposé ni chargé avant votre accord, et vous pouvez changer d’avis à tout moment avec le lien « Cookies » en bas de page. Aucune publicité. Détails dans la page Confidentialité.",
             "L’hébergeur peut conserver temporairement l’adresse IP des visiteurs pour la sécurité du service. Si vous nous écrivez, votre message sert uniquement à vous répondre.",
             "Les données de l’application Nouveau Cap sont décrites dans sa politique de confidentialité."]},
         {"title": "Propriété intellectuelle", "lines": [
@@ -397,7 +400,26 @@ def legal_pages():
             "Polices Geist et Instrument Serif, sous licence SIL Open Font License 1.1."]},
     ]
     out.append(legal_page("/mentions-legales/", "Mentions légales", "Mentions légales du site pixapop.fr : éditeur, hébergement, données personnelles.",
-                          "", site_notice, '<a href="/">Pixapop</a>'))
+                          "", site_notice, '<a href="/">Pixapop</a>', updated="2026-10-07"))
+    # Audience measurement of pixapop.fr and its sub-domains (Cyril, 07/10/2026): Google Analytics, with consent only.
+    privacy = [
+        {"title": "Qui est responsable", "lines": [
+            f"Pixapop, nom commercial de {PUB['name']}, entrepreneur individuel. Contact : {EMAIL}.",
+            "Cette page concerne la mesure d’audience de pixapop.fr et de ses sous-domaines, dont studio.pixapop.fr."]},
+        {"title": "Mesure d’audience avec Google Analytics", "lines": [
+            "Avec votre accord seulement, nous utilisons Google Analytics (Google Ireland Limited) pour savoir combien de personnes visitent nos pages, d’où elles viennent (moteur de recherche, réseau social, lien), quelles pages elles lisent, avec quel type d’appareil et depuis quelle ville, à peu près. Le but : améliorer nos pages.",
+            "Google Analytics dépose des cookies (_ga et _ga_…) qui contiennent un identifiant tiré au hasard, valables 13 mois au plus. Les signaux Google et toute personnalisation publicitaire sont désactivés : vos visites ne servent à aucune publicité.",
+            "Les données de Google Analytics sont conservées 14 mois au plus. Google peut les traiter aux États-Unis : Google LLC adhère au cadre de protection des données UE-États-Unis (Data Privacy Framework)."]},
+        {"title": "Votre choix", "lines": [
+            "Le bandeau vous propose « Refuser » ou « Accepter », aussi simplement l’un que l’autre. Tant que vous n’avez pas accepté, rien ne vient de Google.",
+            "Votre choix est gardé 6 mois dans un petit cookie (pxp_consent), commun à pixapop.fr et à ses sous-domaines. Vous pouvez le changer à tout moment avec le lien « Cookies » en bas de page ; si vous refusez après avoir accepté, les cookies de Google Analytics sont effacés."]},
+        {"title": "Hébergement", "lines": [
+            "pixapop.fr est hébergé par GitHub Pages (GitHub, Inc.), studio.pixapop.fr par Cloudflare Pages (Cloudflare, Inc.). Ces hébergeurs peuvent conserver temporairement l’adresse IP des visiteurs pour la sécurité du service."]},
+        {"title": "Vos droits", "lines": [
+            f"Vous pouvez demander l’accès à vos données, leur rectification, leur effacement, ou vous opposer à leur traitement, en écrivant à {EMAIL}. Vous pouvez aussi adresser une réclamation à la CNIL (cnil.fr)."]},
+    ]
+    out.append(legal_page("/confidentialite/", "Confidentialité", "Confidentialité de pixapop.fr et de ses sous-domaines : mesure d’audience avec Google Analytics, seulement avec votre accord.",
+                          "", privacy, '<a href="/">Pixapop</a>', updated="2026-10-07"))
     return out
 
 

@@ -33,13 +33,16 @@ nom commercial Pixapop). En ligne sur https://www.pixapop.fr. Comment le constru
   l'objet « Projet d'application ». Contact légal et support : **contact@pixapop.fr**.
 - Bas de page : seulement « © 2026 Pixapop » (le nom de Cyril reste dans les mentions légales,
   où la loi l'impose).
-- Aucun cookie, aucune mesure d'audience, aucune ressource tierce. Ajouter un compteur de visites
-  (sans cookies) seulement avec l'accord de Cyril, en mettant à jour la page de confidentialité.
+- Mesure d'audience : Google Analytics (ID de mesure G-2SN8Q7DH7M, propriété « Pixapop » 557886464), décidé par Cyril le
+  07/10/2026, **seulement après accord** du visiteur : `assets/consent.js` (même fichier que `web/consent.js` du dépôt
+  pixapop-studio, à garder identiques) affiche le bandeau (Refuser aussi simple qu'Accepter), ne charge rien de Google
+  avant « Accepter », garde le choix 6 mois dans le cookie `pxp_consent` sur .pixapop.fr, lien « Cookies » en bas de page.
+  Page `/confidentialite/` à tenir à jour. Aucune autre ressource tierce, aucun autre cookie.
 
 ## Pages
 
 - `/` accueil de l'agence ; `/nouveau-cap/` page de l'app ; `/studio/` page de Pixapop Studio (en
-  construction, captures réelles dans `assets/studio/`, prises depuis l'aperçu du dépôt `pixapop-studio`) ; `/mentions-legales/` de l'agence
+  construction, captures réelles dans `assets/studio/`, prises depuis l'aperçu du dépôt `pixapop-studio`) ; `/mentions-legales/` de l'agence ; `/confidentialite/` (mesure d'audience de pixapop.fr et de ses sous-domaines)
   (hébergeur GitHub) ; pages légales de Nouveau Cap : `/nouveau-cap/confidentialite/`,
   `/conditions/`, `/suppression-donnees/`, `/mentions-legales/` ; page 404.
 - Les textes légaux de Nouveau Cap ne s'écrivent pas ici : ils viennent du dépôt `nouveau-cap`
