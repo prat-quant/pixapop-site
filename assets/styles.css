@@ -278,3 +278,8 @@ footer a:hover { color: var(--text); }
 .px-consent-b button { font: 500 14px/1 var(--sans); padding: 11px 20px; border-radius: 999px; border: 1px solid var(--edge-2); background: var(--glass); color: var(--text); cursor: pointer; min-width: 108px; }
 .px-consent-b button:hover { border-color: var(--text); }
 @media (max-width: 560px) { .px-consent-b { width: 100%; } .px-consent-b button { flex: 1; } }
+
+/* Pixapop Studio : the two presentation videos, side by side on a computer, one under the other on a phone. */
+.vids { display: grid; grid-template-columns: 2.6fr 1fr; gap: 20px; align-items: start; }
+.vids video { width: 100%; height: auto; border-radius: 18px; background: #000; box-shadow: 0 24px 60px -24px rgba(0, 0, 0, .6); }
+@media (max-width: 760px) { .vids { grid-template-columns: 1fr; } .vids .vid-9x16 { max-width: 360px; margin: 0 auto; } }

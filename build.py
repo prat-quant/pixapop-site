@@ -284,64 +284,44 @@ def nouveau_cap():
 
 
 def studio():
-    features = [
-        ("La publication <em>du jour</em>", ["Chaque matin, ce qui est prévu aujourd’hui et ce qui vient ensuite", "Une fiche complète par contenu : objectif, mot-clé visé, plan, visuels", "Des prompts d’images prêts à copier dans votre outil de création"]),
-        ("Rien ne part <em>sans vous</em>", ["Chaque contenu passe par votre validation avant d’être publié", "Un réglage par type de contenu : vous choisissez ce qui peut partir seul", "Les exemples de démonstration ne peuvent jamais être publiés"]),
-        ("Un plan <em>clair</em>", ["Le plan par semaine et par canal, en liste ou en calendrier", "Les idées à trier et la bibliothèque de ce qui est publié", "Les mots-clés suivis, avec leurs volumes de recherche"]),
-        ("Une mémoire <em>d’atelier</em>", ["Vos règles, décisions et demandes, relues avant chaque opération", "La documentation tenue à jour, chaque version gardée", "Un journal de tout ce qui a été fait, que personne ne peut modifier"]),
-        ("Plusieurs marketings, <em>un seul Studio</em>", ["Le marketing de l’entreprise et celui de chaque produit, séparés", "Les objectifs et les mesures de chacun", "Votre équipe, sur invitation, avec un rôle pour chacun"]),
-        ("Des agents <em>avec une méthode</em>", ["Préparateur, Rédacteur, Publieur, Analyste, Stratège, Veilleur", "Chacun a sa méthode écrite, que vous pouvez adapter", "Ils proposent, vous décidez : aucun ne peut valider à votre place"]),
-    ]
-    feats = "".join(f'<article class="glass lit rv" style="--d:{(k % 2) * 70}ms"><h3>{t}</h3><ul>{"".join(f"<li>{esc(x)}</li>" for x in items)}</ul></article>' for k, (t, items) in enumerate(features))
-    shots = [("aujourdhui", "Aujourd’hui : la publication du jour et ce qui attend votre validation"), ("fiche", "La fiche d’un article : objectif, mot-clé, plan"),
-             ("valider", "À valider : un post LinkedIn d’exemple, prêt à relire"), ("plan", "Le plan : les contenus de la semaine, par canal")]
-    gallery = "".join(phone(f, alt, folder="studio") for f, alt in shots)
-    mail = f"mailto:{EMAIL}?subject=Pixapop%20Studio"
+    # Short presentation of Pixapop Studio with the two presentation videos (Cyril, 08/10/2026); the product's own site is
+    # https://studio.pixapop.fr (sales page, offers, blog). The videos are self-hosted (no third-party player).
+    points = [("Vous dites votre activité", "Studio en tire votre stratégie : votre cible, votre message, vos réseaux."),
+              ("Studio prépare", "Posts, articles, vidéos, e-mails et pages, rédigés et rangés au calendrier."),
+              ("Vous validez", "Un clic par contenu. Studio publie, envoie et mesure, puis ajuste.")]
+    pts = "".join(f'<article class="glass lit rv" style="--d:{k * 70}ms"><h3>{esc(t)}</h3><p>{esc(d)}</p></article>' for k, (t, d) in enumerate(points))
+    vid = lambda f, w, h, label: (f'<video class="vid-{f}" controls preload="none" playsinline width="{w}" height="{h}" poster="/assets/studio/video/presentation-{f}.jpg" aria-label="{esc(label)}">'
+                                  f'<source src="/assets/studio/video/presentation-{f}.mp4" type="video/mp4">'
+                                  f'<track kind="subtitles" srclang="fr" label="Français" src="/assets/studio/video/presentation-{f}.vtt" default></video>')
     body = f"""
 <section class="apphero" aria-labelledby="t" style="padding-bottom:40px"><div class="wrap">
   <div class="top-row rv">
     <img class="appicon" src="/assets/studio-icon.svg" alt="Icône de Pixapop Studio : la grille de pixels de Pixapop" width="128" height="128">
     <div style="display:grid;gap:14px;justify-items:start">
-      <span class="pill"><b>En construction</b> Utilisé d’abord pour notre marketing</span>
+      <span class="pill"><b>Bêta le 9 novembre 2026</b> Pour les solopreneurs</span>
       <h1 id="t">Pixapop Studio</h1>
     </div>
   </div>
-  <p class="lead rv" style="--d:100ms;margin-top:28px;font-size:clamp(19px,2vw,24px)">Le marketing préparé par des agents IA, validé par vous. Studio tient votre plan de publication, rassemble pour chaque contenu son objectif, son mot-clé et ses visuels, garde la mémoire de vos décisions, <em style="color:var(--text)">et ne publie rien sans votre accord.</em> Les agents arrivent avec le branchement de votre propre IA.</p>
-  <div class="btns rv" style="--d:150ms;margin-top:28px"><a class="btn btn-light" href="{mail}">Être prévenu de l’ouverture {ARROW}</a><a class="btn btn-glass" href="/nouveau-cap/">Voir Nouveau Cap</a></div>
-  <div class="gallery rv" style="--d:200ms" aria-label="Captures d’écran de Pixapop Studio">{gallery}</div>
-  <p class="note rv" style="margin-top:6px">Captures réelles de notre propre Studio, qui prépare le marketing de Nouveau Cap. Le post LinkedIn affiché est un exemple.</p>
+  <p class="lead rv" style="--d:100ms;margin-top:28px;font-size:clamp(19px,2vw,24px)">Votre agence marketing, rien qu’à vous. Studio prépare votre marketing de A à Z : la stratégie, les posts, les articles, les vidéos, les e-mails, les pages. <em style="color:var(--text)">Vous validez, il s’occupe du reste.</em></p>
+  <div class="btns rv" style="--d:150ms;margin-top:28px"><a class="btn btn-light" href="https://studio.pixapop.fr/">Découvrir Pixapop Studio {ARROW}</a><a class="btn btn-glass" href="https://studio.pixapop.fr/offres/">Les offres</a></div>
+</div></section>
+
+<section aria-labelledby="v" style="padding-top:20px"><div class="wrap">
+  <div class="head rv"><span class="pill solo">En vidéo</span><h2 id="v">Studio <em>en une minute.</em></h2></div>
+  <div class="vids rv">{vid("16x9", 1280, 720, "Présentation de Pixapop Studio, format horizontal")}{vid("9x16", 720, 1280, "Présentation de Pixapop Studio, format vertical")}</div>
 </div></section>
 
 <section aria-labelledby="f" style="padding-top:40px"><div class="wrap">
-  <div class="head rv"><span class="pill solo">L’outil</span><h2 id="f">Votre marketing, <em>tenu comme un atelier.</em></h2></div>
-  <div class="features">{feats}</div>
+  <div class="head rv"><span class="pill solo">Comment ça marche</span><h2 id="f">Trois étapes, <em>et votre marketing tourne.</em></h2></div>
+  <div class="plans">{pts}</div>
+  <div class="btns rv" style="margin-top:32px"><a class="btn btn-light" href="https://studio.pixapop.fr/">Tout savoir sur Studio {ARROW}</a></div>
 </div></section>
-
-<section aria-labelledby="c"><div class="wrap"><div style="max-width:780px">
-  <div class="head rv"><span class="pill solo">Déjà au travail</span><h2 id="c">Il prépare le marketing <em>de Nouveau Cap.</em></h2></div>
-  <p class="lead rv">Nous avons construit Studio pour notre propre app avant de le proposer à d’autres. Il suit aujourd’hui les 8 articles publiés sur le blog de Nouveau Cap, les 34 contenus du plan de publication et les 44 mots-clés mesurés dans Google.</p>
-</div></div></section>
-
-<section aria-labelledby="b"><div class="wrap">
-  <div class="head rv"><span class="pill solo">Bientôt</span><h2 id="b">Pour vous aussi, <em>avec votre IA.</em></h2><p class="lead">Ce qui arrive, dans cet ordre. Rien n’est encore en vente.</p></div>
-  <div class="plans">
-    <article class="glass lit rv"><h3>Votre IA <em class="grad">aux commandes</em></h3><p>Vous branchez Studio à votre propre IA, par exemple Claude, et vous lui parlez depuis son application comme d’habitude. Elle lit la mémoire et les consignes du Studio, prépare, et vous validez.</p></article>
-    <article class="glass lit rv" style="--d:70ms"><h3>Par abonnement</h3><p>Studio ouvert aux indépendants et aux entreprises, hébergé par Pixapop, avec votre propre IA. Offres et prix annoncés à l’ouverture.</p></article>
-    <article class="glass lit rv" style="--d:140ms"><h3>En marque blanche</h3><p>Pour les agences et les consultants : Studio sous votre nom, à vos couleurs et à votre adresse, pour préparer le marketing de vos clients.</p></article>
-  </div>
-</div></section>
-
-<section aria-labelledby="d"><div class="wrap"><div style="max-width:780px">
-  <div class="head rv"><span class="pill solo">Vos données</span><h2 id="d">Votre marketing <em>vous appartient.</em></h2></div>
-  <p class="lead rv">Les données de Studio sont hébergées à Paris. Chaque entreprise ne voit que les siennes, et c’est la base de données elle-même qui l’impose. Rien n’est publié sans validation, chaque action est notée au journal, et Studio est conçu pour que ce soit votre propre IA qui travaille, avec votre abonnement.</p>
-  <div class="btns rv" style="margin-top:28px"><a class="btn btn-light" href="{mail}">Nous écrire {ARROW}</a></div>
-</div></div></section>
 """
     ld = {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Pixapop Studio", "operatingSystem": "Web",
-          "applicationCategory": "BusinessApplication", "inLanguage": "fr", "url": SITE + "/studio/",
+          "applicationCategory": "BusinessApplication", "inLanguage": "fr", "url": "https://studio.pixapop.fr/",
           "publisher": {"@type": "Organization", "name": "Pixapop", "url": SITE}}
-    return page("/studio/", "Pixapop Studio · Le marketing préparé par l’IA, validé par vous",
-                "Pixapop Studio prépare votre marketing avec des agents IA : plan de publication, fiches de contenu, mémoire de vos décisions. Rien ne part sans votre validation. En construction, par Pixapop.",
+    return page("/studio/", "Pixapop Studio · Votre agence marketing, rien qu’à vous",
+                "Pixapop Studio prépare le marketing des solopreneurs : stratégie, posts, articles, vidéos, e-mails et pages. Vous validez, il s’occupe du reste. Présentation en vidéo, par Pixapop.",
                 body, jsonld=ld)
 
 
