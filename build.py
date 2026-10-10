@@ -225,7 +225,8 @@ def home():
   <h2 class="rv h2-lignes"><span>Le reste n’est pas votre métier.</span> <em>Il prend pourtant vos soirées.</em></h2>
   <blockquote class="villain rv">« Google Ads, référencement, flyers, réseaux sociaux, plateformes, démarchage… J’ai tout testé. Résultat : proche du zéro. »</blockquote>
   <p class="note center rv villain-by"><b>Julien, maçon</b><span>Sur le forum Entreprendre en France</span></p>
-  <p class="rv villain-after">Le client ne choisit pas le meilleur artisan. <b>Il choisit celui en qui il a confiance.</b></p>
+  <p class="rv villain-after">Un professionnel ne doit pas perdre son temps à trouver des clients. <b>C’est pourquoi Pixapop s’en occupe pour lui.</b></p>
+  <div class="btns rv" style="justify-content:center;margin-top:20px"><a class="btn primary" href="{TRY}">Essayer Pixapop Studio gratuitement {ARROW}</a></div>
 </div></section>
 
 <section class="alt"><div class="wrap story">
