@@ -181,7 +181,7 @@ def home():
   <h1 class="rv" style="--d:60ms">Faire votre métier. <em>Être vu, choisi, payé au juste prix. Libre.</em></h1>
   <p class="lead rv" style="--d:120ms">C’était votre plan. Il tient toujours. Avec Studio, vos réseaux et votre marketing sont toujours à jour, plus besoin de vous en soucier.</p>
   <div class="btns rv" style="--d:180ms"><a class="btn primary" href="{TRY}">Essayer Studio gratuitement {ARROW}</a><a class="btn ghost" href="/studio/">Voir Studio en huit écrans</a></div>
-  <p class="note rv" style="--d:210ms;margin-top:14px">Rien n’est publié sans votre accord. Bêta le lundi 9 novembre 2026.</p>
+  <p class="note rv" style="--d:210ms;margin-top:14px">Bêta le lundi 9 novembre 2026.</p>
   <div class="hero-shot rv" style="--d:240ms">
     {shot("8-aujourdhui", "Pixapop Studio, l’écran Aujourd’hui (exemple)", True)}
     <span class="float f1" aria-hidden="true"><i style="background:#2BB5A0"></i>Votre article est en ligne</span>
