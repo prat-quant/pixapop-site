@@ -43,7 +43,7 @@ body { margin: 0; color: var(--ink); font: 17px/1.62 var(--sans); background:
 a { color: var(--link); text-underline-offset: 3px; }
 img, video { max-width: 100%; height: auto; display: block; }
 h1, h2, h3 { line-height: 1.12; margin: 0 0 .5em; letter-spacing: -.02em; font-weight: 600; text-wrap: balance; }
-h1 { font-size: clamp(40px, 6.4vw, 72px); letter-spacing: -.03em; }
+h1 { font-size: clamp(40px, 6.4vw, 72px); letter-spacing: -.03em; font-weight: 400; }
 h2 { font-size: clamp(30px, 4.2vw, 46px); }
 h3 { font-size: 20px; letter-spacing: -.01em; }
 h1 em, h2 em, h3 em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: 0; padding-right: .06em;
@@ -102,8 +102,6 @@ section { padding-block: 84px; }
 .hero { padding-block: 72px 56px; position: relative; }
 .eyebrow { display: inline-block; text-transform: uppercase; letter-spacing: .14em; font-size: 12.5px; font-weight: 600; color: #C94A82; margin-bottom: 16px; }
 .lead { font-size: clamp(18px, 1.9vw, 21px); color: var(--ink-2); max-width: 60ch; }
-.relief { font-size: clamp(16.5px, 1.6vw, 18.5px); font-weight: 600; color: var(--ink); max-width: 60ch; margin: 16px auto 26px; }
-.hero .center .relief, .center .relief { margin-inline: auto; }
 .head { max-width: 780px; margin-bottom: 40px; }
 .head.center { margin-inline: auto; }
 .alt { background: color-mix(in srgb, var(--soft) 70%, transparent); border-block: 1px solid var(--line); }
