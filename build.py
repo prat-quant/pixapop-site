@@ -243,8 +243,8 @@ def home():
     <li class="card rv" style="--d:70ms"><h3>Tout est prêt</h3><p>Chaque semaine, vos posts, articles, pages et e-mails sont prêts, avec vos mots.</p></li>
     <li class="card rv" style="--d:140ms"><h3>Vous validez</h3><p>Studio publie* à l’heure, puis vous montre ce qui a marché et quoi changer.</p></li>
   </ol>
-  <p class="lead rv" style="margin-top:48px">Studio fait déjà le marketing de Pixapop et de l’application Nouveau Cap.</p>
-  <div class="btns rv" style="margin-top:24px"><a class="btn primary btn-glow" href="/studio/">Voir Studio en huit écrans {ARROW}</a></div>
+  <p class="lead center rv" style="margin:36px auto 0">Studio fait déjà le marketing de Pixapop et de l’application Nouveau Cap.</p>
+  <div class="btns rv" style="margin-top:34px;justify-content:center"><a class="btn primary btn-glow" href="/studio/">Voir Pixapop Studio en huit écrans {ARROW}</a></div>
 </div></section>
 
 <section class="alt"><div class="wrap">
