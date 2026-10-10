@@ -469,3 +469,4 @@ h2.h2-2l span, h2.h2-2l em { display: block; }
 @media (max-width: 520px) { .cta-band .btns { flex-direction: column; align-items: stretch; } .cta-band .btns .btn { white-space: normal; text-align: center; justify-content: center; } }
 .foot .brand { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 12px; }
 .cta-band h2 em { margin-top: .22em; }
+.cta-band .btns { margin-top: 30px; }
