@@ -390,3 +390,7 @@ h1.h1-accueil em { font-size: 1.1em; }
 .px-hero .lead-accueil { max-width: none; margin-left: auto; margin-right: auto; }
 .px-hero .lead-accueil span { display: block; text-wrap: balance; }
 @media (min-width: 1000px) { .px-hero .lead-accueil span { display: inline; } .px-hero .lead-accueil { white-space: nowrap; } }
+/* Sur-titre de l'accueil : l'esperluette en Instrument Serif italique, au dégradé */
+.eyebrow .amp { display: inline-block; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 2em; line-height: 1; letter-spacing: 0; text-transform: none; vertical-align: -0.22em; margin: -0.3em .1em -0.3em .06em; padding-right: .05em;
+  background: var(--grad-text); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }

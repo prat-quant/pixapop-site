@@ -178,7 +178,7 @@ def home():
     pain_html = "".join(f'<article class="card pain rv" style="--d:{(k % 4) * 60}ms"><q>{esc(q)}</q></article>' for k, q in enumerate(pains))
     body = f"""
 <section class="hero"><div class="wrap center">
-  <p class="eyebrow rv">Solopreneur</p>
+  <p class="eyebrow rv">Solopreneur <span class="amp" aria-hidden="true">&amp;</span><span class="sr-only"> et </span> PME</p>
   <h1 class="rv h1-accueil" style="--d:60ms"><span class="h1-l">Accompagner les entrepreneurs</span> <span class="h1-l"><em>est notre métier.</em></span></h1>
   <p class="lead lead-accueil rv" style="--d:120ms"><span>Studio pour votre marketing, Pilot pour piloter votre entreprise.</span> <span>Vous décidez, nous faisons le reste.</span></p>
   <div class="btns rv" style="--d:180ms"><a class="btn primary" href="{TRY}">Essayer Studio gratuitement {ARROW}</a><a class="btn ghost" href="/studio/">Voir Studio en huit écrans</a></div>
