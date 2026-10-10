@@ -356,6 +356,74 @@ def studio():
                 body, jsonld=ld)
 
 
+def mock(title, rows, extra=""):
+    """A Pilot screen mock-up (example data, labelled as such)."""
+    body = "".join(rows)
+    return (f'<div class="mock pilotmock"><div class="mock-head"><b>{title}</b><span class="tag mock">Maquette</span></div>'
+            f'<div class="mock-body">{body}{extra}</div><div class="mock-label">Aperçu, en cours de conception</div></div>')
+
+
+def mrow(title, sub, chip, kind="b"):
+    return f'<div class="mock-row"><span><b>{title}</b><small>{sub}</small></span><span class="mock-chip {kind}">{chip}</span></div>'
+
+
+def mstats(items):
+    return '<div class="mock-stats">' + "".join(f'<div><small>{a}</small><b>{b}</b></div>' for a, b in items) + '</div>'
+
+
+def mbar(label, pct):
+    return f'<div><small class="muted">{label}</small><div class="mock-bar" style="margin-top:8px"><i style="width:{pct}%"></i></div></div>'
+
+
+def pilot_pairs(items):
+    out = []
+    for k in range(0, len(items), 2):
+        cells = "".join(f'<div class="rv" style="--d:{n * 80}ms"><h3>{t}</h3><p class="muted">{d}</p>{m}</div>' for n, (t, d, m) in enumerate(items[k:k + 2]))
+        out.append(f'<div class="grid g2 pilot-pair"{" style=\"margin-top:40px\"" if k else ""}>{cells}</div>')
+    return "".join(out)
+
+
+PILOT_A = [
+    ("Votre journée tient en trois actions.", "Chaque matin, Pilot vous dit quoi faire : ventes, marketing, administratif. Le plus rentable d’abord.",
+     mock("Lundi · vos 3 actions", [mrow("Rappeler Camille R.", "Elle a ouvert votre devis deux fois", "5 min"), mrow("Relancer Julien M.", "Pas de réponse depuis 5 jours, message prêt", "1 clic", "o"), mrow("Valider la campagne de rentrée", "Trois e-mails écrits dans votre ton", "3 min", "g")])),
+    ("Vous savez où en est chaque contact.", "D’où il vient. Où il en est. Quoi faire ensuite. Les mêmes contacts que dans Studio.",
+     mock("Vos contacts", [mrow("Camille R.", "Venue par votre article sur le blog", "À rappeler"), mrow("Julien M.", "A demandé votre guide", "Devis envoyé", "o"), mrow("Sarah L.", "Recommandée par une cliente", "Cliente", "g")])),
+    ("Vos ventes en cours, d’un coup d’œil.", "Chaque affaire a son étape, son montant et sa prochaine action. Une affaire qui dort vous est signalée.",
+     mock("Ventes en cours", [mrow("Rénovation salle de bain · 4 800 €", "Devis envoyé · chance de signer : forte", "Relance jeudi"), mrow("Site vitrine · 2 400 €", "Rendez-vous fait · devis à préparer", "Aujourd’hui", "o"), mrow("Formation équipe · 1 500 €", "Aucune nouvelle depuis 12 jours", "Affaire qui dort", "o")],
+          mstats([("Prévu ce mois", "8 700 €"), ("Signé", "3 200 €")]))),
+    ("La prospection tourne pour vous.", "Des contacts qui ressemblent à vos meilleurs clients. Chaque e-mail validé par vous. Arrêt dès qu’on vous répond.",
+     mock("Campagne de rentrée", [mrow("Cible", "Les profils qui ressemblent à vos meilleurs clients", "Prête", "g"), mrow("Trois e-mails, sur deux semaines", "Écrits dans votre ton, à valider", "À relire"), mrow("Règles de la prospection", "Respectées : désinscription, sources, données", "Conforme", "g")])),
+]
+
+PILOT_B = [
+    ("Une demande arrive. Le devis est prêt.", "Pilot comprend le besoin, pose les questions qui manquent et chiffre : temps, coûts, marge. Votre prix plancher n’est jamais franchi.",
+     mock("Chiffrage · rénovation salle de bain", [mrow("Coût de revient", "Temps, matériaux, sous-traitance", "2 950 €"), mrow("Prix plancher", "Charges de votre statut et marge minimale comprises", "3 600 €", "o"), mrow("Option recommandée", "Marge de 34 %, comparée aux prix de votre métier", "4 800 €", "g")],
+          mbar("Votre prix, comparé aux prix de votre métier", 62))),
+    ("Signé en ligne, suivi jusqu’au bout.", "Trois options claires, un devis à vos couleurs, la signature électronique. Pilot voit quand il est ouvert et relance au bon moment.",
+     mock("Devis n° 2026-041", [mrow("Envoyé à Julien M.", "Essentielle, recommandée, complète", "Envoyé"), mrow("Ouvert deux fois", "Dernière ouverture hier soir", "Ouvert", "o"), mrow("Signature électronique", "Un lien, signé depuis son téléphone", "Signé", "g")])),
+    ("Vos rendez-vous se prennent seuls.", "Relié à Calendly, Cal.com ou Google Agenda. Chaque rendez-vous arrive dans Pilot, préparé, puis suivi d’un compte rendu.",
+     mock("Cette semaine", [mrow("Mardi 10 h · Camille R.", "Pris par votre lien de réservation", "Préparé", "g"), mrow("Jeudi 14 h · Atelier Morel", "Fiche de l’entreprise et questions prêtes", "À relire"), mrow("Vendredi 9 h · Sarah L.", "Compte rendu et tâches après le rendez-vous", "Après", "o")])),
+    ("Les relances partent à votre place.", "Gmail ou Outlook relié : Pilot trie vos e-mails, prépare les réponses et relance ceux qui ne répondent pas.",
+     mock("Boîte de réception", [mrow("Atelier Morel · demande de tarif", "Réponse préparée avec votre grille", "À valider"), mrow("Julien M. · sans réponse", "Relance prête : 5 jours après le devis", "Relance", "o"), mrow("Facture de mars · client", "Payée, classée dans la fiche", "Fait", "g")])),
+    ("Vous voyez ce qui est encaissé.", "Relié à votre outil de facturation (Pennylane, Indy, Tiime, Axonaut, Qonto). Pilot suit les paiements et relance les retards, sans faire de comptabilité.",
+     mock("Paiements", [mrow("Facturé ce mois", "D’après votre outil de facturation", "6 400 €"), mrow("Encaissé", "Virements reçus", "4 900 €", "g"), mrow("En retard", "Deux factures, relance prête", "1 500 €", "o")])),
+    ("Vos clients restent vos clients.", "Accueil d’un nouveau client, demande d’avis au bon moment, rappel de renouvellement. Les avis nourrissent Studio.",
+     mock("Fidélité", [mrow("Demander un avis à Sarah L.", "Chantier terminé il y a 3 jours", "Prêt", "g"), mrow("Renouvellement · Atelier Morel", "Contrat d’entretien à reconduire en mai", "Dans 30 j"), mrow("Nouveau client · Camille R.", "Message d’accueil et prochaines étapes", "Envoyé", "g")])),
+]
+
+PILOT_C = [
+    ("Votre stratégie d’entreprise, écrite avec vous.", "Où va votre entreprise : la vision à 1 an et 3 ans, les objectifs, les priorités du trimestre. Revue chaque mois.",
+     mock("Stratégie · 2027", [mrow("Vision à 1 an", "Vivre de votre métier, 4 jours par semaine", "Écrite", "g"), mrow("Objectif du trimestre", "15 000 € signés, 6 nouveaux clients", "En cours"), mrow("Priorité", "Lancer l’offre d’entretien annuel", "Ce mois-ci", "o")],
+          mbar("Objectif du trimestre atteint", 46))),
+    ("Votre tableau de bord, en clair.", "Chiffre d’affaires, encaissé, affaires en cours, taux de signature, et une note de santé de l’entreprise sur 100.",
+     mock("Tableau de bord · avril", [], mstats([("Chiffre d’affaires", "8 700 €"), ("Encaissé", "6 400 €"), ("Taux de signature", "38 %"), ("Santé de l’entreprise", "72 / 100")]))),
+    ("Les opportunités viennent à vous.", "Aides et financements, marchés publics à votre taille, salons de votre secteur : triés selon votre stratégie.",
+     mock("Opportunités", [mrow("Aide régionale à l’investissement", "Correspond à votre projet d’atelier", "À étudier"), mrow("Marché public · rénovation école", "Lot à votre taille, réponse avant le 12", "12 j", "o"), mrow("Salon de l’habitat", "Votre secteur, à 30 km", "Inscrit", "g")])),
+    ("Vos documents, toujours prêts.", "Contrats, conditions de vente, propositions types : rangés, à jour, réutilisables en un clic.",
+     mock("Documents", [mrow("Conditions générales de vente", "Mises à jour le 2 avril", "À jour", "g"), mrow("Contrat d’entretien annuel", "Modèle réutilisable", "Modèle"), mrow("Proposition type · rénovation", "Reprend vos options et vos tarifs", "Modèle")])),
+]
+
+
 def pilot():
     body = f"""
 <section class="hero"><div class="wrap center">
@@ -368,28 +436,21 @@ def pilot():
 <section class="alt"><div class="wrap">
   <div class="head rv"><p class="eyebrow">En cours de conception</p><h2>Ce que Pilot <em>change pour vous.</em></h2>
     <p class="lead">Maquettes : ce qui sortira pourra changer.</p></div>
-  <div class="grid g2">
-    <div class="rv"><h3>Vous savez où en est chaque contact.</h3><p class="muted">D’où il vient. Où il en est. Quoi faire ensuite.</p>
-      <div class="mock pilotmock"><div class="mock-head"><b>Vos contacts</b><span class="tag mock">Maquette</span></div><div class="mock-body">
-        <div class="mock-row"><span><b>Camille R.</b><small>Venue par votre article sur le blog</small></span><span class="mock-chip b">À rappeler</span></div>
-        <div class="mock-row"><span><b>Julien M.</b><small>A demandé votre guide</small></span><span class="mock-chip o">Devis envoyé</span></div>
-        <div class="mock-row"><span><b>Sarah L.</b><small>Recommandée par une cliente</small></span><span class="mock-chip g">Cliente</span></div>
-      </div><div class="mock-label">Aperçu, en cours de conception</div></div></div>
-    <div class="rv" style="--d:80ms"><h3>Un devis au juste prix, en un clic.</h3><p class="muted">Préparé depuis votre rendez-vous, à partir de vos tarifs. Jamais un prix inventé.</p>
-      <div class="mock pilotmock"><div class="mock-head"><b>Proposition pour Julien M.</b><span class="tag mock">Maquette</span></div><div class="mock-body">
-        <div class="mock-row"><span><b>D’après votre rendez-vous de mardi</b><small>Besoins repris, offre proposée, délais</small></span><span class="mock-chip b">Prête à relire</span></div>
-        <div><small class="muted">Votre prix, comparé aux prix de votre métier</small><div class="mock-bar" style="margin-top:8px"><i style="width:62%"></i></div></div>
-      </div><div class="mock-label">Aperçu, en cours de conception</div></div></div>
-  </div>
-  <div class="grid g2" style="margin-top:28px">
-    <div class="rv"><h3>La prospection tourne pour vous.</h3><p class="muted">Des contacts qui ressemblent à vos meilleurs clients. Chaque e-mail validé par vous.</p>
-      <div class="mock pilotmock"><div class="mock-head"><b>Campagne de rentrée</b><span class="tag mock">Maquette</span></div><div class="mock-body">
-        <div class="mock-row"><span><b>Cible</b><small>Les profils qui ressemblent à vos meilleurs clients</small></span><span class="mock-chip g">Prête</span></div>
-        <div class="mock-row"><span><b>Trois e-mails, sur deux semaines</b><small>Écrits dans votre ton, à valider</small></span><span class="mock-chip b">À relire</span></div>
-      </div><div class="mock-label">Aperçu, en cours de conception</div></div></div>
-    <div class="card rv" style="--d:80ms;align-self:start"><div class="ico i3">{icon("pilot")}</div><h3>Relié à Studio</h3>
-      <p>Un contact venu d’un article arrive avec son historique.</p>
-      <ul class="checks"><li>Chaque envoi validé par vous</li><li>Vos devis partent de vos tarifs</li><li>Vos données hébergées en France</li></ul></div>
+  {pilot_pairs(PILOT_A)}
+</div></section>
+
+<section><div class="wrap">
+  <div class="head rv"><p class="eyebrow">Du premier contact à l’encaissement</p><h2>Chaque affaire suivie. <em>Rien ne se perd.</em></h2></div>
+  {pilot_pairs(PILOT_B)}
+</div></section>
+
+<section class="alt"><div class="wrap">
+  <div class="head rv"><p class="eyebrow">Votre entreprise, vue d’en haut</p><h2>Vous savez où vous allez. <em>Et comment y aller.</em></h2></div>
+  {pilot_pairs(PILOT_C)}
+  <div class="grid g3 aligne" style="--rows:3;margin-top:36px">
+    <article class="card rv"><div class="ico i1">{icon("shield")}</div><h3>Rappels administratifs</h3><p>URSSAF, TVA, impôts, assurances : les échéances de votre statut, rappelées à temps.</p></article>
+    <article class="card rv" style="--d:60ms"><div class="ico i2">{icon("chat")}</div><h3>Service client léger</h3><p>Formulaire, questions fréquentes, réponses préparées par l’IA, validées par vous.</p></article>
+    <article class="card rv" style="--d:120ms"><div class="ico i3">{icon("pilot")}</div><h3>Relié à Studio</h3><p>Un contact venu d’un article arrive avec son historique. Vos ventes reviennent dans les bilans de Studio.</p></article>
   </div>
 </div></section>
 {cta_band("Pilot arrive. <em>Soyez prévenu.</em>", "Écrivez-nous.", '<a class="btn ghost" href="/contact/">Être prévenu</a>')}
