@@ -190,6 +190,9 @@ def home():
     <span class="float f2 rot r2" aria-hidden="true"><i style="background:#8B6CFF"></i>Vous avez un nouveau client</span>
     <span class="float f2 rot r3" aria-hidden="true"><i style="background:#2BB5A0"></i>Vous venez de faire une nouvelle vente</span>
     <span class="float f2 rot r4" aria-hidden="true"><i style="background:#F2A541"></i>100 nouveaux contacts aujourd’hui</span>
+    <span class="float f2 rot r5" aria-hidden="true"><i style="background:#5B8DEF"></i>Votre devis vient d’être accepté</span>
+    <span class="float f2 rot r6" aria-hidden="true"><i style="background:#8B6CFF"></i>3 rendez-vous pris cette semaine</span>
+    <span class="float f2 rot r7" aria-hidden="true"><i style="background:#FFC43A"></i>Nouvel avis 5 étoiles sur Google</span>
     <span class="float f3" aria-hidden="true"><i style="background:#F2A541"></i>Stratégie ajustée d’après vos résultats</span>
   </div>
 </div></section>
