@@ -432,3 +432,6 @@ h2.h2-lignes span, h2.h2-lignes em { display: block; }
 @media (min-width: 760px) { h2.h2-lignes span, h2.h2-lignes em { white-space: nowrap; } }
 /* Citation du maçon : deux ou trois lignes sur ordinateur */
 .villain { max-width: 52ch; font-size: clamp(18px, 2vw, 24px); }
+
+.villain-after { margin: 30px auto 0; max-width: 64ch; font-size: 17px; line-height: 1.55; color: var(--ink-2); text-wrap: balance; }
+.villain-after b { font-weight: 600; color: var(--ink); }
