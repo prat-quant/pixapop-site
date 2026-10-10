@@ -180,7 +180,7 @@ def home():
 <section class="hero"><div class="wrap center">
   <p class="eyebrow rv">Solopreneur <span class="amp" aria-hidden="true">&amp;</span><span class="sr-only"> et </span> PME</p>
   <h1 class="rv h1-accueil" style="--d:60ms"><span class="h1-l">Accompagner les entrepreneurs</span> <span class="h1-l"><em>est notre métier.</em></span></h1>
-  <p class="lead lead-accueil rv" style="--d:120ms"><span>Studio pour votre marketing, Pilot pour piloter votre entreprise.</span> <span>Vous décidez, nous faisons le reste.</span></p>
+  <p class="lead lead-accueil rv" style="--d:120ms"><span>Studio pour votre marketing, Pilot pour piloter votre entreprise.</span> <span>Vous décidez, on fait le reste.</span></p>
   <div class="btns rv" style="--d:180ms"><a class="btn primary" href="{TRY}">Essayer Studio gratuitement {ARROW}</a><a class="btn ghost" href="/studio/">Voir Studio en huit écrans</a></div>
   <p class="note rv" style="--d:210ms;margin-top:14px">Bêta le lundi 9 novembre 2026.</p>
   <div class="hero-shot rv" style="--d:240ms">
