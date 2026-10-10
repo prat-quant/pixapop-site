@@ -480,3 +480,13 @@ h2.h2-2l span, h2.h2-2l em { display: block; }
 .pilot-pair > div > p.muted { margin-bottom: 16px; }
 @media (max-width: 860px) { .pilot-pair > div { grid-row: auto; display: block; } }
 .pilot-pair > div > .mock { height: 100%; display: flex; flex-direction: column; } .pilot-pair > div > .mock > .mock-body { flex: 1; align-content: start; }
+.more-liens { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; margin-top: 16px; }
+.more-liens .more { margin: 0; }
+/* Mention sous chaque bouton d'essai ou de devis (Cyril, 10/10/2026) */
+.btns:has(.btn-col) { align-items: flex-start; }
+.btn-col { display: inline-flex; flex-direction: column; align-items: center; gap: 8px; }
+.try-note { font-size: 13px; line-height: 1.3; color: var(--muted); text-align: center; }
+.cta-band h2.une-ligne em { display: inline; margin-top: 0; }
+@media (max-width: 520px) { .cta-band .btn-col { align-items: stretch; } }
+.btn-col { max-width: 100%; }
+@media (max-width: 400px) { .btn-col .btn { padding-left: 18px; padding-right: 18px; font-size: 15px; white-space: normal; text-align: center; } }

@@ -36,7 +36,9 @@ FAVICON = LOGO.replace('aria-hidden="true"', 'xmlns="http://www.w3.org/2000/svg"
 
 
 STUDIO_SITE = "https://studio.pixapop.fr/"  # the product's own site (beta sign-up until 9 November 2026, then the trial)
-TRY = STUDIO_SITE  # « Essayer gratuitement » (Cyril, 10/10/2026)
+TRY = STUDIO_SITE  # « Essayer Pixapop Studio gratuitement » (Cyril, 10/10/2026)
+TRY_NOTE = '<span class="try-note">Sans engagement et sans CB</span>'
+DEVIS_NOTE = '<span class="try-note">Sans engagement</span>'  # sous chaque bouton « Demander un devis » (Cyril, 10/10/2026)  # sous chaque bouton d'essai (Cyril, 10/10/2026)
 
 NAV = [("/studio/", "Studio"), ("/pilot/", "Pilot"), ("/sur-mesure/", "Sites et applications"), ("/a-propos/", "À propos"), ("/contact/", "Contact")]
 
@@ -100,7 +102,7 @@ def page(path, title, description, body, *, canonical=None, jsonld=None, noindex
   <nav class="nav" aria-label="Menu principal">{nav}</nav>
   <button class="menu-btn" type="button" data-menu aria-expanded="false" aria-label="Ouvrir le menu">{BURGER}</button>
   <button class="theme" type="button" data-theme-toggle aria-pressed="false" aria-label="Passer en thème sombre ou clair">{SUN}{MOON}</button>
-  <a class="btn primary small try" href="{TRY}">Essayer gratuitement</a>
+  <a class="btn primary small try" href="{TRY}">Essayer Pixapop Studio gratuitement</a>
 </div></header>
 <main>
 {body}
@@ -170,11 +172,11 @@ def faq_block(items):
     return "".join(f"<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>" for q, a in items)
 
 
-def cta_band(title_html, lead, second=None, try_label="Essayer gratuitement"):
+def cta_band(title_html, lead, second=None, try_label="Essayer Pixapop Studio gratuitement", one_line=False):
     second = second or ('<a class="btn ghost" href="/contact/">Nous écrire</a>')
     return f"""<section><div class="wrap"><div class="cta-band rv">
-  <h2>{title_html}</h2>{f'<p class="lead">{esc(lead)}</p>' if lead else ''}
-  <div class="btns" style="justify-content:center"><a class="btn primary" href="{TRY}">{try_label} {ARROW}</a>{second}</div>
+  <h2{' class="une-ligne"' if one_line else ''}>{title_html}</h2>{f'<p class="lead">{esc(lead)}</p>' if lead else ''}
+  <div class="btns" style="justify-content:center"><span class="btn-col"><a class="btn primary" href="{TRY}">{try_label} {ARROW}</a>{TRY_NOTE}</span>{second}</div>
 </div></div></section>"""
 
 
@@ -197,7 +199,7 @@ def home():
   <p class="eyebrow rv">Solopreneur <span class="amp" aria-hidden="true">&amp;</span><span class="sr-only"> et </span> PME</p>
   <h1 class="rv h1-accueil" style="--d:60ms"><span class="h1-l">Accompagner les entrepreneurs</span> <span class="h1-l"><em>est notre métier.</em></span></h1>
   <p class="lead lead-accueil rv" style="--d:120ms"><span>Studio pour votre marketing, Pilot pour piloter votre entreprise.</span> <span>Vous décidez, on fait le reste.</span></p>
-  <div class="btns rv" style="--d:180ms"><a class="btn primary" href="{TRY}">Essayer Studio gratuitement {ARROW}</a><a class="btn ghost" href="/studio/">Voir Studio en huit écrans</a></div>
+  <div class="btns rv" style="--d:180ms"><span class="btn-col"><a class="btn primary" href="{TRY}">Essayer Pixapop Studio gratuitement {ARROW}</a>{TRY_NOTE}</span><a class="btn ghost" href="/studio/">Voir Studio en huit écrans</a></div>
   <p class="note rv" style="--d:210ms;margin-top:14px">Bêta le lundi 9 novembre 2026.</p>
   <div class="hero-shot rv" style="--d:240ms">
     {shot("8-aujourdhui", "Pixapop Studio, l’écran Aujourd’hui (exemple)", True)}
@@ -226,7 +228,7 @@ def home():
   <blockquote class="villain rv">« Google Ads, référencement, flyers, réseaux sociaux, plateformes, démarchage… J’ai tout testé. Résultat : proche du zéro. »</blockquote>
   <p class="note center rv villain-by"><b>Julien, maçon</b><span>Sur le forum Entreprendre en France</span></p>
   <p class="rv villain-after">Un professionnel ne doit pas perdre son temps à trouver des clients. <b>C’est pourquoi Pixapop s’en occupe pour lui.</b></p>
-  <div class="btns rv" style="justify-content:center;margin-top:36px"><a class="btn primary" href="{TRY}">Essayer Pixapop Studio gratuitement {ARROW}</a></div>
+  <div class="btns rv" style="justify-content:center;margin-top:36px"><span class="btn-col"><a class="btn primary" href="{TRY}">Essayer Pixapop Studio gratuitement {ARROW}</a>{TRY_NOTE}</span></div>
 </div></section>
 
 <section class="alt"><div class="wrap story">
@@ -327,7 +329,7 @@ def studio():
   <p class="eyebrow rv">Pixapop Studio</p>
   <h1 class="rv" style="--d:60ms">Votre marketing tourne. <em>Vous validez.</em></h1>
   <p class="lead rv" style="--d:120ms">Stratégie, posts, articles, pages, e-mails : prêts d’avance, publiés* à l’heure, meilleurs chaque semaine.</p>
-  <div class="btns rv" style="--d:180ms"><a class="btn primary" href="{TRY}">Essayer gratuitement {ARROW}</a><a class="btn ghost" href="#visite" data-tour-start>Lancer la visite</a></div>
+  <div class="btns rv" style="--d:180ms"><span class="btn-col"><a class="btn primary" href="{TRY}">Essayer Pixapop Studio gratuitement {ARROW}</a>{TRY_NOTE}</span><a class="btn ghost" href="#visite" data-tour-start>Lancer la visite</a></div>
   <p class="note rv" style="--d:220ms;margin-top:14px">Rien n’est publié sans votre accord. Bêta le lundi 9 novembre 2026.</p>
 </div></section>
 
@@ -468,7 +470,7 @@ def sur_mesure():
   <p class="eyebrow rv">Sites et applications sur mesure</p>
   <h1 class="rv" style="--d:60ms">Un site qui vous ramène <em>des demandes.</em></h1>
   <p class="lead rv" style="--d:120ms">Sites, pages de vente, tunnels, applications. Au prix d’un freelance.</p>
-  <div class="btns rv" style="--d:180ms"><a class="btn primary" href="/contact/">Demander un devis {ARROW}</a><a class="btn ghost" href="#applications">Voir une application</a></div>
+  <div class="btns rv" style="--d:180ms"><span class="btn-col"><a class="btn primary" href="/contact/">Demander un devis {ARROW}</a>{DEVIS_NOTE}</span><a class="btn ghost" href="#applications">Voir une application</a></div>
 </div></section>
 
 <section class="alt"><div class="wrap">
@@ -478,7 +480,8 @@ def sur_mesure():
       <div class="features">{feats}</div></div>
     <div class="card rv" style="--d:80ms"><div class="ico i2">{icon("price")}</div><h3>Combien coûte un site internet ?</h3>
       <p>Un site vitrine coûte en général de 1 500 à 3 500 € chez un freelance, et de 2 500 à 6 000 € chez une agence. Chez Pixapop, un prix fixe dans le devis, avant de commencer, souvent plus bas grâce à nos outils.</p>
-      <a class="more" href="/contact/">Demander un devis {ARROW}</a></div>
+      <p>Chaque site est construit SEO et GEO, nativement : trouvé sur Google, cité par les IA. Et le site vous appartient vraiment.</p>
+      <div class="more-liens"><a class="more" href="/contact/">Demander un devis {ARROW}</a><a class="more" href="/seo-geo/">Pourquoi le SEO et le GEO sont essentiels pour votre activité {ARROW}</a></div></div>
   </div>
 </div></section>
 
@@ -494,16 +497,80 @@ def sur_mesure():
 
 <section class="alt" id="applications" style="scroll-margin-top:80px"><div class="wrap case">
   <div class="rv"><p class="eyebrow">Applications mobiles</p><h2>Nouveau Cap, <em>une application conçue, développée et publiée par Pixapop.</em></h2>
-    <p class="lead">Pour les plus de 40 ans qui changent de métier. De l’idée au store.</p>
+    <p class="lead">Pour les personnes qui souhaitent réussir leur reconversion professionnelle. Un accompagnement guidé, personnalisé.</p>
     <ul class="checks"><li>Conception : le parcours, les écrans, les textes</li><li>Développement : l’application, le serveur, l’IA, les abonnements</li><li>Publication sur Google Play, avec les pages légales et la fiche du store</li></ul>
     <div class="btns" style="margin-top:24px"><a class="btn ghost" href="/nouveau-cap/">Voir Nouveau Cap {ARROW}</a><a class="btn primary" href="/contact/">Parler de votre application</a></div></div>
   <div class="rv deck-side" style="--d:100ms">{deck(["03_idees", "05_pistes", "01_home", "04_finances", "06_cv"], "Écrans de Nouveau Cap")}</div>
 </div></section>
-{cta_band("Votre site, <em>parlons-en.</em>", "Quelques lignes suffisent.", '<a class="btn ghost" href="/contact/">Nous écrire</a>')}
+{cta_band("Votre site internet, <em>parlons-en.</em>", "Racontez-nous votre activité : on vous dit ce qu’il vous faut, et à quel prix.", '<a class="btn ghost" href="/contact/">Nous écrire</a>', one_line=True)}
+<section style="padding-top:0"><div class="wrap"><div class="cta-band rv">
+  <h2 class="une-ligne">Votre application, <em>parlons-en.</em></h2>
+  <p class="lead">Application mobile iOS et Android, PWA ou application web.</p>
+  <div class="btns" style="justify-content:center"><a class="btn primary" href="/contact/">Nous contacter {ARROW}</a></div>
+</div></div></section>
 """
     return page("/sur-mesure/", "Création de site internet pour artisans et indépendants · Pixapop",
                 "Création de site internet et d’applications pour votre métier : site vitrine, pages de vente, tunnels, formulaires. Prix fixé dans un devis, au tarif d’un freelance. Exemple : Nouveau Cap.",
                 body)
+
+
+def seo_geo():
+    def card(i, c, t, d, k):
+        return f'<article class="card rv" style="--d:{k * 60}ms"><div class="ico {c}">{icon(i)}</div><h3>{t}</h3><p>{d}</p></article>'
+    quoi = [
+        ("target", "i1", "Le SEO : être trouvé sur Google", "Le référencement naturel. C’est ce qui place votre site dans les résultats quand un client tape « plombier Lyon » ou « coach reconversion ». Sans payer la publicité."),
+        ("chat", "i2", "Le GEO : être cité par les IA", "De plus en plus de gens posent leur question à ChatGPT, à Gemini ou aux réponses de Google rédigées par l’IA. Le GEO, c’est ce qui fait que ces IA vous citent, vous et pas un autre."),
+        ("loop", "i3", "Les deux vont ensemble", "Google le dit lui-même : ses réponses par IA reposent sur les mêmes bases que le référencement classique. Un site bien construit pour Google l’est déjà en grande partie pour les IA."),
+    ]
+    pourquoi = [
+        ("hand", "i4", "Vos clients cherchent avant d’appeler", "Avant de choisir un artisan, une coach ou une boutique, on cherche. Les premiers résultats et les sites cités par l’IA récoltent les appels. Les autres ne sont jamais vus."),
+        ("price", "i1", "Un site invisible coûte sans rapporter", "Un site que personne ne trouve, c’est une dépense. Un site trouvé travaille pour vous chaque jour, sans payer la publicité à chaque clic."),
+        ("clock", "i2", "Après coup, ça coûte cher", "Un site mal construit se rattrape rarement avec quelques réglages : il faut souvent reprendre les pages, la structure, parfois tout le site. Le faire dès le départ coûte bien moins."),
+    ]
+    google = [
+        ("site", "i3", "Les exigences techniques", "Chaque page peut être explorée, lue et rangée par Google : aucune page bloquée, aucune erreur, une adresse claire."),
+        ("shield", "i1", "Aucune technique interdite", "Pas de texte caché, pas de liens achetés, pas de pages gonflées de mots-clés. Ce que Google sanctionne, nous ne le faisons jamais."),
+        ("phone", "i2", "Les bonnes pratiques", "Des textes utiles, écrits pour les personnes. Un site rapide et confortable sur téléphone, sécurisé en HTTPS."),
+    ]
+    code = ["Des pages que Google peut lire et ranger, sans erreur", "Un titre et une description soignés pour chaque page", "Une structure claire : un titre principal, des sous-titres, des liens entre les pages", "Rapide sur téléphone, en HTTPS", "Les données structurées : qui vous êtes, où, vos horaires, vos services, vos avis", "Un plan du site et un fichier robots ouverts à Google, Bing et aux robots de recherche des IA", "Des images légères, décrites pour les moteurs et les personnes malvoyantes"]
+    contenu = ["Une page par service, et par ville si vous travaillez localement", "Les mots que tapent vos clients, trouvés par une vraie recherche de mots-clés", "Des réponses directes aux questions qu’on vous pose : prix, délais, déroulé", "Qui vous êtes, dit clairement, pour que Google et les IA vous reconnaissent", "Vos preuves : réalisations, avis clients, années de métier", "Un site qui vit : articles et mises à jour, avec Pixapop Studio"]
+    def liste(icone, c, titre, items, k):
+        return f'<article class="card rv" style="--d:{k * 80}ms"><div class="ico {c}">{icon(icone)}</div><h3>{titre}</h3><ul class="checks">{"".join(f"<li>{esc(x)}</li>" for x in items)}</ul></article>'
+    body = f"""
+<section class="hero"><div class="wrap narrow center">
+  <p class="eyebrow rv">SEO et GEO</p>
+  <h1 class="rv h2-2l" style="--d:60ms"><span>Un beau site ne suffit pas.</span> <em>Il faut qu’on le trouve.</em></h1>
+  <p class="lead rv" style="--d:120ms">Le SEO vous fait trouver sur Google. Le GEO vous fait citer par les IA. Sans eux, votre site existe, mais vos clients ne le voient pas.</p>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="head rv center"><p class="eyebrow">C’est quoi ?</p><h2 class="h2-2l"><span>Deux mots barbares,</span> <em>une seule idée.</em></h2></div>
+  <div style="--rows:3" class="grid aligne g3">{"".join(card(*x, k) for k, x in enumerate(quoi))}</div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+  <div class="head rv center"><p class="eyebrow">Pourquoi c’est essentiel</p><h2 class="h2-2l"><span>Être bon ne suffit pas.</span> <em>Il faut être trouvé.</em></h2></div>
+  <div style="--rows:3" class="grid aligne g3">{"".join(card(*x, k) for k, x in enumerate(pourquoi))}</div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="head rv center"><p class="eyebrow">Nativement, chez Pixapop</p><h2 class="h2-2l"><span>Dans le code, et dans les mots.</span> <em>Dès la première ligne.</em></h2>
+    <p class="lead" style="margin:14px auto 0;max-width:60ch">Le référencement ne s’ajoute pas à la fin. Il se construit dans le code du site et dans chaque texte. C’est ce que nous faisons, sur chaque site.</p></div>
+  <div style="--rows:3" class="grid aligne g2">{liste("site", "i3", "Dans le code", code, 0)}{liste("chat", "i2", "Dans le contenu", contenu, 1)}</div>
+  <p class="lead center rv" style="margin:32px auto 0;max-width:60ch"><b>Et le site vous appartient vraiment</b> : vos pages, vos textes, votre nom de domaine.</p>
+</div></section>
+
+<section class="alt"><div class="wrap">
+  <div class="head rv center"><p class="eyebrow">Google-friendly</p><h2 class="h2-2l"><span>Les règles de Google,</span> <em>respectées à la lettre.</em></h2>
+    <p class="lead" style="margin:14px auto 0;max-width:62ch">Google publie ses règles pour les sites qui veulent apparaître dans ses résultats : les « Search Essentials ». Nos sites les respectent toutes, dès la construction.</p></div>
+  <div style="--rows:3" class="grid aligne g3">{"".join(card(*x, k) for k, x in enumerate(google))}</div>
+  <p class="lead center rv" style="margin:32px auto 0;max-width:62ch">C’est une condition pour arriver en première page : un site qui ne respecte pas ces règles est moins bien classé, parfois retiré des résultats. Personne ne peut promettre la première place, mais sans ces bases, elle reste hors de portée.</p>
+  <div class="btns rv" style="justify-content:center;margin-top:24px"><span class="btn-col"><a class="btn primary" href="/contact/">Demander un devis {ARROW}</a>{DEVIS_NOTE}</span></div>
+</div></section>
+{cta_band("<span class=\"cta-l\">Votre site, trouvé et cité.</span> <em>Parlons-en.</em>", "", '<a class="btn ghost" href="/contact/">Demander un devis</a>', try_label="Essayer Pixapop Studio gratuitement")}
+"""
+    return page("/seo-geo/", "SEO et GEO : être trouvé sur Google et cité par les IA · Pixapop",
+                "Pourquoi le SEO et le GEO sont essentiels pour votre activité : être trouvé sur Google et cité par ChatGPT, Gemini et les réponses de Google. Chaque site Pixapop est construit pour, dans le code et dans le contenu.", body)
 
 
 def a_propos():
@@ -716,7 +783,7 @@ def main():
     (OUT / "favicon.svg").write_text(FAVICON, encoding="utf-8")
     (OUT / "CNAME").write_text("www.pixapop.fr\n", encoding="utf-8")
     (OUT / ".nojekyll").write_text("", encoding="utf-8")
-    paths = [home(), studio(), pilot(), sur_mesure(), a_propos(), contact(), nouveau_cap(), *legal_pages()]
+    paths = [home(), studio(), pilot(), sur_mesure(), seo_geo(), a_propos(), contact(), nouveau_cap(), *legal_pages()]
     not_found()
     today = date.today().isoformat()
     (OUT / "sitemap.xml").write_text(
