@@ -198,9 +198,8 @@ def home():
 <section class="hero"><div class="wrap center">
   <p class="eyebrow rv">Solopreneur <span class="amp" aria-hidden="true">&amp;</span><span class="sr-only"> et </span> PME</p>
   <h1 class="rv h1-accueil" style="--d:60ms"><span class="h1-l">Accompagner les entrepreneurs</span> <span class="h1-l"><em>est notre métier.</em></span></h1>
-  <p class="lead lead-accueil rv" style="--d:120ms"><span>Studio pour votre marketing, Pilot pour piloter votre entreprise.</span> <span>Vous décidez, on fait le reste.</span></p>
+  <p class="lead lead-accueil rv" style="--d:120ms"><span><b>Studio</b> pour votre marketing, <b>Pilot</b> pour piloter votre entreprise.</span> <span>Vous décidez, on fait le reste.</span></p>
   <div class="btns rv" style="--d:180ms"><span class="btn-col"><a class="btn primary" href="{TRY}">Essayer Pixapop Studio gratuitement {ARROW}</a>{TRY_NOTE}</span><a class="btn ghost" href="/studio/">Voir Studio en huit écrans</a></div>
-  <p class="note rv" style="--d:210ms;margin-top:14px">Bêta le lundi 9 novembre 2026.</p>
   <div class="hero-shot rv" style="--d:240ms">
     {shot("8-aujourdhui", "Pixapop Studio, l’écran Aujourd’hui (exemple)", True)}
     <span class="float f1" aria-hidden="true"><i style="background:#2BB5A0"></i>Votre article est en ligne</span>
@@ -215,12 +214,12 @@ def home():
   </div>
 </div></section>
 
-<section class="alt"><div class="wrap">
-  <div class="head center rv"><h2>Puis le reste <em>est arrivé.</em></h2>
-    <p class="lead">Le post du dimanche soir. Le devis tapé à 23 h. Le client parti chez le moins cher. Et votre métier attend.</p></div>
+<section class="alt creme"><div class="wrap">
+  <div class="head center rv"><h2>Vous ne pouvez pas tout faire <em>seul.</em></h2>
+    <p class="lead">Trouver des clients, faire votre compta, animer vos réseaux sociaux, devenir un expert marketing… Il y a mille autres choses qu’il vous reste à faire.</p></div>
   <div class="grid g4 pains">{pain_html}</div>
-  <p class="note center rv" style="margin-top:14px">Ce qu’écrivent des entrepreneurs sur les forums.</p>
-  <p class="lead center rv" style="margin:34px auto 0">Le plan n’était pas mauvais. Il vous manquait juste un coup de pouce pour faire le reste.</p>
+  <p class="note center rv" style="margin-top:14px">Témoignages d’entrepreneurs solo sur le forum Le Coin des Solos.</p>
+  <p class="lead center rv" style="margin:34px auto 0">Seul, on va vite. Ensemble, on va loin. Votre vie d’entrepreneur est sur le point d’être bouleversée.</p>
 </div></section>
 
 <section><div class="wrap narrow center">
@@ -239,7 +238,7 @@ def home():
 </div></section>
 
 <section><div class="wrap">
-  <div class="head rv"><span class="tag beta">Bêta le 9 novembre 2026</span><h2 class="h2-2l h2-1l" style="margin-top:14px"><span>Pixapop Studio</span> <em>Votre marketing tourne en permanence.</em></h2></div>
+  <div class="head rv"><h2 class="h2-2l h2-1l"><span>Pixapop Studio</span> <em>Votre marketing tourne en permanence.</em></h2></div>
   <ol class="steps steps-3" style="margin-top:40px">
     <li class="card rv"><h3>Vous expliquez</h3><p>Votre activité, avec vos mots. Studio écrit votre stratégie : quoi dire, et à qui.</p></li>
     <li class="card rv" style="--d:70ms"><h3>Tout est prêt</h3><p>Chaque semaine, vos posts, articles, pages et e-mails sont prêts, avec vos mots.</p></li>
@@ -330,7 +329,7 @@ def studio():
   <h1 class="rv" style="--d:60ms">Votre marketing tourne. <em>Vous validez.</em></h1>
   <p class="lead rv" style="--d:120ms">Stratégie, posts, articles, pages, e-mails : prêts d’avance, publiés* à l’heure, meilleurs chaque semaine.</p>
   <div class="btns rv" style="--d:180ms"><span class="btn-col"><a class="btn primary" href="{TRY}">Essayer Pixapop Studio gratuitement {ARROW}</a>{TRY_NOTE}</span><a class="btn ghost" href="#visite" data-tour-start>Lancer la visite</a></div>
-  <p class="note rv" style="--d:220ms;margin-top:14px">Rien n’est publié sans votre accord. Bêta le lundi 9 novembre 2026.</p>
+  <p class="note rv" style="--d:220ms;margin-top:14px">Rien n’est publié sans votre accord.</p>
 </div></section>
 
 <section class="alt" id="visite" style="scroll-margin-top:80px"><div class="wrap">

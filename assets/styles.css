@@ -490,3 +490,6 @@ h2.h2-2l span, h2.h2-2l em { display: block; }
 @media (max-width: 520px) { .cta-band .btn-col { align-items: stretch; } }
 .btn-col { max-width: 100%; }
 @media (max-width: 400px) { .btn-col .btn { padding-left: 18px; padding-right: 18px; font-size: 15px; white-space: normal; text-align: center; } }
+/* Encart « Vous ne pouvez pas tout faire seul » : fond blanc crème (Cyril, 10/10/2026) */
+.alt.creme { background: #FBF5E9; border-block-color: #EFE4CF; }
+:root[data-theme="dark"] .alt.creme { background: #1C1915; border-block-color: #332C22; }
