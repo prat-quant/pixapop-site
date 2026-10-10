@@ -454,3 +454,7 @@ h2.h2-2l span, h2.h2-2l em { display: block; }
 .steps.steps-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
 .steps.steps-3 li { padding: 28px; }
 @media (max-width: 860px) { .steps.steps-3 { grid-template-columns: 1fr; gap: 16px; } }
+
+/* Cartes Pilot et site : liens alignés en bas de chaque carte */
+.cards-liens .card { display: flex; flex-direction: column; align-items: flex-start; }
+.cards-liens .card .more { margin-top: auto; padding-top: 14px; }

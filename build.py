@@ -248,13 +248,13 @@ def home():
 </div></section>
 
 <section class="alt"><div class="wrap">
-  <div class="grid g2">
+  <div class="grid g2 cards-liens">
     <article class="card rv"><span class="tag soon">Pixapop Pilot, bientôt</span><h3 style="margin-top:12px">Ensuite, vos clients et vos devis.</h3>
       <p>Chaque contact arrive avec son histoire. Après le rendez-vous, son devis est prêt, à partir de vos tarifs. Jamais un prix inventé.</p>
       <a class="more" href="/pilot/">Être prévenu à l’ouverture de Pilot {ARROW}</a></article>
     <article class="card rv" style="--d:80ms"><div class="ico i4">{icon("site")}</div><h3>Votre site ramène des demandes.</h3>
       <p>Sur mesure, au prix fixé dans le devis avant de commencer.</p>
-      <a class="more" href="/sur-mesure/">Demander un devis de site {ARROW}</a></article>
+      <a class="more" href="/sur-mesure/">Demander un devis de site Internet {ARROW}</a></article>
   </div>
 </div></section>
 
