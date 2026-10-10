@@ -96,7 +96,7 @@ def page(path, title, description, body, *, canonical=None, jsonld=None, noindex
 </head>
 <body class="{body_class}">
 <header class="top"><div class="wrap bar">
-  <a class="brand" href="/" aria-label="Pixapop, accueil">{LOGO}<span>pixapop</span></a>
+  <a class="brand" href="/" aria-label="Pixapop, accueil">{LOGO}<span>Pixapop</span></a>
   <nav class="nav" aria-label="Menu principal">{nav}</nav>
   <button class="menu-btn" type="button" data-menu aria-expanded="false" aria-label="Ouvrir le menu">{BURGER}</button>
   <button class="theme" type="button" data-theme-toggle aria-pressed="false" aria-label="Passer en thème sombre ou clair">{SUN}{MOON}</button>
@@ -107,7 +107,7 @@ def page(path, title, description, body, *, canonical=None, jsonld=None, noindex
 </main>
 <footer><div class="wrap">
   <div class="foot">
-    <div><a class="brand" href="/" aria-label="Pixapop, accueil">{LOGO}<span>pixapop</span></a>
+    <div><a class="brand" href="/" aria-label="Pixapop, accueil">{LOGO}<span>Pixapop</span></a>
       <p>Pixapop aide les entrepreneurs solo et les petites entreprises à trouver des clients et à vendre au bon prix.</p></div>
     <div><b>Nos outils</b><a href="/studio/">Pixapop Studio</a><a href="/pilot/">Pixapop Pilot</a><a href="/sur-mesure/">Sites et applications</a><a href="/nouveau-cap/">Nouveau Cap</a></div>
     <div><b>Pixapop</b><a href="/a-propos/">À propos</a><a href="/contact/">Contact</a><a href="{YOUTUBE}" rel="me">YouTube</a></div>
@@ -146,6 +146,22 @@ def shot(src, alt, eager=False):
             f'<img src="/assets/visite/{src}.jpg" alt="{esc(alt)}" width="1440" height="900" loading="{"eager" if eager else "lazy"}" decoding="async"></div>')
 
 
+STORE = [("01_home", "Un copilote pour votre reconversion : l’accueil de Nouveau Cap"), ("02_financer", "Financez votre reconversion : le calendrier des démarches"),
+         ("03_idees", "Des idées de métier pour vous, proposées par le Copilote"), ("04_finances", "Sachez combien de temps vous pouvez tenir : le runway"),
+         ("05_pistes", "Comparez vos pistes de métier"), ("06_cv", "Un CV qui parle votre nouveau métier : le score et les critères"),
+         ("07_creer", "Un CV prêt à envoyer, rédigé par l’IA"), ("08_vae", "Transformez votre expérience en diplôme : le module VAE")]
+
+
+def deck(keys, label):
+    """The Nouveau Cap store visuals (light theme) laid out like a fanned hand of cards (Cyril, 10/10)."""
+    items = [x for x in STORE if x[0] in keys]
+    n = len(items)
+    cards = "".join(
+        f'<figure class="dk" style="--o:{k - (n - 1) / 2:g};--a:{abs(k - (n - 1) / 2):g}"><img src="/assets/app/store/light-{f}.webp" alt="{esc(alt)}" width="540" height="960" loading="lazy" decoding="async"></figure>'
+        for k, (f, alt) in enumerate(items))
+    return f'<div class="deck" role="group" aria-label="{esc(label)}">{cards}</div>'
+
+
 def phone(src, alt):
     return f'<div class="phone"><img src="/assets/app/{src}.jpg" alt="{esc(alt)}" width="390" height="844" loading="lazy" decoding="async"></div>'
 
@@ -154,11 +170,11 @@ def faq_block(items):
     return "".join(f"<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>" for q, a in items)
 
 
-def cta_band(title_html, lead, second=None):
+def cta_band(title_html, lead, second=None, try_label="Essayer gratuitement"):
     second = second or ('<a class="btn ghost" href="/contact/">Nous écrire</a>')
     return f"""<section><div class="wrap"><div class="cta-band rv">
   <h2>{title_html}</h2>{f'<p class="lead">{esc(lead)}</p>' if lead else ''}
-  <div class="btns" style="justify-content:center"><a class="btn primary" href="{TRY}">Essayer gratuitement {ARROW}</a>{second}</div>
+  <div class="btns" style="justify-content:center"><a class="btn primary" href="{TRY}">{try_label} {ARROW}</a>{second}</div>
 </div></div></section>"""
 
 
@@ -174,7 +190,7 @@ HOME_FAQ = [
 
 
 def home():
-    pains = ["Je gère TOUT par moi-même.", "On est invisibles.", "Suis-je trop cher ?", "J’ai l’impression que je ne vais pas y arriver"]
+    pains = ["Je gère tout moi-même.", "J’ai l’impression d’être invisible pour mes prospects.", "Est-ce que je suis trop cher ?", "J’ai l’impression que je ne vais jamais y arriver."]
     pain_html = "".join(f'<article class="card pain rv" style="--d:{(k % 4) * 60}ms"><q>{esc(q)}</q></article>' for k, q in enumerate(pains))
     body = f"""
 <section class="hero"><div class="wrap center">
@@ -201,15 +217,16 @@ def home():
   <div class="head center rv"><h2>Puis le reste <em>est arrivé.</em></h2>
     <p class="lead">Le post du dimanche soir. Le devis tapé à 23 h. Le client parti chez le moins cher. Et votre métier attend.</p></div>
   <div class="grid g4 pains">{pain_html}</div>
-  <p class="note center rv" style="margin-top:14px">Phrases d’entrepreneurs relevées sur des forums.</p>
-  <p class="lead center rv" style="margin:34px auto 0">Le plan n’était pas mauvais. Il lui manquait quelqu’un pour le reste.</p>
+  <p class="note center rv" style="margin-top:14px">Ce qu’écrivent des entrepreneurs sur les forums.</p>
+  <p class="lead center rv" style="margin:34px auto 0">Le plan n’était pas mauvais. Il vous manquait juste un coup de pouce pour faire le reste.</p>
 </div></section>
 
 <section><div class="wrap narrow center">
-  <h2 class="rv">Le reste n’est pas votre métier. <em>Il prend pourtant vos soirées.</em></h2>
-  <blockquote class="villain rv">« J’ai créé ma boîte pour sauver le métier… et j’ai découvert que dans le bâtiment, c’est pas le travail bien fait qui gagne, mais le devis le moins cher. »</blockquote>
-  <p class="note rv">Un maçon, sur un forum d’entrepreneurs.</p>
-  <p class="lead rv" style="margin:26px auto 0">Un bon professionnel ne devrait pas perdre un client faute d’avoir eu le temps de se montrer.</p>
+  <h2 class="rv h2-lignes"><span>Le reste n’est pas votre métier.</span> <em>Il prend pourtant vos soirées.</em></h2>
+  <blockquote class="villain rv">« Google Ads, référencement, flyers, réseaux sociaux, plateformes, démarchage… J’ai tout testé. Résultat : proche du zéro. »</blockquote>
+  <p class="note center rv villain-by"><b>Julien, maçon</b><span>Sur le forum Entreprendre en France</span></p>
+  <p class="rv villain-after">Un professionnel ne doit pas perdre son temps à trouver des clients. <b>C’est pourquoi Pixapop s’en occupe pour lui.</b></p>
+  <div class="btns rv" style="justify-content:center;margin-top:36px"><a class="btn primary" href="{TRY}">Essayer Pixapop Studio gratuitement {ARROW}</a></div>
 </div></section>
 
 <section class="alt"><div class="wrap story">
@@ -220,49 +237,48 @@ def home():
 </div></section>
 
 <section><div class="wrap">
-  <div class="head rv"><span class="tag beta">Bêta le 9 novembre 2026</span><h2 style="margin-top:14px">Voilà Pixapop Studio. <em>Votre marketing, prêt avant vous.</em></h2></div>
-  <ol class="steps">
-    <li class="card rv"><h3>Vous racontez</h3><p>Votre activité, avec vos mots. Studio écrit votre stratégie : quoi dire, et à qui.</p></li>
+  <div class="head rv"><span class="tag beta">Bêta le 9 novembre 2026</span><h2 class="h2-2l h2-1l" style="margin-top:14px"><span>Pixapop Studio</span> <em>Votre marketing tourne en permanence.</em></h2></div>
+  <ol class="steps steps-3" style="margin-top:40px">
+    <li class="card rv"><h3>Vous expliquez</h3><p>Votre activité, avec vos mots. Studio écrit votre stratégie : quoi dire, et à qui.</p></li>
     <li class="card rv" style="--d:70ms"><h3>Tout est prêt</h3><p>Chaque semaine, vos posts, articles, pages et e-mails sont prêts, avec vos mots.</p></li>
     <li class="card rv" style="--d:140ms"><h3>Vous validez</h3><p>Studio publie* à l’heure, puis vous montre ce qui a marché et quoi changer.</p></li>
   </ol>
-  <p class="lead rv" style="margin-top:26px">Studio fait déjà le marketing de Pixapop et de l’application Nouveau Cap.</p>
-  <div class="btns rv" style="margin-top:18px"><a class="btn ghost" href="/studio/">Voir Studio en huit écrans {ARROW}</a></div>
-  <p class="relance rv">Et ce n’est que le premier outil.</p>
+  <p class="lead center rv" style="margin:36px auto 0">Studio fait déjà le marketing de Pixapop et de l’application Nouveau Cap.</p>
+  <div class="btns rv" style="margin-top:34px;justify-content:center"><a class="btn primary btn-glow" href="/studio/">Voir Pixapop Studio en huit écrans {ARROW}</a></div>
 </div></section>
 
 <section class="alt"><div class="wrap">
-  <div class="grid g2">
-    <article class="card rv"><span class="tag soon">Pixapop Pilot, bientôt</span><h3 style="margin-top:12px">Ensuite, vos clients et vos devis.</h3>
+  <div style="--rows:4" class="grid aligne g2 cards-liens">
+    <article class="card rv"><span class="tag soon">Pixapop Pilot, bientôt</span><h3>Ensuite, vos clients et vos devis.</h3>
       <p>Chaque contact arrive avec son histoire. Après le rendez-vous, son devis est prêt, à partir de vos tarifs. Jamais un prix inventé.</p>
       <a class="more" href="/pilot/">Être prévenu à l’ouverture de Pilot {ARROW}</a></article>
     <article class="card rv" style="--d:80ms"><div class="ico i4">{icon("site")}</div><h3>Votre site ramène des demandes.</h3>
       <p>Sur mesure, au prix fixé dans le devis avant de commencer.</p>
-      <a class="more" href="/sur-mesure/">Demander un devis de site {ARROW}</a></article>
+      <a class="more" href="/sur-mesure/">Demander un devis de site Internet {ARROW}</a></article>
   </div>
 </div></section>
 
 <section><div class="wrap narrow center">
-  <h2 class="rv">Lundi, 8 h. <em>Votre semaine est prête.</em></h2>
+  <h2 class="rv">Lundi, 10 h. <em>Votre marketing est terminé.</em></h2>
   <p class="lead rv">Vous validez. Vous retournez à votre métier.</p>
   <p class="note rv" style="margin-top:22px">Sans ça, le meilleur du métier reste celui qu’on ne trouve pas. Et le devis le moins cher continue de gagner.</p>
 </div></section>
 
 <section class="alt"><div class="wrap">
-  <div class="grid g4">
+  <div style="--rows:3" class="grid aligne g4">
     <article class="card rv"><div class="ico i1">{icon("shield")}</div><h3>Rien ne part sans votre accord</h3><p>Tout attend votre validation.</p></article>
     <article class="card rv" style="--d:60ms"><div class="ico i2">{icon("chat")}</div><h3>Avec vos mots</h3><p>Studio écrit comme vous et retient vos corrections.</p></article>
     <article class="card rv" style="--d:120ms"><div class="ico i3">{icon("clock")}</div><h3>Aucune compétence en IA</h3><p>Vous parlez de votre activité, Studio prépare le reste.</p></article>
     <article class="card rv" style="--d:180ms"><div class="ico i4">{icon("heart")}</div><h3>Vos données en France</h3><p>À Paris. Jamais revendues.</p></article>
   </div>
-  <p class="note center rv" style="margin-top:22px">Seul au marketing dans une équipe de quinze ? <a href="/contact/">Parlons-en</a>.</p>
+  <p class="note center rv" style="margin-top:22px">Seul au marketing dans une équipe de quinze personnes ? <a href="/contact/">Parlons-en</a>.</p>
 </div></section>
 
 <section><div class="wrap narrow">
   <div class="head center rv"><h2>Vos <em>questions</em></h2></div>
   <div class="faq rv">{faq_block(HOME_FAQ)}</div>
 </div></section>
-{cta_band("Le plan de départ <em>tient toujours.</em>", "")}
+{cta_band("<span class=\"cta-l\">Vivre de votre métier, c’était le plan.</span> <em>Le reste, c’est notre métier.</em>", "", try_label="Essayer Pixapop Studio gratuitement")}
 """
     ld = {"@context": "https://schema.org", "@type": "Organization", "name": "Pixapop", "url": SITE, "email": EMAIL,
           "description": "Pixapop aide les entrepreneurs solo et les petites entreprises à trouver des clients et à vendre au bon prix : Pixapop Studio (marketing préparé, validé par vous), Pixapop Pilot (CRM et devis, à venir), sites et applications sur mesure.",
@@ -420,7 +436,7 @@ def sur_mesure():
     <p class="lead">Pour les plus de 40 ans qui changent de métier. De l’idée au store.</p>
     <ul class="checks"><li>Conception : le parcours, les écrans, les textes</li><li>Développement : l’application, le serveur, l’IA, les abonnements</li><li>Publication sur Google Play, avec les pages légales et la fiche du store</li></ul>
     <div class="btns" style="margin-top:24px"><a class="btn ghost" href="/nouveau-cap/">Voir Nouveau Cap {ARROW}</a><a class="btn primary" href="/contact/">Parler de votre application</a></div></div>
-  <div class="phones rv" style="--d:100ms" aria-hidden="true">{phone("pistes", "Écran Pistes de Nouveau Cap")}{phone("home", "Écran d’accueil de Nouveau Cap")}{phone("finances", "Écran Finances de Nouveau Cap")}</div>
+  <div class="rv deck-side" style="--d:100ms">{deck(["03_idees", "05_pistes", "01_home", "04_finances", "06_cv"], "Écrans de Nouveau Cap")}</div>
 </div></section>
 {cta_band("Votre site, <em>parlons-en.</em>", "Quelques lignes suffisent.", '<a class="btn ghost" href="/contact/">Nous écrire</a>')}
 """
@@ -455,7 +471,7 @@ def a_propos():
 
 <section><div class="wrap">
   <div class="head center rv"><h2>Nos <em>règles</em></h2></div>
-  <div class="grid g4">
+  <div style="--rows:3" class="grid aligne g4">
     <article class="card rv"><div class="ico i2">{icon("clock")}</div><h3>Simple</h3><p>Vous validez. C’est tout.</p></article>
     <article class="card rv" style="--d:70ms"><div class="ico i1">{icon("heart")}</div><h3>Transparent</h3><p>Rien ne part sans votre accord.</p></article>
     <article class="card rv" style="--d:140ms"><div class="ico i3">{icon("shield")}</div><h3>Vos données chez vous</h3><p>En France. Jamais revendues.</p></article>
@@ -477,7 +493,7 @@ def contact():
   <p class="lead rv" style="--d:120ms">Une vraie personne vous répond.</p>
 </div></section>
 <section style="padding-top:0"><div class="wrap">
-  <div class="grid g2">
+  <div style="--rows:4" class="grid aligne g2">
     <article class="card rv"><div class="ico i2">{icon("site")}</div><h3>Un projet de site ou d’application</h3>
       <p>Votre métier, vos clients, votre idée.</p>
       <p class="mail" style="margin-top:16px"><a href="mailto:{PROJECT_EMAIL}?subject=Projet">{PROJECT_EMAIL}</a></p></article>
@@ -502,14 +518,14 @@ def nouveau_cap():
     ]
     feats = "".join(f'<article class="card rv" style="--d:{(k % 3) * 70}ms"><h3>{t}</h3><ul class="checks">{"".join(f"<li>{esc(x)}</li>" for x in items)}</ul></article>' for k, (t, items) in enumerate(features))
     shots = [("home", "Accueil : le mot du Copilote et le bilan"), ("finances", "Finances : votre runway en mois"), ("pistes", "Pistes : comparer les métiers visés"), ("plan", "Plan 90 jours : les étapes de la semaine")]
-    gallery = "".join(phone(f, alt) for f, alt in shots)
+    gallery = deck(["01_home", "02_financer", "03_idees", "04_finances", "05_pistes", "06_cv", "07_creer"], "Captures d’écran de l’app")
     body = f"""
 <section class="hero"><div class="wrap">
   <div class="apphead rv"><img class="appicon" src="/assets/nouveau-cap-icon.png" alt="Icône de Nouveau Cap : une boussole qui pointe vers le nord" width="128" height="128">
     <div><span class="pill"><b>Réalisation</b> Une application conçue, développée et publiée par Pixapop</span><h1 style="margin-top:12px">Nouveau Cap</h1></div></div>
   <p class="lead rv" style="--d:100ms;margin-top:24px">Vous avez plus de 40 ans, une carrière solide, et l’envie de changer de métier. Nouveau Cap vous aide à passer de l’idée au projet, puis du projet au nouveau poste, avec une méthode claire et un Copilote IA qui connaît votre parcours.</p>
   <div class="btns rv" style="--d:150ms;margin-top:24px"><a class="btn primary" href="{APP_SITE}">Le site de Nouveau Cap {ARROW}</a><a class="btn ghost" href="{APP_SITE}#liste">Être prévenu du lancement</a></div>
-  <div class="gallery rv" style="--d:200ms;margin-top:36px" aria-label="Captures d’écran de l’app">{gallery}</div>
+  <div class="rv" style="--d:200ms;margin-top:36px">{gallery}</div>
 </div></section>
 
 <section class="alt"><div class="wrap">
@@ -519,7 +535,7 @@ def nouveau_cap():
 
 <section><div class="wrap">
   <div class="head rv"><p class="eyebrow">Offres</p><h2>Simple, <em>sans engagement.</em></h2><p class="lead">Résiliable à tout moment dans Google Play.</p></div>
-  <div class="grid g4">
+  <div style="--rows:3" class="grid aligne g4">
     <article class="card plan rv"><h3>Gratuit</h3><p class="price">0 €</p><p>Faire le point par vous-même, sans IA : runway, comparateur de pistes, plan de départ, exemples de ce que fait le Copilote.</p></article>
     <article class="card plan rv" style="--d:70ms"><h3>Pilote</h3><p class="price">{esc(p['pilote'])} <small>/ mois</small></p><p>La méthode guidée pour avancer chaque semaine : plan de 90 jours, fiches, tests de pistes, Mon CV, le Copilote IA (10 messages par jour).</p></article>
     <article class="card plan best rv" style="--d:140ms"><h3>Premium</h3><p class="price">{esc(p['premium'])} <small>/ mois</small></p><p>Le suivi rapproché : bilan toutes les deux semaines, Copilote et fonctions IA sans limite, Créer son CV inclus. {p['trialDays']} jours d’essai gratuit pour un premier abonnement.</p></article>
