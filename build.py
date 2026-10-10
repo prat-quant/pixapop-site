@@ -178,7 +178,7 @@ def home():
     body = f"""
 <section class="hero"><div class="wrap center">
   <p class="eyebrow rv">Solopreneur</p>
-  <h1 class="rv" style="--d:60ms">Faire votre métier. <em>Être vu, choisi, payé au juste prix. Libre.</em></h1>
+  <h1 class="rv" style="--d:60ms">Faire votre métier. <em>Être vu, considéré. Vivre de votre activité.</em></h1>
   <p class="lead rv" style="--d:120ms">C’était votre plan. Il tient toujours. Avec Studio, vos réseaux et votre marketing sont toujours à jour, plus besoin de vous en soucier.</p>
   <div class="btns rv" style="--d:180ms"><a class="btn primary" href="{TRY}">Essayer Studio gratuitement {ARROW}</a><a class="btn ghost" href="/studio/">Voir Studio en huit écrans</a></div>
   <p class="note rv" style="--d:210ms;margin-top:14px">Bêta le lundi 9 novembre 2026.</p>
@@ -261,7 +261,7 @@ def home():
           "description": "Pixapop aide les entrepreneurs solo et les petites entreprises à trouver des clients et à vendre au bon prix : Pixapop Studio (marketing préparé, validé par vous), Pixapop Pilot (CRM et devis, à venir), sites et applications sur mesure.",
           "logo": SITE + "/favicon.svg", "sameAs": [YOUTUBE], "legalName": f"{PUB['name']}, entrepreneur individuel",
           "address": {"@type": "PostalAddress", "streetAddress": "4775 RD 2085", "postalCode": "06330", "addressLocality": "Roquefort-les-Pins", "addressCountry": "FR"}}
-    return page("/", "Pixapop · Faire votre métier, être vu, choisi, payé au juste prix",
+    return page("/", "Pixapop · Faire votre métier, être vu, considéré, en vivre",
                 "Avec Pixapop Studio, votre marketing est toujours à jour : posts, articles, pages, e-mails et réseaux préparés d’avance d’après votre métier. Vous relisez et vous validez. Pour les solopreneurs et les petites entreprises.",
                 body, jsonld=ld)
 

@@ -350,3 +350,5 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; margin-top: 40p
   .js .px-hero h1, .js .px-hero .lead, .js .px-hero .st-lead, .js .px-hero .eyebrow, .js .px-hero .st-kick, .js .px-hero .btns { animation: none; }
   .card:hover, .st-feat:hover, .st-steps li:hover, .st-plan:hover, .loop li:hover { transform: none; }
 }
+/* Light theme : no pixels and no glow behind the title (Cyril, 10/10/2026 : « pas joli en thème clair »), they stay in the dark theme. */
+:root:not([data-theme="dark"]) .px-field, :root:not([data-theme="dark"]) .px-hero::before { display: none; }
