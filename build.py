@@ -223,7 +223,7 @@ def home():
 </div></section>
 
 <section><div class="wrap narrow center">
-  <h2 class="rv h2-lignes"><span>Le reste n’est pas votre métier.</span> <em>Il prend pourtant vos soirées.</em></h2>
+  <h2 class="rv h2-lignes"><span>Car ce n’est pas votre métier.</span> <em>Arrêtez de sacrifier vos week-ends et jours fériés.</em></h2>
   <blockquote class="villain rv">« Google Ads, référencement, flyers, réseaux sociaux, plateformes, démarchage… J’ai tout testé. Résultat : proche du zéro. »</blockquote>
   <p class="note center rv villain-by"><b>Julien, maçon</b><span>Sur le forum Entreprendre en France</span></p>
   <p class="rv villain-after">Un professionnel ne doit pas perdre son temps à trouver des clients. <b>C’est pourquoi Pixapop s’en occupe pour lui.</b></p>
