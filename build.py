@@ -178,15 +178,21 @@ def home():
     pain_html = "".join(f'<article class="card pain rv" style="--d:{(k % 4) * 60}ms"><q>{esc(q)}</q></article>' for k, q in enumerate(pains))
     body = f"""
 <section class="hero"><div class="wrap center">
-  <p class="eyebrow rv">Solopreneur</p>
-  <h1 class="rv h1-accueil" style="--d:60ms"><span class="h1-l">Fini de courir après les clients.</span> <span class="h1-l"><em>Ils viennent à vous.</em></span></h1>
-  <p class="lead lead-accueil rv" style="--d:120ms"><span>Avec Studio, votre marketing tourne en permanence.</span> <span>Vous faites votre métier, Studio fait le reste.</span></p>
+  <p class="eyebrow rv">Solopreneur <span class="amp" aria-hidden="true">&amp;</span><span class="sr-only"> et </span> PME</p>
+  <h1 class="rv h1-accueil" style="--d:60ms"><span class="h1-l">Accompagner les entrepreneurs</span> <span class="h1-l"><em>est notre métier.</em></span></h1>
+  <p class="lead lead-accueil rv" style="--d:120ms"><span>Studio pour votre marketing, Pilot pour piloter votre entreprise.</span> <span>Vous décidez, on fait le reste.</span></p>
   <div class="btns rv" style="--d:180ms"><a class="btn primary" href="{TRY}">Essayer Studio gratuitement {ARROW}</a><a class="btn ghost" href="/studio/">Voir Studio en huit écrans</a></div>
   <p class="note rv" style="--d:210ms;margin-top:14px">Bêta le lundi 9 novembre 2026.</p>
   <div class="hero-shot rv" style="--d:240ms">
     {shot("8-aujourdhui", "Pixapop Studio, l’écran Aujourd’hui (exemple)", True)}
     <span class="float f1" aria-hidden="true"><i style="background:#2BB5A0"></i>Votre article est en ligne</span>
-    <span class="float f2" aria-hidden="true"><i style="background:#E0559A"></i>Un nouveau contact est arrivé</span>
+    <span class="float f2 rot r1" aria-hidden="true"><i style="background:#E0559A"></i>Un nouveau contact est arrivé</span>
+    <span class="float f2 rot r2" aria-hidden="true"><i style="background:#8B6CFF"></i>Vous avez un nouveau client</span>
+    <span class="float f2 rot r3" aria-hidden="true"><i style="background:#2BB5A0"></i>Vous venez de faire une nouvelle vente</span>
+    <span class="float f2 rot r4" aria-hidden="true"><i style="background:#F2A541"></i>100 nouveaux contacts aujourd’hui</span>
+    <span class="float f2 rot r5" aria-hidden="true"><i style="background:#5B8DEF"></i>Votre devis vient d’être accepté</span>
+    <span class="float f2 rot r6" aria-hidden="true"><i style="background:#8B6CFF"></i>3 rendez-vous pris cette semaine</span>
+    <span class="float f2 rot r7" aria-hidden="true"><i style="background:#FFC43A"></i>Nouvel avis 5 étoiles sur Google</span>
     <span class="float f3" aria-hidden="true"><i style="background:#F2A541"></i>Stratégie ajustée d’après vos résultats</span>
   </div>
 </div></section>
@@ -262,7 +268,7 @@ def home():
           "description": "Pixapop aide les entrepreneurs solo et les petites entreprises à trouver des clients et à vendre au bon prix : Pixapop Studio (marketing préparé, validé par vous), Pixapop Pilot (CRM et devis, à venir), sites et applications sur mesure.",
           "logo": SITE + "/favicon.svg", "sameAs": [YOUTUBE], "legalName": f"{PUB['name']}, entrepreneur individuel",
           "address": {"@type": "PostalAddress", "streetAddress": "4775 RD 2085", "postalCode": "06330", "addressLocality": "Roquefort-les-Pins", "addressCountry": "FR"}}
-    return page("/", "Pixapop · Fini de courir après les clients, ils viennent à vous",
+    return page("/", "Pixapop · Accompagner les entrepreneurs est notre métier",
                 "Avec Pixapop Studio, votre marketing est toujours à jour : posts, articles, pages, e-mails et réseaux préparés d’avance d’après votre métier. Vous relisez et vous validez. Pour les solopreneurs et les petites entreprises.",
                 body, jsonld=ld)
 
