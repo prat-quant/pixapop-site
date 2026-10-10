@@ -362,3 +362,22 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; margin-top: 40p
 /* The hero animations fade out gently towards the bottom, never a hard edge when scrolling (Cyril, 10/10/2026). */
 .px-mosaic, .px-field { -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 92%); mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 92%); }
 .px-hero::before { -webkit-mask-image: radial-gradient(closest-side, #000 55%, transparent 100%); mask-image: radial-gradient(closest-side, #000 55%, transparent 100%); }
+/* Light theme hero (Cyril, 10/10/2026) : breathing pastel shapes (6 s) and Studio notifications on the sides. Replaces the mosaic. */
+.px-mosaic { display: none !important; }
+.px-breath, .px-chips { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+:root[data-theme="dark"] .px-breath, :root[data-theme="dark"] .px-chips { display: none; }
+:root:not([data-theme="dark"]) .px-hero::before { display: none; }
+.px-breath { -webkit-mask-image: linear-gradient(to bottom, #000 50%, transparent 95%); mask-image: linear-gradient(to bottom, #000 50%, transparent 95%); }
+.px-breath i { position: absolute; border-radius: 50%; filter: blur(46px); opacity: .7; will-change: transform; }
+.px-breath .o1 { width: 460px; height: 380px; left: 8%; top: -6%; background: #E3DBFF; animation: px-wander1 46s ease-in-out infinite alternate, px-inhale 6s ease-in-out infinite; }
+.px-breath .o2 { width: 440px; height: 400px; right: 6%; top: 2%; background: #D6E9FF; animation: px-wander2 52s ease-in-out infinite alternate, px-inhale 6s ease-in-out -2s infinite; }
+.px-breath .o3 { width: 400px; height: 340px; left: 34%; top: 260px; background: #FFE1EC; animation: px-wander3 58s ease-in-out infinite alternate, px-inhale 6s ease-in-out -4s infinite; }
+.px-breath .o4 { width: 320px; height: 280px; left: 2%; top: 320px; background: #FFEBD3; animation: px-wander2 64s ease-in-out -20s infinite alternate, px-inhale 6s ease-in-out -1s infinite; }
+@keyframes px-wander1 { to { translate: 120px 60px; } } @keyframes px-wander2 { to { translate: -110px 70px; } } @keyframes px-wander3 { to { translate: 90px -60px; } }
+@keyframes px-inhale { 0%, 100% { scale: 1; opacity: .55; } 50% { scale: 1.12; opacity: .85; } }
+.px-chips span { position: absolute; display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 12px; background: color-mix(in srgb, var(--card) 88%, transparent);
+  border: 1px solid var(--line); box-shadow: 0 10px 26px -18px rgba(40, 46, 120, .45); font-size: 13px; color: var(--ink-2); white-space: nowrap; opacity: 0; animation: px-chip 12s ease-in-out infinite; }
+.px-chips span i { width: 8px; height: 8px; border-radius: 50%; }
+@keyframes px-chip { 0% { opacity: 0; transform: translateY(14px); } 10%, 40% { opacity: .95; transform: none; } 52%, 100% { opacity: 0; transform: translateY(-10px); } }
+@media (max-width: 1100px) { .px-chips { display: none; } }
+@media (prefers-reduced-motion: reduce) { .px-breath i { animation: none; } .px-chips span { animation: none; opacity: .9; } }

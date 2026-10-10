@@ -157,3 +157,19 @@
   if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { var was = running; running = e[0].isIntersecting; if (running && !was) requestAnimationFrame(frame); }).observe(c);
   requestAnimationFrame(frame);
 })();
+// Light theme (Cyril, 10/10/2026 : option F with the colours of option G breathing every 6 seconds) : large pastel shapes drifting
+// slowly and breathing, and small Studio notifications appearing and fading on the sides of the title. Dark theme : the pixels.
+(function () {
+  'use strict';
+  var hero = document.querySelector('.px-hero');
+  if (!hero) return;
+  var b = document.createElement('div'); b.className = 'px-breath'; b.setAttribute('aria-hidden', 'true');
+  b.innerHTML = '<i class="o1"></i><i class="o2"></i><i class="o3"></i><i class="o4"></i>';
+  hero.insertBefore(b, hero.firstChild);
+  var items = [['#2BB5A0', 'Fiche Google mise à jour'], ['#E0559A', 'Nouveau contact : Camille'], ['#F2A541', 'Post LinkedIn publié'],
+    ['#5B8DEF', 'Votre mois est prêt'], ['#8B6CFF', '3 demandes de devis'], ['#2BB5A0', 'E-mail envoyé à 128 inscrits']];
+  var spots = ['left:3%;top:96px', 'right:3%;top:120px', 'left:4%;top:330px', 'right:4%;top:360px', 'left:6%;top:200px', 'right:6%;top:240px'];
+  var c = document.createElement('div'); c.className = 'px-chips'; c.setAttribute('aria-hidden', 'true');
+  c.innerHTML = items.map(function (it, i) { return '<span style="' + spots[i] + ';animation-delay:' + (i * 2) + 's"><i style="background:' + it[0] + '"></i>' + it[1] + '</span>'; }).join('');
+  hero.insertBefore(c, hero.firstChild);
+})();
