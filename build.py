@@ -162,42 +162,42 @@ def cta_band(title_html, lead, second=None):
 
 
 HOME_FAQ = [
-    ("Faut-il savoir utiliser l’intelligence artificielle ?", "Non. Vous parlez de votre activité avec vos mots, Studio prépare le reste. Votre seul geste : relire et valider."),
-    ("Est-ce que quelque chose part sans mon accord ?", "Non. Chaque post, article ou e-mail attend votre validation. Si vous le souhaitez, vous pouvez laisser un type de contenu partir seul, et revenir en arrière quand vous voulez."),
-    ("Combien de temps faut-il y passer ?", "Le temps de relire et de valider. Studio prépare la semaine ou le mois d’avance ; vous validez quand vous voulez, en une fois ou au fil des jours."),
-    ("ChatGPT ne fait-il pas déjà la même chose ?", "ChatGPT écrit ce que vous lui demandez, une fois. Studio garde votre stratégie, votre ton et vos résultats, prépare le mois entier, publie à l’heure prévue et mesure ce qui marche. Vous pouvez aussi relier votre propre IA à Studio."),
-    ("Mes textes vont-ils ressembler à ceux de tout le monde ?", "Studio écrit d’après la fiche de votre entreprise : votre métier, vos clients, vos mots, et ce que vous ne voulez jamais lire. Ce qui ne vous ressemble pas, vous le corrigez avant de valider, et Studio s’en souvient pour la suite."),
-    ("Combien ça coûte ?", "Les tarifs de Pixapop Studio seront annoncés à l’ouverture de la bêta, le lundi 9 novembre 2026."),
-    ("Où sont mes données ?", "Hébergées en France, à Paris. Chaque entreprise ne voit que les siennes, et rien n’est revendu."),
+    ("Faut-il savoir utiliser l’IA ?", "Non. Vous parlez de votre activité, Studio prépare le reste."),
+    ("Est-ce que quelque chose part sans mon accord ?", "Non. Tout attend votre validation."),
+    ("Combien de temps faut-il y passer ?", "Le temps de relire et de valider. La semaine ou le mois est prêt d’avance."),
+    ("ChatGPT ne fait-il pas déjà la même chose ?", "ChatGPT écrit un texte quand vous le lui demandez. Studio tient votre marketing à jour, publie et mesure."),
+    ("Mes textes vont-ils ressembler à ceux de tout le monde ?", "Non. Studio écrit avec vos mots, et retient vos corrections."),
+    ("Combien ça coûte ?", "Les tarifs seront annoncés le 9 novembre 2026, à l’ouverture de la bêta."),
+    ("Où sont mes données ?", "En France, à Paris. Jamais revendues."),
 ]
 
 
 def home():
     pains = [
-        ("On est invisibles.", "Studio écrit vos posts et les articles de votre blog, et vérifie votre fiche Google en huit points. Votre entreprise se montre chaque semaine, là où vos clients cherchent."),
-        ("Je gère TOUT par moi-même.", "Studio prépare le mois entier en un clic, d’après votre stratégie. Votre part : relire et valider."),
-        ("Suis-je trop cher ?", "Dans votre stratégie, Studio donne son avis sur vos prix, comparés à votre marché. Pilot, à venir, préparera vos devis à partir de votre grille."),
-        ("c’est pas le travail bien fait qui gagne, mais le devis le moins cher.", "Vos contenus montrent ce que vous faites mieux : vos réalisations, vos avis, votre méthode. Vos clients ont d’autres raisons de vous choisir que le prix."),
-        ("Du trafic, mais aucune conversion.", "Studio crée vos pages et vos tunnels de vente : une page claire, un formulaire, une suite d’e-mails. Le visiteur laisse ses coordonnées et reçoit la suite."),
-        ("J’ai l’impression que je ne vais pas y arriver", "Chaque semaine, Studio vous montre vos vrais chiffres et propose quoi changer. Vous voyez ce qui avance, et ce qui reste à faire."),
+        ("On est invisibles.", "on vous voit, chaque semaine."),
+        ("Je gère TOUT par moi-même.", "votre mois est prêt. Vous validez."),
+        ("Suis-je trop cher ?", "vous connaissez votre juste prix."),
+        ("c’est pas le travail bien fait qui gagne, mais le devis le moins cher.", "vos clients voient la différence."),
+        ("Du trafic, mais aucune conversion.", "vos visiteurs deviennent des contacts."),
+        ("J’ai l’impression que je ne vais pas y arriver", "vous voyez ce qui avance."),
     ]
-    pain_html = "".join(f'<article class="card pain rv" style="--d:{(k % 3) * 70}ms"><q>{esc(q)}</q><p><b>Ce que Pixapop change :</b> {esc(t)}</p></article>' for k, (q, t) in enumerate(pains))
+    pain_html = "".join(f'<article class="card pain rv" style="--d:{(k % 3) * 70}ms"><q>{esc(q)}</q><p><b>Avec Studio :</b> {esc(t)}</p></article>' for k, (q, t) in enumerate(pains))
     sols = [
-        ("studio", "i2", "Pixapop Studio", '<span class="tag beta">Bêta le 9 novembre 2026</span>', "Votre stratégie, vos posts, vos articles, vos pages et vos e-mails, préparés chaque semaine d’après votre métier. Vous validez, Studio publie.", "/studio/", "Voir Studio écran par écran"),
-        ("pilot", "i3", "Pixapop Pilot", '<span class="tag soon">Bientôt</span>', "Vos contacts, vos devis au bon prix et la prospection, reliés à votre marketing. En cours de développement.", "/pilot/", "Voir les maquettes"),
-        ("hand", "i1", "Fait pour vous", "", "Pas envie d’y toucher du tout ? Notre équipe prépare votre marketing dans votre Studio. Vous n’avez plus qu’à valider.", "/contact/", "En parler"),
-        ("site", "i4", "Sites et applications", "", "Un site ou une application pour votre métier, avec pages de vente, formulaires et e-mails, au prix d’un freelance.", "/sur-mesure/", "Voir les sites"),
+        ("studio", "i2", "Pixapop Studio", '<span class="tag beta">Bêta le 9 novembre 2026</span>', "Votre marketing tourne.", "/studio/", "Voir Studio"),
+        ("pilot", "i3", "Pixapop Pilot", '<span class="tag soon">Bientôt</span>', "Vos clients et vos devis, au même endroit.", "/pilot/", "Voir les maquettes"),
+        ("hand", "i1", "Fait pour vous", "", "On s’en occupe. Vous validez.", "/contact/", "En parler"),
+        ("site", "i4", "Sites et applications", "", "Un site qui vous ramène des demandes.", "/sur-mesure/", "Voir les sites"),
     ]
     sol_html = "".join(f'<article class="card lift rv" style="--d:{k * 70}ms"><div class="ico {c}">{icon(i)}</div><h3>{esc(n)}</h3>{t}<p style="margin-top:10px">{esc(d)}</p><a class="more" href="{u}">{esc(l)} {ARROW}</a></article>' for k, (i, c, n, t, d, u, l) in enumerate(sols))
     body = f"""
 <section class="hero"><div class="wrap center">
-  <p class="eyebrow rv">Pour les solopreneurs</p>
+  <p class="eyebrow rv">Solopreneur</p>
   <h1 class="rv" style="--d:60ms">Maintenant, vous savez <em>comment trouver vos clients.</em></h1>
   <p class="lead rv" style="--d:120ms">Votre marketing est toujours à jour : vos posts, vos articles, vos pages, vos e-mails, vos réseaux. Le système tourne pour vous. Vous relisez, vous corrigez et vous validez. Rien de plus à faire.</p>
-  <div class="btns rv" style="--d:180ms"><a class="btn primary" href="{TRY}">Essayer gratuitement {ARROW}</a><a class="btn ghost" href="/studio/">Voir Studio écran par écran</a></div>
-  <p class="note rv" style="--d:210ms;margin-top:14px">Rien n’est publié sans votre accord. Bêta ouverte le lundi 9 novembre 2026.</p>
+  <div class="btns rv" style="--d:180ms"><a class="btn primary" href="{TRY}">Essayer gratuitement {ARROW}</a><a class="btn ghost" href="/studio/">Voir Studio</a></div>
+  <p class="note rv" style="--d:210ms;margin-top:14px">Rien n’est publié sans votre accord.</p>
   <div class="hero-shot rv" style="--d:240ms">
-    {shot("8-aujourdhui", "Pixapop Studio, l’écran Aujourd’hui : les actions du jour et le temps que prend chacune", True)}
+    {shot("8-aujourdhui", "Pixapop Studio, l’écran Aujourd’hui", True)}
     <span class="float f1" aria-hidden="true"><i style="background:#2BB5A0"></i>Votre article est en ligne</span>
     <span class="float f2" aria-hidden="true"><i style="background:#E0559A"></i>Un nouveau contact est arrivé</span>
     <span class="float f3" aria-hidden="true"><i style="background:#F2A541"></i>Stratégie ajustée d’après vos résultats</span>
@@ -205,68 +205,48 @@ def home():
 </div></section>
 
 <section class="alt"><div class="wrap">
-  <div class="head center rv"><p class="eyebrow">Ce qu’écrivent les entrepreneurs seuls</p><h2>« On est invisibles. »</h2>
-    <p class="lead">C’est la phrase qui revient le plus quand ils parlent de leurs clients. Voici les autres, et ce que Pixapop y change.</p></div>
+  <div class="head center rv"><h2>« On est invisibles. »</h2></div>
   <div class="grid g3 pains">{pain_html}</div>
-  <p class="note center rv" style="margin-top:18px">Phrases relevées telles quelles sur des forums d’entrepreneurs, en octobre 2026. Leurs auteurs ne sont pas des clients de Pixapop.</p>
+  <p class="note center rv" style="margin-top:18px">Phrases relevées sur des forums d’entrepreneurs.</p>
 </div></section>
 
 <section><div class="wrap">
-  <div class="head rv"><p class="eyebrow">Ce que fait Pixapop</p><h2>Être trouvé, <em>puis vendre au bon prix.</em></h2>
-    <p class="lead">Tout ce que nous construisons sert à deux choses : que les clients qui vous cherchent vous trouvent, et qu’ils achètent au prix juste.</p></div>
+  <div class="head rv"><h2>On vous trouve. <em>On vous achète.</em></h2></div>
   <div class="grid g2">
-    <article class="card pillar rv"><div class="num">1</div><h3>Les clients qui vous cherchent vous trouvent</h3>
-      <p>Studio part de votre activité, de vos clients et de ce qu’ils tapent sur Google. Il en tire votre stratégie : à qui parler, quoi dire, sur quels réseaux.</p>
-      <ul class="checks"><li>Une stratégie écrite pour votre entreprise, dès la première session</li><li>Vos posts, articles, pages et e-mails, préparés d’après elle</li><li>Votre site vérifié pour Google et pour les réponses des IA comme ChatGPT</li></ul></article>
-    <article class="card pillar rv" style="--d:80ms"><div class="num">2</div><h3>Ils achètent, au bon prix</h3>
-      <p>Une page claire pour chaque offre, des e-mails qui répondent aux questions avant l’achat, et un avis franc sur vos prix.</p>
-      <ul class="checks"><li>L’avis de Studio sur vos prix, comparés à votre marché</li><li>Des pages de vente et des tunnels prêts à l’emploi</li><li>Bientôt avec Pilot : vos contacts et vos devis au même endroit</li></ul></article>
+    <article class="card pillar rv"><div class="num">1</div><h3>Vous êtes visible</h3>
+      <ul class="checks"><li>Une stratégie faite pour vous</li><li>Des contenus prêts d’avance</li><li>Présent sur Google et dans ChatGPT</li></ul></article>
+    <article class="card pillar rv" style="--d:80ms"><div class="num">2</div><h3>Vous vendez au juste prix</h3>
+      <ul class="checks"><li>Le bon prix, comparé à votre marché</li><li>Des pages qui donnent envie</li><li>Des e-mails qui préparent l’achat</li></ul></article>
   </div>
   <div class="card rv" style="margin-top:18px">
     <div class="ico i5">{icon("loop")}</div>
     <h3>Chaque semaine, <em>un peu mieux</em></h3>
-    <p>Studio relève vos chiffres (visites, contacts, demandes), explique ce qui marche et ce qui ne marche pas, puis propose quoi changer : un sujet à creuser, une page à refaire, un test à lancer. Vous acceptez, il applique.</p>
-    <ol class="loop loop-wrap"><li><b>Mesurer</b><span>vos vrais chiffres</span></li><li><b>Comprendre</b><span>ce qui marche, et pourquoi</span></li><li><b>Décider</b><span>vous choisissez</span></li><li><b>Tester</b><span>Studio applique et mesure</span></li></ol>
+    <ol class="loop loop-wrap"><li><b>Mesurer</b><span>vos vrais chiffres</span></li><li><b>Comprendre</b><span>ce qui marche</span></li><li><b>Décider</b><span>vous choisissez</span></li><li><b>Tester</b><span>Studio applique</span></li></ol>
   </div>
 </div></section>
 
 <section class="alt"><div class="wrap">
-  <div class="head rv"><p class="eyebrow">Nos outils</p><h2>Peu d’outils, <em>qui partagent ce qu’ils savent.</em></h2>
-    <p class="lead">Studio pour votre marketing, Pilot (à venir) pour vos clients et vos devis, et nos sites sur mesure. Ils partagent la même fiche de votre entreprise : vous n’expliquez votre activité qu’une fois.</p></div>
+  <div class="head rv"><h2>Peu d’outils. <em>Ils se parlent.</em></h2></div>
   <div class="grid g4">{sol_html}</div>
 </div></section>
 
 <section><div class="wrap">
-  <div class="grid g2" style="align-items:center">
-    <div class="rv"><p class="eyebrow">Petites entreprises</p><h2>Seul au marketing <em>dans une équipe de quinze ?</em></h2>
-      <p class="lead">Vous gérez la communication d’une entreprise de 5, 15 ou 40 personnes, souvent en plus d’un autre poste. Studio prépare le plan du mois, les contenus et le bilan chiffré ; vous relisez et vous validez, au lieu de tout écrire.</p>
-      <div class="btns" style="margin-top:20px"><a class="btn ghost" href="/contact/">Nous présenter votre entreprise {ARROW}</a></div></div>
-    <div class="card rv" style="--d:80ms"><div class="ico i3">{icon("target")}</div><h3>Ce que vous gagnez</h3>
-      <ul class="checks"><li>Un plan écrit, que vous pouvez montrer à votre direction</li><li>Des contenus réguliers, sans recruter</li><li>Des chiffres chaque semaine, et ce qu’il faut changer</li></ul></div>
-  </div>
+  <div class="head center rv"><p class="eyebrow">Petites entreprises</p><h2>Seul au marketing <em>dans une équipe de quinze ?</em></h2>
+    <p class="lead">Le plan, les contenus, les chiffres : prêts. Vous validez.</p>
+    <div class="btns" style="justify-content:center;margin-top:20px"><a class="btn ghost" href="/contact/">Nous écrire {ARROW}</a></div></div>
 </div></section>
 
-<section class="alt"><div class="wrap">
-  <div class="head rv"><p class="eyebrow">Comment ça tourne</p><h2>Vous validez, <em>Studio publie.</em></h2></div>
-  <div class="week rv">
-    <div><b>Une fois</b><p>Studio a préparé la semaine ou le mois. Vous relisez, vous corrigez, vous validez.</p></div>
-    <div><b>Ensuite</b><p>Vos posts, articles et e-mails partent à l’heure prévue, pendant que vous êtes avec vos clients.</p></div>
-    <div><b>Le week-end</b><p>Ce qui est prévu le samedi part le samedi. Vous, vous êtes en week-end.</p></div>
-    <div><b>Chaque semaine</b><p>Le bilan arrive : vos chiffres, et ce que Studio propose de changer.</p></div>
-  </div>
-</div></section>
-
-<section><div class="wrap story">
+<section class="alt"><div class="wrap story">
   <h2 class="rv">Construit d’abord <em>pour nous.</em></h2>
-  <div class="rv" style="--d:80ms"><p class="lead">Pixapop est née de dix ans de vie d’entrepreneur seul : trois entreprises, et toujours la même tâche repoussée au lendemain, celle qui fait venir les clients. Studio a d’abord servi à notre propre marketing, avant d’être ouvert aux autres.</p>
+  <div class="rv" style="--d:80ms"><p class="lead">Dix ans seul aux commandes. Le marketing passait toujours après. Plus maintenant.</p>
     <a class="btn ghost" href="/a-propos/">Notre histoire {ARROW}</a></div>
 </div></section>
 
-<section class="alt"><div class="wrap narrow">
+<section><div class="wrap narrow">
   <div class="head center rv"><h2>Vos <em>questions</em></h2></div>
   <div class="faq rv">{faq_block(HOME_FAQ)}</div>
 </div></section>
-{cta_band("Votre marketing du mois, <em>prêt d’avance.</em>", "Dites à Studio ce que vous faites : il prépare votre stratégie et votre premier mois de contenus. Rien ne part sans votre accord.")}
+{cta_band("Votre marketing du mois, <em>prêt d’avance.</em>", "Rien ne part sans votre accord.")}
 """
     ld = {"@context": "https://schema.org", "@type": "Organization", "name": "Pixapop", "url": SITE, "email": EMAIL,
           "description": "Pixapop aide les entrepreneurs solo et les petites entreprises à trouver des clients et à vendre au bon prix : Pixapop Studio (marketing préparé, validé par vous), Pixapop Pilot (CRM et devis, à venir), sites et applications sur mesure.",
@@ -293,14 +273,14 @@ def offer_designer_mock():
 
 def studio():
     steps = [
-        ("1-strategie", "Votre activité, avec vos mots", "Votre stratégie, écrite pour vous", "Vous dites ce que vous faites, pour qui, et ce que vous vendez. Studio en tire votre cible, ce qu’il faut lui dire, sur quels réseaux, et deux ou trois façons de lancer, chacune expliquée.", "vous savez enfin quoi publier, et pourquoi."),
-        (None, "Vos offres et vos prix", "Le designer d’offres", "Il vous aidera à construire une offre d’appel, une offre principale et une offre haute, avec un prix comparé aux vraies données de votre métier. Il fera partie du forfait premium.", "un prix que vous pouvez défendre."),
-        ("3-mois", "Un mois en un clic", "Le mois entier, prêt d’un coup", "Articles, posts, carrousels, vidéos courtes, e-mails : Studio prépare les quatre semaines d’après votre stratégie et dans votre ton. Vous gardez, vous corrigez, ou vous demandez une autre version.", "plus de page blanche le dimanche soir."),
-        ("4-calendrier", "Le calendrier éditorial", "Vous validez, Studio publie", "Chaque contenu a sa date et son réseau. Un clic sur Valider, et il part à l’heure prévue, même le samedi.", "une présence régulière, sans y penser."),
-        ("5-tunnels", "Pages et tunnels de vente", "Les visiteurs laissent leurs coordonnées", "Studio crée la page, le formulaire et la suite d’e-mails. Le visiteur s’inscrit (avec son accord), reçoit vos e-mails aux bonnes dates et arrive dans vos contacts.", "des contacts qui s’ajoutent pendant que vous travaillez."),
-        ("6-audit", "Audit Google et IA", "Votre site, vu par Google et par ChatGPT", "Collez l’adresse de votre site : Studio relève ce qui gêne Google, teste si les IA vous citent, et vous dit quoi corriger en premier.", "vous savez quoi corriger, et dans quel ordre."),
-        ("7-analytics", "Analytics", "Chaque semaine, quoi changer", "Studio relève vos chiffres, explique ce qui marche et propose des changements : un sujet à creuser, une page à refaire, un test à lancer. Vous acceptez, il applique.", "des décisions prises sur des chiffres."),
-        ("8-aujourdhui", "Ce qui attend votre accord", "Tout au même endroit", "L’écran Aujourd’hui montre ce qui attend votre validation et le temps que prend chaque action. Vous validez quand vous voulez, la semaine ou le mois d’un coup.", "votre temps pour vos clients."),
+        ("1-strategie", "Stratégie", "Vous savez quoi dire, et à qui.", "Racontez votre activité. Studio écrit votre stratégie.", "une direction claire."),
+        (None, "Offres et prix", "Votre juste prix.", "Offre d’appel, offre principale, offre haute, comparées à votre marché. Forfait premium, en conception.", "vous ne vous bradez plus."),
+        ("3-mois", "Un mois en un clic", "Fini la page blanche.", "Un clic, et votre mois de contenus est prêt, dans votre ton.", "des heures retrouvées."),
+        ("4-calendrier", "Calendrier éditorial", "Vous validez. Studio publie.", "Chaque contenu part à l’heure, même le samedi.", "une présence régulière."),
+        ("5-tunnels", "Pages et tunnels de vente", "Vos visiteurs deviennent des contacts.", "Une page, un formulaire, des e-mails : Studio crée tout.", "des contacts pendant que vous travaillez."),
+        ("6-audit", "Audit Google et IA", "Vu par Google et par ChatGPT.", "Studio vérifie votre site et vous dit quoi corriger d’abord.", "vous savez par où commencer."),
+        ("7-analytics", "Analytics", "Vous savez ce qui marche.", "Vos chiffres chaque semaine, et quoi changer. Vous acceptez, Studio applique.", "des décisions sur du concret."),
+        ("8-aujourdhui", "Aujourd’hui", "Tout au même endroit.", "Ce qui attend votre accord, et le temps que ça prend.", "votre temps pour vos clients."),
     ]
     html_steps = ""
     for k, (img, kick, title, text, gain) in enumerate(steps):
@@ -313,14 +293,14 @@ def studio():
     body = f"""
 <section class="hero"><div class="wrap center">
   <p class="eyebrow rv">Pixapop Studio</p>
-  <h1 class="rv" style="--d:60ms">Un mois de marketing préparé <em>d’après votre métier.</em></h1>
-  <p class="lead rv" style="--d:120ms">Studio écrit votre stratégie, vos posts, vos articles, vos pages et vos e-mails, les publie quand vous validez, et vous dit chaque semaine ce qui a marché.</p>
+  <h1 class="rv" style="--d:60ms">Votre marketing tourne. <em>Vous validez.</em></h1>
+  <p class="lead rv" style="--d:120ms">Stratégie, posts, articles, pages, e-mails : prêts d’avance, publiés à l’heure, meilleurs chaque semaine.</p>
   <div class="btns rv" style="--d:180ms"><a class="btn primary" href="{TRY}">Essayer gratuitement {ARROW}</a><a class="btn ghost" href="#visite" data-tour-start>Lancer la visite</a></div>
   <p class="note rv" style="--d:220ms;margin-top:14px">Rien n’est publié sans votre accord. Bêta le lundi 9 novembre 2026.</p>
 </div></section>
 
 <section class="alt" id="visite" style="scroll-margin-top:80px"><div class="wrap">
-  <div class="head rv"><p class="eyebrow">La visite</p><h2>Huit écrans, <em>de la stratégie au bilan.</em></h2><p class="lead">Les vrais écrans de Studio, dans l’ordre où vous les utiliserez.</p></div>
+  <div class="head rv"><p class="eyebrow">La visite</p><h2>Huit écrans. <em>Votre marketing tourne.</em></h2></div>
   <div class="tour" data-tour tabindex="-1">
     <div class="tour-top"><div class="tour-progress" aria-hidden="true"><i></i></div><span class="tour-count" aria-live="polite"></span></div>
     {html_steps}
@@ -332,7 +312,7 @@ def studio():
   <div class="head rv"><p class="eyebrow">En vidéo</p><h2>Studio <em>en une minute.</em></h2></div>
   <div class="vids rv">{vid("16x9", 1280, 720, "Présentation de Pixapop Studio, format horizontal", "v169")}{vid("9x16", 720, 1280, "Présentation de Pixapop Studio, format vertical", "v916")}</div>
 </div></section>
-{cta_band("Essayez Studio <em>sur votre propre activité.</em>", "Dites ce que vous faites : Studio prépare votre stratégie et vos premiers contenus. Rien ne part sans votre accord.", '<a class="btn ghost" href="' + STUDIO_SITE + '">Le site de Pixapop Studio</a>')}
+{cta_band("Essayez Studio <em>sur votre activité.</em>", "Rien ne part sans votre accord.", '<a class="btn ghost" href="' + STUDIO_SITE + '">Le site de Pixapop Studio</a>')}
 """
     ld = {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Pixapop Studio", "operatingSystem": "Web",
           "applicationCategory": "BusinessApplication", "inLanguage": "fr", "url": STUDIO_SITE,
@@ -346,39 +326,39 @@ def pilot():
     body = f"""
 <section class="hero"><div class="wrap center">
   <p class="eyebrow rv">Pixapop Pilot · en cours de développement</p>
-  <h1 class="rv" style="--d:60ms">Vos contacts et vos devis, <em>au même endroit que votre marketing.</em></h1>
-  <p class="lead rv" style="--d:120ms">Pilot sera le CRM de Pixapop, pour les entrepreneurs solo et les petites entreprises. Il suivra chaque contact, préparera vos devis au bon prix et prospectera pour vous. Voici les maquettes.</p>
+  <h1 class="rv" style="--d:60ms">Vos clients. Vos devis. <em>Au même endroit.</em></h1>
+  <p class="lead rv" style="--d:120ms">Le CRM relié à votre marketing. En cours de développement.</p>
   <div class="btns rv" style="--d:180ms"><a class="btn pilot" href="/contact/">Être prévenu {ARROW}</a><a class="btn ghost" href="/studio/">Découvrir Studio</a></div>
 </div></section>
 
 <section class="alt"><div class="wrap">
-  <div class="head rv"><p class="eyebrow">En cours de conception</p><h2>Ce que Pilot <em>fera pour vous.</em></h2>
-    <p class="lead">Ces écrans sont des maquettes : ce qui sortira pourra changer.</p></div>
+  <div class="head rv"><p class="eyebrow">En cours de conception</p><h2>Ce que Pilot <em>change pour vous.</em></h2>
+    <p class="lead">Maquettes : ce qui sortira pourra changer.</p></div>
   <div class="grid g2">
-    <div class="rv"><h3>Chaque contact, et où il en est</h3><p class="muted">D’où vient chaque prospect (votre article, votre guide, une recommandation), où il en est, et ce qu’il faut faire ensuite.</p>
+    <div class="rv"><h3>Vous savez où en est chaque contact.</h3><p class="muted">D’où il vient. Où il en est. Quoi faire ensuite.</p>
       <div class="mock pilotmock"><div class="mock-head"><b>Vos contacts</b><span class="tag mock">Maquette</span></div><div class="mock-body">
         <div class="mock-row"><span><b>Camille R.</b><small>Venue par votre article sur le blog</small></span><span class="mock-chip b">À rappeler</span></div>
         <div class="mock-row"><span><b>Julien M.</b><small>A demandé votre guide</small></span><span class="mock-chip o">Devis envoyé</span></div>
         <div class="mock-row"><span><b>Sarah L.</b><small>Recommandée par une cliente</small></span><span class="mock-chip g">Cliente</span></div>
       </div><div class="mock-label">Aperçu, en cours de conception</div></div></div>
-    <div class="rv" style="--d:80ms"><h3>Vos devis, au prix juste</h3><p class="muted">Une proposition préparée à partir de votre rendez-vous, avec vos offres et votre grille de prix. Pilot ne fixe jamais un prix seul : il part de vos tarifs, et vous montre où vous vous situez dans votre métier.</p>
+    <div class="rv" style="--d:80ms"><h3>Un devis au juste prix, en un clic.</h3><p class="muted">Préparé depuis votre rendez-vous, à partir de vos tarifs. Jamais un prix inventé.</p>
       <div class="mock pilotmock"><div class="mock-head"><b>Proposition pour Julien M.</b><span class="tag mock">Maquette</span></div><div class="mock-body">
         <div class="mock-row"><span><b>D’après votre rendez-vous de mardi</b><small>Besoins repris, offre proposée, délais</small></span><span class="mock-chip b">Prête à relire</span></div>
         <div><small class="muted">Votre prix, comparé aux prix de votre métier</small><div class="mock-bar" style="margin-top:8px"><i style="width:62%"></i></div></div>
       </div><div class="mock-label">Aperçu, en cours de conception</div></div></div>
   </div>
   <div class="grid g2" style="margin-top:28px">
-    <div class="rv"><h3>La prospection, sans y passer vos soirées</h3><p class="muted">Pilot trouvera des contacts qui ressemblent à vos meilleurs clients et leur écrira dans votre ton, dans le respect du RGPD. Chaque e-mail attendra votre validation.</p>
+    <div class="rv"><h3>La prospection tourne pour vous.</h3><p class="muted">Des contacts qui ressemblent à vos meilleurs clients. Chaque e-mail validé par vous.</p>
       <div class="mock pilotmock"><div class="mock-head"><b>Campagne de rentrée</b><span class="tag mock">Maquette</span></div><div class="mock-body">
         <div class="mock-row"><span><b>Cible</b><small>Les profils qui ressemblent à vos meilleurs clients</small></span><span class="mock-chip g">Prête</span></div>
         <div class="mock-row"><span><b>Trois e-mails, sur deux semaines</b><small>Écrits dans votre ton, à valider</small></span><span class="mock-chip b">À relire</span></div>
       </div><div class="mock-label">Aperçu, en cours de conception</div></div></div>
     <div class="card rv" style="--d:80ms;align-self:start"><div class="ico i3">{icon("pilot")}</div><h3>Relié à Studio</h3>
-      <p>Pilot partagera la fiche de votre entreprise avec Studio : vos offres, votre stratégie, vos contacts. Un contact venu d’un article de Studio arrivera dans Pilot avec son historique.</p>
+      <p>Un contact venu d’un article arrive avec son historique.</p>
       <ul class="checks"><li>Chaque envoi validé par vous</li><li>Vos devis partent de vos tarifs</li><li>Vos données hébergées en France</li></ul></div>
   </div>
 </div></section>
-{cta_band("Soyez prévenu <em>dès que Pilot est prêt.</em>", "Écrivez-nous : nous vous prévenons dès que Pilot peut être essayé.", '<a class="btn ghost" href="/contact/">Être prévenu</a>')}
+{cta_band("Pilot arrive. <em>Soyez prévenu.</em>", "Écrivez-nous.", '<a class="btn ghost" href="/contact/">Être prévenu</a>')}
 """
     return page("/pilot/", "Pixapop Pilot · CRM pour TPE et PME, devis et prospection (bientôt)",
                 "Pixapop Pilot, CRM en cours de développement pour les entrepreneurs solo, les TPE et les PME : vos contacts, vos devis au bon prix et la prospection par e-mail, reliés à votre marketing.",
@@ -391,41 +371,40 @@ def sur_mesure():
     body = f"""
 <section class="hero"><div class="wrap center">
   <p class="eyebrow rv">Sites et applications sur mesure</p>
-  <h1 class="rv" style="--d:60ms">Un site pour votre métier, <em>qui fait venir des demandes.</em></h1>
-  <p class="lead rv" style="--d:120ms">Sites vitrines, pages de vente, tunnels et applications mobiles, construits pour vos clients à vous. Au prix d’un freelance ou d’une petite agence, et souvent moins si vous utilisez aussi Studio.</p>
+  <h1 class="rv" style="--d:60ms">Un site qui vous ramène <em>des demandes.</em></h1>
+  <p class="lead rv" style="--d:120ms">Sites, pages de vente, tunnels, applications. Au prix d’un freelance.</p>
   <div class="btns rv" style="--d:180ms"><a class="btn primary" href="/contact/">Demander un devis {ARROW}</a><a class="btn ghost" href="#applications">Voir une application</a></div>
 </div></section>
 
 <section class="alt"><div class="wrap">
   <div class="grid g2" style="align-items:center">
-    <div class="rv"><p class="eyebrow">Sites internet</p><h2>Pensé pour la façon <em>dont vos clients choisissent.</em></h2>
-      <p class="lead">Un plombier est choisi pour sa réactivité et sa zone, une coach pour la confiance qu’elle inspire, une boutique pour ses produits. Votre site met en avant ce qui décide vos clients, avec les fonctions qui transforment une visite en demande.</p>
+    <div class="rv"><p class="eyebrow">Sites internet</p><h2>Fait pour <em>vos clients à vous.</em></h2>
+      <p class="lead">Le plombier, la coach, la boutique : chacun ses clients, chacun son site.</p>
       <div class="features">{feats}</div></div>
     <div class="card rv" style="--d:80ms"><div class="ico i2">{icon("price")}</div><h3>Combien coûte un site internet ?</h3>
-      <p>Le prix dépend du nombre de pages et des fonctions (formulaire, tunnel, prise de rendez-vous). Nous le fixons dans un devis, avant de commencer. Il reste dans les prix d’un freelance ou d’une petite agence, souvent en dessous si vous utilisez aussi nos outils.</p>
-      <p class="note" style="margin-top:12px">Sur devis, en attendant nos offres de création de site.</p>
+      <p>Un prix fixe, dans le devis, avant de commencer. Au tarif d’un freelance, souvent moins avec nos outils.</p>
       <a class="more" href="/contact/">Demander un devis {ARROW}</a></div>
   </div>
 </div></section>
 
 <section><div class="wrap">
-  <div class="head rv"><p class="eyebrow">Comment ça se passe</p><h2>De votre idée <em>à votre site en ligne.</em></h2></div>
+  <div class="head rv"><p class="eyebrow">Comment ça se passe</p><h2>De l’idée <em>au site en ligne.</em></h2></div>
   <ol class="steps">
-    <li class="card rv"><h3>Écouter</h3><p>Un premier échange sur votre métier, vos clients et ce que le site doit vous apporter.</p></li>
-    <li class="card rv" style="--d:70ms"><h3>Dessiner</h3><p>Une première version à regarder sur votre téléphone, pour décider sur du concret.</p></li>
-    <li class="card rv" style="--d:140ms"><h3>Construire</h3><p>Les pages, les formulaires, les tunnels, les e-mails ; pour une application, la publication sur les stores.</p></li>
-    <li class="card rv" style="--d:210ms"><h3>Faire grandir</h3><p>Les visites et les demandes mesurées, et Studio pour faire venir du monde.</p></li>
+    <li class="card rv"><h3>Écouter</h3><p>Votre métier, vos clients.</p></li>
+    <li class="card rv" style="--d:70ms"><h3>Dessiner</h3><p>Une maquette sur votre téléphone.</p></li>
+    <li class="card rv" style="--d:140ms"><h3>Construire</h3><p>Pages, formulaires, tunnels, e-mails.</p></li>
+    <li class="card rv" style="--d:210ms"><h3>Faire grandir</h3><p>Studio fait venir du monde.</p></li>
   </ol>
 </div></section>
 
 <section class="alt" id="applications" style="scroll-margin-top:80px"><div class="wrap case">
   <div class="rv"><p class="eyebrow">Applications mobiles</p><h2>Nouveau Cap, <em>une application conçue, développée et publiée par Pixapop.</em></h2>
-    <p class="lead">Pour les cadres de plus de 40 ans qui changent de métier : un plan de 90 jours, les finances sous contrôle, un CV et un profil LinkedIn retravaillés, et un Copilote IA qui connaît leur parcours.</p>
+    <p class="lead">Pour les plus de 40 ans qui changent de métier. De l’idée au store.</p>
     <ul class="checks"><li>Conception : le parcours, les écrans, les textes</li><li>Développement : l’application, le serveur, l’IA, les abonnements</li><li>Publication sur Google Play, avec les pages légales et la fiche du store</li></ul>
     <div class="btns" style="margin-top:24px"><a class="btn ghost" href="/nouveau-cap/">Voir Nouveau Cap {ARROW}</a><a class="btn primary" href="/contact/">Parler de votre application</a></div></div>
   <div class="phones rv" style="--d:100ms" aria-hidden="true">{phone("pistes", "Écran Pistes de Nouveau Cap")}{phone("home", "Écran d’accueil de Nouveau Cap")}{phone("finances", "Écran Finances de Nouveau Cap")}</div>
 </div></section>
-{cta_band("Parlons de <em>votre site.</em>", "Dites-nous en quelques lignes votre métier, vos clients et ce que le site doit changer. Nous vous répondons personnellement.", '<a class="btn ghost" href="/contact/">Nous écrire</a>')}
+{cta_band("Votre site, <em>parlons-en.</em>", "Quelques lignes suffisent.", '<a class="btn ghost" href="/contact/">Nous écrire</a>')}
 """
     return page("/sur-mesure/", "Création de site internet pour artisans et indépendants · Pixapop",
                 "Création de site internet et d’applications pour votre métier : site vitrine, pages de vente, tunnels, formulaires. Prix fixé dans un devis, au tarif d’un freelance. Exemple : Nouveau Cap.",
@@ -437,36 +416,35 @@ def a_propos():
 <section class="hero"><div class="wrap narrow center">
   <p class="eyebrow rv">À propos</p>
   <h1 class="rv" style="--d:60ms">Des outils construits <em>d’abord pour nous.</em></h1>
-  <p class="lead rv" style="--d:120ms">Pixapop a été créée par un entrepreneur seul, pour régler un problème qu’il vivait : faire son métier et, en même temps, trouver les clients suivants.</p>
+  <p class="lead rv" style="--d:120ms">Un entrepreneur seul. Un marketing toujours repoussé. Des outils pour que ça n’arrive plus.</p>
 </div></section>
 
 <section class="alt"><div class="wrap narrow">
   <div class="rv">
     <h2>Dix ans <em>seul aux commandes</em></h2>
-    <p class="lead">Le créateur de Pixapop, Cyril Gayet, travaille seul depuis dix ans : trois entreprises, des réussites, des échecs, et de nombreux entrepreneurs formés et conseillés en chemin.</p>
-    <p>Avec le recul, les échecs avaient souvent la même cause. Le travail était bien fait et les clients contents. Ce qui manquait : se faire connaître, publier régulièrement, savoir ce qui marche, trouver les clients suivants.</p>
+    <p class="lead">Cyril Gayet, créateur de Pixapop. Trois entreprises, des réussites, des échecs.</p>
+    <p>Le travail était bon. Les clients, contents. Il manquait le reste : se faire connaître, publier, trouver les suivants.</p>
   </div>
   <div class="rv" style="margin-top:36px">
     <h2>La tâche <em>qu’on repousse toujours</em></h2>
-    <p>Quand on aime son métier, on s’y consacre. Le marketing glisse au lendemain, puis à la semaine suivante. Les outils existants demandaient du temps, de l’argent ou une équipe entière.</p>
-    <p>Les premiers outils de Pixapop ont donc été construits pour un usage personnel : un outil qui prépare le travail, et un entrepreneur qui décide et valide.</p>
+    <p>Le métier d’abord, le marketing après. Toujours. Alors nous avons construit l’outil qui le prépare. L’entrepreneur valide.</p>
   </div>
   <div class="rv" style="margin-top:36px">
-    <h2>Puis ouverts <em>aux autres entrepreneurs</em></h2>
-    <p>Studio prépare aujourd’hui le marketing de Pixapop et celui de Nouveau Cap, notre application de reconversion. Nous l’ouvrons aux entrepreneurs solo et aux petites entreprises, avec une règle : chaque fonction doit vous aider à trouver des clients ou à vendre au bon prix. Sinon, nous ne la construisons pas.</p>
+    <h2>Aujourd’hui, <em>pour vous</em></h2>
+    <p>Studio fait le marketing de Pixapop et de Nouveau Cap. Il peut faire le vôtre.</p>
   </div>
 </div></section>
 
 <section><div class="wrap">
   <div class="head center rv"><h2>Nos <em>règles</em></h2></div>
   <div class="grid g4">
-    <article class="card rv"><div class="ico i2">{icon("clock")}</div><h3>Simple</h3><p>Votre marketing préparé d’avance ; vous relisez et vous validez, sans jargon ni formation à suivre.</p></article>
-    <article class="card rv" style="--d:70ms"><div class="ico i1">{icon("heart")}</div><h3>Transparent</h3><p>Rien ne part sans votre accord, et chaque proposition dit pourquoi.</p></article>
-    <article class="card rv" style="--d:140ms"><div class="ico i3">{icon("shield")}</div><h3>Vos données chez vous</h3><p>Hébergées en France, séparées de celles des autres, jamais revendues.</p></article>
-    <article class="card rv" style="--d:210ms"><div class="ico i4">{icon("target")}</div><h3>Utile</h3><p>Chaque fonction doit vous aider à trouver des clients ou à vendre au bon prix.</p></article>
+    <article class="card rv"><div class="ico i2">{icon("clock")}</div><h3>Simple</h3><p>Vous validez. C’est tout.</p></article>
+    <article class="card rv" style="--d:70ms"><div class="ico i1">{icon("heart")}</div><h3>Transparent</h3><p>Rien ne part sans votre accord.</p></article>
+    <article class="card rv" style="--d:140ms"><div class="ico i3">{icon("shield")}</div><h3>Vos données chez vous</h3><p>En France. Jamais revendues.</p></article>
+    <article class="card rv" style="--d:210ms"><div class="ico i4">{icon("target")}</div><h3>Utile</h3><p>Chaque fonction sert à trouver des clients.</p></article>
   </div>
 </div></section>
-{cta_band("Faisons connaissance.", "Une question, un projet ? Écrivez-nous, nous vous répondons personnellement.")}
+{cta_band("Faisons connaissance.", "Écrivez-nous.")}
 """
     return page("/a-propos/", "À propos · L’histoire de Pixapop",
                 "L’histoire de Pixapop : dix ans de vie d’entrepreneur seul, des outils construits d’abord pour notre propre marketing, puis ouverts aux entrepreneurs solo et aux petites entreprises.",
@@ -478,15 +456,15 @@ def contact():
 <section class="hero"><div class="wrap narrow center">
   <p class="eyebrow rv">Contact</p>
   <h1 class="rv" style="--d:60ms">Écrivez-nous, <em>nous vous répondons.</em></h1>
-  <p class="lead rv" style="--d:120ms">Une personne lit chaque message et vous répond.</p>
+  <p class="lead rv" style="--d:120ms">Une vraie personne vous répond.</p>
 </div></section>
 <section style="padding-top:0"><div class="wrap">
   <div class="grid g2">
     <article class="card rv"><div class="ico i2">{icon("site")}</div><h3>Un projet de site ou d’application</h3>
-      <p>Dites-nous votre métier, vos clients, et ce que le site ou l’application doit changer pour vous.</p>
+      <p>Votre métier, vos clients, votre idée.</p>
       <p class="mail" style="margin-top:16px"><a href="mailto:{PROJECT_EMAIL}?subject=Projet">{PROJECT_EMAIL}</a></p></article>
     <article class="card rv" style="--d:80ms"><div class="ico i3">{icon("mail")}</div><h3>Studio, Pilot, une question</h3>
-      <p>Pour essayer Studio, être prévenu de la sortie de Pilot, présenter votre entreprise ou poser une question.</p>
+      <p>Essayer Studio, être prévenu de Pilot, poser une question.</p>
       <p class="mail" style="margin-top:16px"><a href="mailto:{EMAIL}">{EMAIL}</a></p></article>
   </div>
   <p class="note center rv" style="margin-top:24px">Pixapop, nom commercial de {esc(PUB['name'])}, entrepreneur individuel.</p>
