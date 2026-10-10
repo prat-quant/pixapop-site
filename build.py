@@ -179,8 +179,8 @@ def home():
     body = f"""
 <section class="hero"><div class="wrap center">
   <p class="eyebrow rv">Solopreneur</p>
-  <h1 class="rv h1-accueil" style="--d:60ms"><span class="h1-l">Fini de courir après les clients.</span> <span class="h1-l"><em>Ils viennent à vous.</em></span></h1>
-  <p class="lead lead-accueil rv" style="--d:120ms"><span>Avec Studio, votre marketing tourne en permanence.</span> <span>Vous faites votre métier, Studio fait le reste.</span></p>
+  <h1 class="rv h1-accueil" style="--d:60ms"><span class="h1-l">Accompagner les entrepreneurs</span> <span class="h1-l"><em>est notre métier.</em></span></h1>
+  <p class="lead lead-accueil rv" style="--d:120ms"><span>Studio pour votre marketing, Pilot pour piloter votre entreprise.</span> <span>Vous décidez, nous faisons le reste.</span></p>
   <div class="btns rv" style="--d:180ms"><a class="btn primary" href="{TRY}">Essayer Studio gratuitement {ARROW}</a><a class="btn ghost" href="/studio/">Voir Studio en huit écrans</a></div>
   <p class="note rv" style="--d:210ms;margin-top:14px">Bêta le lundi 9 novembre 2026.</p>
   <div class="hero-shot rv" style="--d:240ms">
@@ -262,7 +262,7 @@ def home():
           "description": "Pixapop aide les entrepreneurs solo et les petites entreprises à trouver des clients et à vendre au bon prix : Pixapop Studio (marketing préparé, validé par vous), Pixapop Pilot (CRM et devis, à venir), sites et applications sur mesure.",
           "logo": SITE + "/favicon.svg", "sameAs": [YOUTUBE], "legalName": f"{PUB['name']}, entrepreneur individuel",
           "address": {"@type": "PostalAddress", "streetAddress": "4775 RD 2085", "postalCode": "06330", "addressLocality": "Roquefort-les-Pins", "addressCountry": "FR"}}
-    return page("/", "Pixapop · Fini de courir après les clients, ils viennent à vous",
+    return page("/", "Pixapop · Accompagner les entrepreneurs est notre métier",
                 "Avec Pixapop Studio, votre marketing est toujours à jour : posts, articles, pages, e-mails et réseaux préparés d’avance d’après votre métier. Vous relisez et vous validez. Pour les solopreneurs et les petites entreprises.",
                 body, jsonld=ld)
 
