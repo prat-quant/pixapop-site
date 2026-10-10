@@ -310,7 +310,9 @@ def studio():
 
 <section><div class="wrap">
   <div class="head rv"><p class="eyebrow">En vidéo</p><h2>Studio <em>en une minute.</em></h2></div>
-  <div class="vids rv">{vid("16x9", 1280, 720, "Présentation de Pixapop Studio, format horizontal", "v169")}{vid("9x16", 720, 1280, "Présentation de Pixapop Studio, format vertical", "v916")}</div>
+  <div class="vid-one rv">{vid("16x9", 1280, 720, "Présentation de Pixapop Studio, faite avec Studio Vidéo", "v169")}
+    <p class="vid-proof">Cette vidéo a été faite par Pixapop Studio, en un clic, avec Studio Vidéo.</p>
+    <p class="vid-prompt"><span>Le prompt</span>« Crée-moi une présentation vidéo de Pixapop Studio en motion. »</p></div>
 </div></section>
 {cta_band("Essayez Studio <em>sur votre activité.</em>", "Rien ne part sans votre accord.", '<a class="btn ghost" href="' + STUDIO_SITE + '">Le site de Pixapop Studio</a>')}
 """
