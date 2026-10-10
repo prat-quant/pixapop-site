@@ -29,9 +29,16 @@ nom commercial Pixapop). En ligne sur https://www.pixapop.fr. Comment le constru
   Couleurs de l'agence distinctes du bleu de Nouveau Cap.
 - Les contenus restent visibles même sans animation (l'animation d'apparition ne masque un bloc que
   si le navigateur confirme qu'il est hors de l'écran).
-- Bloc Contact de l'accueil : **projet@pixapop.fr**, lien cliquable qui ouvre la messagerie avec
-  l'objet « Projet d'application ». Contact légal et support : **contact@pixapop.fr**.
-- Bas de page : seulement « © 2026 Pixapop » (le nom de Cyril reste dans les mentions légales,
+- Refonte du 10/10/2026 (validée par Cyril) : accueil raconté pour les solopreneurs. Haut de page : sur-titre
+  « Solopreneur », titre « Fini de courir après les clients. » puis « Ils viennent à vous. » seul sur sa ligne en italique
+  au dégradé, sous-titre « Avec Studio, votre marketing tourne en permanence. Vous faites votre métier, Studio fait le
+  reste. » (une ligne sur ordinateur). Bouton clair ou sombre ; thème sombre : pixels lumineux ; thème clair : formes
+  pastel qui respirent toutes les 6 secondes et notifications de Studio sur les côtés (option F). « Studio publie* » avec
+  renvoi en bas de page : publication sur les réseaux sociaux avec un compte Metricool relié. Tout texte passe par la
+  compétence `redaction-conversion` d'AIOS.
+- Contact : la page `/contact/` (boutons « Nous écrire » de l'accueil) ; **projet@pixapop.fr**, lien cliquable qui ouvre la
+  messagerie avec l'objet « Projet ». Contact légal et support : **contact@pixapop.fr**.
+- Bas de page : « © 2026 Pixapop » et la note Metricool en petit (le nom de Cyril reste dans les mentions légales,
   où la loi l'impose).
 - Mesure d'audience : Google Analytics (ID de mesure G-2SN8Q7DH7M, propriété « Pixapop » 557886464), décidé par Cyril le
   07/10/2026, **seulement après accord** du visiteur : `assets/consent.js` (même fichier que `web/consent.js` du dépôt
