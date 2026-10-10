@@ -190,7 +190,7 @@ HOME_FAQ = [
 
 
 def home():
-    pains = ["Je gère TOUT par moi-même.", "On est invisibles.", "Suis-je trop cher ?", "J’ai l’impression que je ne vais pas y arriver"]
+    pains = ["Je gère tout moi-même.", "J’ai l’impression d’être invisible pour mes prospects.", "Est-ce que je suis trop cher ?", "J’ai l’impression que je ne vais jamais y arriver."]
     pain_html = "".join(f'<article class="card pain rv" style="--d:{(k % 4) * 60}ms"><q>{esc(q)}</q></article>' for k, q in enumerate(pains))
     body = f"""
 <section class="hero"><div class="wrap center">
@@ -217,8 +217,8 @@ def home():
   <div class="head center rv"><h2>Puis le reste <em>est arrivé.</em></h2>
     <p class="lead">Le post du dimanche soir. Le devis tapé à 23 h. Le client parti chez le moins cher. Et votre métier attend.</p></div>
   <div class="grid g4 pains">{pain_html}</div>
-  <p class="note center rv" style="margin-top:14px">Phrases d’entrepreneurs relevées sur des forums.</p>
-  <p class="lead center rv" style="margin:34px auto 0">Le plan n’était pas mauvais. Il lui manquait quelqu’un pour le reste.</p>
+  <p class="note center rv" style="margin-top:14px">Ce qu’écrivent des entrepreneurs sur les forums.</p>
+  <p class="lead center rv" style="margin:34px auto 0">Le plan n’était pas mauvais. Il manquait juste un coup de main pour faire le reste.</p>
 </div></section>
 
 <section><div class="wrap narrow center">
