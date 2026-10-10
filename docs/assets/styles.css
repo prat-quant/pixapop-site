@@ -383,5 +383,8 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; margin-top: 40p
 @media (max-width: 1100px) { .px-chips { display: none; } }
 @media (prefers-reduced-motion: reduce) { .px-breath i { animation: none; } .px-chips span { animation: none; opacity: .9; } }
 
-/* Titre de l'accueil : deux ou trois lignes au plus, la fin en italique au dégradé comme les autres titres */
-h1.h1-accueil { font-size: clamp(26px, 4.1vw, 50px); line-height: 1.12; max-width: 1040px; margin-left: auto; margin-right: auto; }
+/* Titre de l'accueil (option A) : une phrase par ligne, la seconde en italique au dégradé, un peu plus grande */
+h1.h1-accueil { font-size: clamp(34px, 5vw, 64px); line-height: 1.06; text-wrap: balance; }
+h1.h1-accueil .h1-l { display: block; }
+h1.h1-accueil em { font-size: 1.1em; }
+.px-hero .lead { text-wrap: balance; max-width: 46ch; margin-left: auto; margin-right: auto; }
