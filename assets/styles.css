@@ -290,6 +290,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; margin-top: 40p
 .foot p { color: var(--muted); max-width: 34ch; }
 .linkish { background: none; border: 0; padding: 0; font: inherit; cursor: pointer; text-align: left; }
 .copy { margin-top: 28px; color: var(--muted); font-size: 13.5px; }
+.note-etoile { margin: 6px 0 0; color: var(--muted); font-size: 12px; opacity: .85; }
 @media (max-width: 760px) { .foot { grid-template-columns: 1fr 1fr; } .foot > div:first-child { grid-column: 1 / -1; } }
 
 /* Reveal on scroll : only blocks the browser confirms are below the screen start hidden. */

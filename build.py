@@ -115,6 +115,7 @@ def page(path, title, description, body, *, canonical=None, jsonld=None, noindex
       <a href="/nouveau-cap/confidentialite/">Confidentialité de Nouveau Cap</a><a href="/nouveau-cap/conditions/">Conditions de Nouveau Cap</a></div>
   </div>
   <p class="copy">© {YEAR} Pixapop</p>
+  <p class="note-etoile">* Publication sur les réseaux sociaux : nécessite un compte Metricool relié à Studio.</p>
 </div></footer>
 <script src="/assets/site.js" defer></script>
 <script src="/assets/consent.js" defer></script>
@@ -165,7 +166,7 @@ HOME_FAQ = [
     ("Faut-il savoir utiliser l’IA ?", "Non. Vous parlez de votre activité, Studio prépare le reste."),
     ("Est-ce que quelque chose part sans mon accord ?", "Non. Tout attend votre validation."),
     ("Combien de temps faut-il y passer ?", "Le temps de relire et de valider. La semaine ou le mois est prêt d’avance."),
-    ("ChatGPT ne fait-il pas déjà la même chose ?", "ChatGPT écrit un texte quand vous le lui demandez. Studio tient votre marketing à jour, publie et mesure."),
+    ("ChatGPT ne fait-il pas déjà la même chose ?", "ChatGPT écrit un texte quand vous le lui demandez. Studio tient votre marketing à jour, publie* et mesure."),
     ("Mes textes vont-ils ressembler à ceux de tout le monde ?", "Non. Studio écrit avec vos mots, et retient vos corrections."),
     ("Combien ça coûte ?", "Les tarifs seront annoncés le 9 novembre 2026, à l’ouverture de la bêta."),
     ("Où sont mes données ?", "En France, à Paris. Jamais revendues."),
@@ -217,7 +218,7 @@ def home():
   <ol class="steps">
     <li class="card rv"><h3>Vous racontez</h3><p>Votre activité, avec vos mots. Studio écrit votre stratégie : quoi dire, et à qui.</p></li>
     <li class="card rv" style="--d:70ms"><h3>Tout est prêt</h3><p>Chaque semaine, vos posts, articles, pages et e-mails sont prêts, avec vos mots.</p></li>
-    <li class="card rv" style="--d:140ms"><h3>Vous validez</h3><p>Studio publie à l’heure, puis vous montre ce qui a marché et quoi changer.</p></li>
+    <li class="card rv" style="--d:140ms"><h3>Vous validez</h3><p>Studio publie* à l’heure, puis vous montre ce qui a marché et quoi changer.</p></li>
   </ol>
   <p class="lead rv" style="margin-top:26px">Studio fait déjà le marketing de Pixapop et de l’application Nouveau Cap.</p>
   <div class="btns rv" style="margin-top:18px"><a class="btn ghost" href="/studio/">Voir Studio en huit écrans {ARROW}</a></div>
@@ -285,7 +286,7 @@ def studio():
         ("1-strategie", "Stratégie", "Vous savez quoi dire, et à qui.", "Racontez votre activité. Studio écrit votre stratégie.", "une direction claire."),
         (None, "Offres et prix", "Votre juste prix.", "Offre d’appel, offre principale, offre haute, comparées à votre marché. Forfait premium, en conception.", "vous ne vous bradez plus."),
         ("3-mois", "Un mois en un clic", "Fini la page blanche.", "Un clic, et votre mois de contenus est prêt, dans votre ton.", "des heures retrouvées."),
-        ("4-calendrier", "Calendrier éditorial", "Vous validez. Studio publie.", "Chaque contenu part à l’heure, même le samedi.", "une présence régulière."),
+        ("4-calendrier", "Calendrier éditorial", "Vous validez. Studio publie*.", "Chaque contenu part à l’heure, même le samedi.", "une présence régulière."),
         ("5-tunnels", "Pages et tunnels de vente", "Vos visiteurs deviennent des contacts.", "Une page, un formulaire, des e-mails : Studio crée tout.", "des contacts pendant que vous travaillez."),
         ("6-audit", "Audit Google et IA", "Vu par Google et par ChatGPT.", "Studio vérifie votre site et vous dit quoi corriger d’abord.", "vous savez par où commencer."),
         ("7-analytics", "Analytics", "Vous savez ce qui marche.", "Vos chiffres chaque semaine, et quoi changer. Vous acceptez, Studio applique.", "des décisions sur du concret."),
@@ -303,7 +304,7 @@ def studio():
 <section class="hero"><div class="wrap center">
   <p class="eyebrow rv">Pixapop Studio</p>
   <h1 class="rv" style="--d:60ms">Votre marketing tourne. <em>Vous validez.</em></h1>
-  <p class="lead rv" style="--d:120ms">Stratégie, posts, articles, pages, e-mails : prêts d’avance, publiés à l’heure, meilleurs chaque semaine.</p>
+  <p class="lead rv" style="--d:120ms">Stratégie, posts, articles, pages, e-mails : prêts d’avance, publiés* à l’heure, meilleurs chaque semaine.</p>
   <div class="btns rv" style="--d:180ms"><a class="btn primary" href="{TRY}">Essayer gratuitement {ARROW}</a><a class="btn ghost" href="#visite" data-tour-start>Lancer la visite</a></div>
   <p class="note rv" style="--d:220ms;margin-top:14px">Rien n’est publié sans votre accord. Bêta le lundi 9 novembre 2026.</p>
 </div></section>
