@@ -426,3 +426,9 @@ h1.h1-accueil em { font-size: 1.1em; }
 .villain-by { display: flex; flex-direction: column; align-items: center; gap: 2px; margin: 4px auto 0; text-align: center; }
 .villain-by b { font-weight: 600; color: var(--ink); font-size: 15px; }
 .villain-by span { font-size: 12.5px; }
+
+/* Titre en deux lignes : la phrase noire sur la première, la phrase au dégradé sur la seconde */
+h2.h2-lignes span, h2.h2-lignes em { display: block; }
+@media (min-width: 760px) { h2.h2-lignes span, h2.h2-lignes em { white-space: nowrap; } }
+/* Citation du maçon : deux ou trois lignes sur ordinateur */
+.villain { max-width: 52ch; font-size: clamp(18px, 2vw, 24px); }
