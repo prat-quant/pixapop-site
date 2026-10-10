@@ -157,7 +157,7 @@ def faq_block(items):
 def cta_band(title_html, lead, second=None):
     second = second or ('<a class="btn ghost" href="/contact/">Nous écrire</a>')
     return f"""<section><div class="wrap"><div class="cta-band rv">
-  <h2>{title_html}</h2><p class="lead">{esc(lead)}</p>
+  <h2>{title_html}</h2>{f'<p class="lead">{esc(lead)}</p>' if lead else ''}
   <div class="btns" style="justify-content:center"><a class="btn primary" href="{TRY}">Essayer gratuitement {ARROW}</a>{second}</div>
 </div></div></section>"""
 
@@ -256,7 +256,7 @@ def home():
   <div class="head center rv"><h2>Vos <em>questions</em></h2></div>
   <div class="faq rv">{faq_block(HOME_FAQ)}</div>
 </div></section>
-{cta_band("Le plan de départ <em>tient toujours.</em>", "Rien n’est publié sans votre accord.")}
+{cta_band("Le plan de départ <em>tient toujours.</em>", "")}
 """
     ld = {"@context": "https://schema.org", "@type": "Organization", "name": "Pixapop", "url": SITE, "email": EMAIL,
           "description": "Pixapop aide les entrepreneurs solo et les petites entreprises à trouver des clients et à vendre au bon prix : Pixapop Studio (marketing préparé, validé par vous), Pixapop Pilot (CRM et devis, à venir), sites et applications sur mesure.",
