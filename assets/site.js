@@ -123,3 +123,37 @@
   document.addEventListener('visibilitychange', function () { var was = running; running = !document.hidden; if (running && !was) frame(); });
   frame();
 })();
+// Light theme (Cyril, 10/10/2026 : the mosaic, « moins de carrés, laisse de l'espace ») : a few pastel squares on a grid, mostly
+// towards the edges, nothing behind the title, lighting up slowly in a wave like the Pixapop logo. The dark theme keeps the pixels.
+(function () {
+  'use strict';
+  var root = document.documentElement, hero = document.querySelector('.px-hero');
+  if (!hero) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var c = document.createElement('canvas'); c.className = 'px-mosaic'; c.setAttribute('aria-hidden', 'true');
+  hero.insertBefore(c, hero.firstChild);
+  var x = c.getContext('2d'), dpr = Math.min(2, window.devicePixelRatio || 1), w = 0, h = 0, cells = [], running = true;
+  var cols = ['#FF4F8B', '#8B6CFF', '#F2A541', '#2BB5A0', '#5B8DEF', '#FFC43A'], S = 18, G = 14;
+  function size() {
+    var r = c.getBoundingClientRect(); w = r.width; h = r.height; c.width = w * dpr; c.height = h * dpr; x.setTransform(dpr, 0, 0, dpr, 0, 0); cells = [];
+    var cx = w / 2, cy = Math.min(h, 640) * 0.42;
+    for (var yy = 10; yy < Math.min(h, 760); yy += S + G) for (var xx = 10; xx < w; xx += S + G) {
+      var d = Math.hypot((xx - cx) / (w * 0.5), (yy - cy) / 380);
+      if (d < 0.62 || Math.random() > 0.16 * Math.min(1, (d - 0.55) * 2.2)) continue;
+      cells.push({ x: xx, y: yy, c: cols[(Math.random() * cols.length) | 0], p: Math.random() * 6.28, d: d });
+    }
+  }
+  function frame(t) {
+    if (!running) return;
+    x.clearRect(0, 0, w, h);
+    if (root.getAttribute('data-theme') !== 'dark') cells.forEach(function (k) {
+      var wave = Math.max(0, Math.sin((t || 0) / 1300 - k.d * 4 + k.p * 0.3)), a = 0.10 + 0.32 * Math.pow(wave, 3);
+      x.globalAlpha = a; x.fillStyle = k.c; x.beginPath(); if (x.roundRect) x.roundRect(k.x, k.y, S, S, 5); else x.rect(k.x, k.y, S, S); x.fill();
+    });
+    x.globalAlpha = 1;
+    if (!reduce) requestAnimationFrame(frame);
+  }
+  size(); addEventListener('resize', size);
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { var was = running; running = e[0].isIntersecting; if (running && !was) requestAnimationFrame(frame); }).observe(c);
+  requestAnimationFrame(frame);
+})();

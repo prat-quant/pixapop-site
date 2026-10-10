@@ -352,3 +352,10 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; margin-top: 40p
 }
 /* Light theme : no pixels and no glow behind the title (Cyril, 10/10/2026 : « pas joli en thème clair »), they stay in the dark theme. */
 :root:not([data-theme="dark"]) .px-field, :root:not([data-theme="dark"]) .px-hero::before { display: none; }
+/* Light theme glow (Cyril, 10/10/2026 : « une autre lueur, d'autres couleurs de la charte, pour que ce ne soit pas plat ») :
+   the pastel washes of the app (lavender, ice blue, peach, pale pink), large and soft, breathing slowly behind the title. */
+:root:not([data-theme="dark"]) .px-hero::before { display: block; top: -6%; width: min(1100px, 130vw); height: 600px; opacity: 1; filter: blur(50px);
+  background: radial-gradient(closest-side at 30% 45%, #E3DBFF, transparent 72%), radial-gradient(closest-side at 72% 38%, #D6E9FF, transparent 72%),
+    radial-gradient(closest-side at 55% 70%, #FFE1EC, transparent 70%), radial-gradient(closest-side at 18% 75%, #FFEBD3, transparent 70%); }
+.px-mosaic { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+:root[data-theme="dark"] .px-mosaic { display: none; }
