@@ -278,7 +278,7 @@ def home():
   <div class="head center rv"><h2>Vos <em>questions</em></h2></div>
   <div class="faq rv">{faq_block(HOME_FAQ)}</div>
 </div></section>
-{cta_band("<span class=\"cta-l\">Vivre de votre métier, c’était le plan.</span> <em>Cette fois, c’est la bonne.</em>", "", try_label="Essayer Pixapop Studio gratuitement")}
+{cta_band("<span class=\"cta-l\">Vivre de votre métier, c’était le plan.</span> <em>Le reste, c’est notre métier.</em>", "", try_label="Essayer Pixapop Studio gratuitement")}
 """
     ld = {"@context": "https://schema.org", "@type": "Organization", "name": "Pixapop", "url": SITE, "email": EMAIL,
           "description": "Pixapop aide les entrepreneurs solo et les petites entreprises à trouver des clients et à vendre au bon prix : Pixapop Studio (marketing préparé, validé par vous), Pixapop Pilot (CRM et devis, à venir), sites et applications sur mesure.",
