@@ -448,3 +448,9 @@ h2.h2-2l span, h2.h2-2l em { display: block; }
 
 /* La phrase sous la citation : même largeur que la citation, première ligne pleine */
 .villain-after { max-width: 760px; text-wrap: pretty; margin-top: 34px; }
+
+/* Section Pixapop Studio : la phrase au dégradé sur une ligne, trois cartes sur toute la largeur, bien espacées */
+@media (min-width: 760px) { h2.h2-1l em { white-space: nowrap; } }
+.steps.steps-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.steps.steps-3 li { padding: 28px; }
+@media (max-width: 860px) { .steps.steps-3 { grid-template-columns: 1fr; gap: 16px; } }
