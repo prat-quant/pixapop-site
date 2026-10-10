@@ -225,7 +225,7 @@ def home():
   <h2 class="rv h2-lignes"><span>Le reste n’est pas votre métier.</span> <em>Il prend pourtant vos soirées.</em></h2>
   <blockquote class="villain rv">« J’ai créé ma boîte par amour du métier. Et j’ai découvert que, dans le bâtiment, ce n’est pas le travail bien fait qui gagne. C’est le devis le moins cher. »</blockquote>
   <p class="note center rv villain-by"><b>Julien, maçon</b><span>Sur le forum Entreprendre en France</span></p>
-  <p class="rv villain-after">Le client ne choisit pas le meilleur artisan. <b>Il choisit celui qu’il a vu.</b></p>
+  <p class="rv villain-after">Le client ne choisit pas le meilleur artisan. <b>Il choisit celui en qui il a confiance.</b></p>
 </div></section>
 
 <section class="alt"><div class="wrap story">
