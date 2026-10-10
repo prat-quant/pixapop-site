@@ -179,7 +179,7 @@ def home():
     body = f"""
 <section class="hero"><div class="wrap center">
   <p class="eyebrow rv">Solopreneur</p>
-  <h1 class="rv h1-accueil" style="--d:60ms">Vous vous êtes lancé pour faire votre métier. <span class="h1-l2">Pas pour courir après les clients.</span></h1>
+  <h1 class="rv h1-accueil" style="--d:60ms">Vous vous êtes lancé pour faire votre métier. <em>Pas pour courir après les clients.</em></h1>
   <p class="lead rv" style="--d:120ms">C’était votre plan. Il tient toujours. Avec Studio, votre marketing tourne pendant que vous travaillez. Vous validez, c’est tout.</p>
   <div class="btns rv" style="--d:180ms"><a class="btn primary" href="{TRY}">Essayer Studio gratuitement {ARROW}</a><a class="btn ghost" href="/studio/">Voir Studio en huit écrans</a></div>
   <p class="note rv" style="--d:210ms;margin-top:14px">Bêta le lundi 9 novembre 2026.</p>
