@@ -248,8 +248,8 @@ def home():
 </div></section>
 
 <section class="alt"><div class="wrap">
-  <div class="grid g2 cards-liens">
-    <article class="card rv"><span class="tag soon">Pixapop Pilot, bientôt</span><h3 style="margin-top:12px">Ensuite, vos clients et vos devis.</h3>
+  <div style="--rows:4" class="grid aligne g2 cards-liens">
+    <article class="card rv"><span class="tag soon">Pixapop Pilot, bientôt</span><h3>Ensuite, vos clients et vos devis.</h3>
       <p>Chaque contact arrive avec son histoire. Après le rendez-vous, son devis est prêt, à partir de vos tarifs. Jamais un prix inventé.</p>
       <a class="more" href="/pilot/">Être prévenu à l’ouverture de Pilot {ARROW}</a></article>
     <article class="card rv" style="--d:80ms"><div class="ico i4">{icon("site")}</div><h3>Votre site ramène des demandes.</h3>
@@ -265,13 +265,13 @@ def home():
 </div></section>
 
 <section class="alt"><div class="wrap">
-  <div class="grid g4">
+  <div style="--rows:3" class="grid aligne g4">
     <article class="card rv"><div class="ico i1">{icon("shield")}</div><h3>Rien ne part sans votre accord</h3><p>Tout attend votre validation.</p></article>
     <article class="card rv" style="--d:60ms"><div class="ico i2">{icon("chat")}</div><h3>Avec vos mots</h3><p>Studio écrit comme vous et retient vos corrections.</p></article>
     <article class="card rv" style="--d:120ms"><div class="ico i3">{icon("clock")}</div><h3>Aucune compétence en IA</h3><p>Vous parlez de votre activité, Studio prépare le reste.</p></article>
     <article class="card rv" style="--d:180ms"><div class="ico i4">{icon("heart")}</div><h3>Vos données en France</h3><p>À Paris. Jamais revendues.</p></article>
   </div>
-  <p class="note center rv" style="margin-top:22px">Seul au marketing dans une équipe de quinze ? <a href="/contact/">Parlons-en</a>.</p>
+  <p class="note center rv" style="margin-top:22px">Seul au marketing dans une équipe de quinze personnes ? <a href="/contact/">Parlons-en</a>.</p>
 </div></section>
 
 <section><div class="wrap narrow">
@@ -471,7 +471,7 @@ def a_propos():
 
 <section><div class="wrap">
   <div class="head center rv"><h2>Nos <em>règles</em></h2></div>
-  <div class="grid g4">
+  <div style="--rows:3" class="grid aligne g4">
     <article class="card rv"><div class="ico i2">{icon("clock")}</div><h3>Simple</h3><p>Vous validez. C’est tout.</p></article>
     <article class="card rv" style="--d:70ms"><div class="ico i1">{icon("heart")}</div><h3>Transparent</h3><p>Rien ne part sans votre accord.</p></article>
     <article class="card rv" style="--d:140ms"><div class="ico i3">{icon("shield")}</div><h3>Vos données chez vous</h3><p>En France. Jamais revendues.</p></article>
@@ -493,7 +493,7 @@ def contact():
   <p class="lead rv" style="--d:120ms">Une vraie personne vous répond.</p>
 </div></section>
 <section style="padding-top:0"><div class="wrap">
-  <div class="grid g2">
+  <div style="--rows:4" class="grid aligne g2">
     <article class="card rv"><div class="ico i2">{icon("site")}</div><h3>Un projet de site ou d’application</h3>
       <p>Votre métier, vos clients, votre idée.</p>
       <p class="mail" style="margin-top:16px"><a href="mailto:{PROJECT_EMAIL}?subject=Projet">{PROJECT_EMAIL}</a></p></article>
@@ -535,7 +535,7 @@ def nouveau_cap():
 
 <section><div class="wrap">
   <div class="head rv"><p class="eyebrow">Offres</p><h2>Simple, <em>sans engagement.</em></h2><p class="lead">Résiliable à tout moment dans Google Play.</p></div>
-  <div class="grid g4">
+  <div style="--rows:3" class="grid aligne g4">
     <article class="card plan rv"><h3>Gratuit</h3><p class="price">0 €</p><p>Faire le point par vous-même, sans IA : runway, comparateur de pistes, plan de départ, exemples de ce que fait le Copilote.</p></article>
     <article class="card plan rv" style="--d:70ms"><h3>Pilote</h3><p class="price">{esc(p['pilote'])} <small>/ mois</small></p><p>La méthode guidée pour avancer chaque semaine : plan de 90 jours, fiches, tests de pistes, Mon CV, le Copilote IA (10 messages par jour).</p></article>
     <article class="card plan best rv" style="--d:140ms"><h3>Premium</h3><p class="price">{esc(p['premium'])} <small>/ mois</small></p><p>Le suivi rapproché : bilan toutes les deux semaines, Copilote et fonctions IA sans limite, Créer son CV inclus. {p['trialDays']} jours d’essai gratuit pour un premier abonnement.</p></article>

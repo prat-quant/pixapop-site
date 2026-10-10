@@ -458,3 +458,10 @@ h2.h2-2l span, h2.h2-2l em { display: block; }
 /* Cartes Pilot et site : liens alignés en bas de chaque carte */
 .cards-liens .card { display: flex; flex-direction: column; align-items: flex-start; }
 .cards-liens .card .more { margin-top: auto; padding-top: 14px; }
+
+/* Cartes alignées (règle de Cyril, 10/10, pour toutes les cartes) : icônes, titres, textes et liens sur les mêmes lignes
+   d'une carte à l'autre, grâce à une sous-grille ; --rows = nombre de blocs dans chaque carte */
+.grid.aligne > .card { display: grid; grid-template-rows: subgrid; grid-row: span var(--rows, 3); row-gap: 0; align-content: start; }
+.grid.aligne > .card > h3 { align-self: start; }
+.grid.aligne > .card > .more { align-self: end; }
+.grid.aligne > .card > .tag, .grid.aligne > .card > .ico { align-self: start; margin-bottom: 16px; }
