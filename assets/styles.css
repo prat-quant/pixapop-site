@@ -439,3 +439,12 @@ h2.h2-lignes span, h2.h2-lignes em { display: block; }
 /* Les quatre cartes « Puis le reste est arrivé » : police simple du site, texte centré dans chaque carte (Cyril, 10/10) */
 .grid.g4.pains .card.pain { display: flex; align-items: center; justify-content: center; text-align: center; }
 .grid.g4.pains .card.pain q { font-family: inherit; font-style: normal; font-weight: 500; font-size: 18px; line-height: 1.45; letter-spacing: -.01em; color: var(--ink); text-wrap: balance; }
+h2.h2-2l span, h2.h2-2l em { display: block; }
+
+/* Bouton « Voir Studio en huit écrans » mis en avant : dégradé, lueur qui respire doucement */
+.btn-glow { position: relative; padding: 15px 26px; font-size: 16px; box-shadow: 0 14px 34px -12px rgba(224, 85, 154, .7); animation: px-glow 3.2s ease-in-out infinite; }
+@keyframes px-glow { 0%, 100% { box-shadow: 0 14px 34px -12px rgba(224, 85, 154, .55); } 50% { box-shadow: 0 16px 44px -8px rgba(224, 85, 154, .85), 0 0 0 6px rgba(242, 165, 65, .14); } }
+@media (prefers-reduced-motion: reduce) { .btn-glow { animation: none; } }
+
+/* La phrase sous la citation : même largeur que la citation, première ligne pleine */
+.villain-after { max-width: 760px; text-wrap: pretty; margin-top: 34px; }

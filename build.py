@@ -226,7 +226,7 @@ def home():
   <blockquote class="villain rv">« Google Ads, référencement, flyers, réseaux sociaux, plateformes, démarchage… J’ai tout testé. Résultat : proche du zéro. »</blockquote>
   <p class="note center rv villain-by"><b>Julien, maçon</b><span>Sur le forum Entreprendre en France</span></p>
   <p class="rv villain-after">Un professionnel ne doit pas perdre son temps à trouver des clients. <b>C’est pourquoi Pixapop s’en occupe pour lui.</b></p>
-  <div class="btns rv" style="justify-content:center;margin-top:20px"><a class="btn primary" href="{TRY}">Essayer Pixapop Studio gratuitement {ARROW}</a></div>
+  <div class="btns rv" style="justify-content:center;margin-top:36px"><a class="btn primary" href="{TRY}">Essayer Pixapop Studio gratuitement {ARROW}</a></div>
 </div></section>
 
 <section class="alt"><div class="wrap story">
@@ -237,15 +237,14 @@ def home():
 </div></section>
 
 <section><div class="wrap">
-  <div class="head rv"><span class="tag beta">Bêta le 9 novembre 2026</span><h2 style="margin-top:14px">Voilà Pixapop Studio. <em>Votre marketing, prêt avant vous.</em></h2></div>
-  <ol class="steps">
+  <div class="head rv"><span class="tag beta">Bêta le 9 novembre 2026</span><h2 class="h2-2l" style="margin-top:14px"><span>Pixapop Studio</span> <em>Votre marketing tournant en permanence sans vous.</em></h2></div>
+  <ol class="steps" style="margin-top:40px">
     <li class="card rv"><h3>Vous racontez</h3><p>Votre activité, avec vos mots. Studio écrit votre stratégie : quoi dire, et à qui.</p></li>
     <li class="card rv" style="--d:70ms"><h3>Tout est prêt</h3><p>Chaque semaine, vos posts, articles, pages et e-mails sont prêts, avec vos mots.</p></li>
     <li class="card rv" style="--d:140ms"><h3>Vous validez</h3><p>Studio publie* à l’heure, puis vous montre ce qui a marché et quoi changer.</p></li>
   </ol>
-  <p class="lead rv" style="margin-top:26px">Studio fait déjà le marketing de Pixapop et de l’application Nouveau Cap.</p>
-  <div class="btns rv" style="margin-top:18px"><a class="btn ghost" href="/studio/">Voir Studio en huit écrans {ARROW}</a></div>
-  <p class="relance rv">Et ce n’est que le premier outil.</p>
+  <p class="lead rv" style="margin-top:48px">Studio fait déjà le marketing de Pixapop et de l’application Nouveau Cap.</p>
+  <div class="btns rv" style="margin-top:24px"><a class="btn primary btn-glow" href="/studio/">Voir Studio en huit écrans {ARROW}</a></div>
 </div></section>
 
 <section class="alt"><div class="wrap">
