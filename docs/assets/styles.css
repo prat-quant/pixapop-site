@@ -359,3 +359,6 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; margin-top: 40p
     radial-gradient(closest-side at 55% 70%, #FFE1EC, transparent 70%), radial-gradient(closest-side at 18% 75%, #FFEBD3, transparent 70%); }
 .px-mosaic { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
 :root[data-theme="dark"] .px-mosaic { display: none; }
+/* The hero animations fade out gently towards the bottom, never a hard edge when scrolling (Cyril, 10/10/2026). */
+.px-mosaic, .px-field { -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 92%); mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 92%); }
+.px-hero::before { -webkit-mask-image: radial-gradient(closest-side, #000 55%, transparent 100%); mask-image: radial-gradient(closest-side, #000 55%, transparent 100%); }
