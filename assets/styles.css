@@ -465,3 +465,5 @@ h2.h2-2l span, h2.h2-2l em { display: block; }
 .grid.aligne > .card > h3 { align-self: start; }
 .grid.aligne > .card > .more { align-self: end; }
 .grid.aligne > .card > .tag, .grid.aligne > .card > .ico { align-self: start; margin-bottom: 16px; }
+.cta-band h2 .cta-l, .cta-band h2 em { display: block; }
+@media (max-width: 520px) { .cta-band .btns { flex-direction: column; align-items: stretch; } .cta-band .btns .btn { white-space: normal; text-align: center; justify-content: center; } }

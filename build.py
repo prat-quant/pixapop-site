@@ -170,11 +170,11 @@ def faq_block(items):
     return "".join(f"<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>" for q, a in items)
 
 
-def cta_band(title_html, lead, second=None):
+def cta_band(title_html, lead, second=None, try_label="Essayer gratuitement"):
     second = second or ('<a class="btn ghost" href="/contact/">Nous écrire</a>')
     return f"""<section><div class="wrap"><div class="cta-band rv">
   <h2>{title_html}</h2>{f'<p class="lead">{esc(lead)}</p>' if lead else ''}
-  <div class="btns" style="justify-content:center"><a class="btn primary" href="{TRY}">Essayer gratuitement {ARROW}</a>{second}</div>
+  <div class="btns" style="justify-content:center"><a class="btn primary" href="{TRY}">{try_label} {ARROW}</a>{second}</div>
 </div></div></section>"""
 
 
@@ -259,7 +259,7 @@ def home():
 </div></section>
 
 <section><div class="wrap narrow center">
-  <h2 class="rv">Lundi, 8 h. <em>Votre semaine est prête.</em></h2>
+  <h2 class="rv">Lundi, 10 h. <em>Votre marketing est terminé.</em></h2>
   <p class="lead rv">Vous validez. Vous retournez à votre métier.</p>
   <p class="note rv" style="margin-top:22px">Sans ça, le meilleur du métier reste celui qu’on ne trouve pas. Et le devis le moins cher continue de gagner.</p>
 </div></section>
@@ -278,7 +278,7 @@ def home():
   <div class="head center rv"><h2>Vos <em>questions</em></h2></div>
   <div class="faq rv">{faq_block(HOME_FAQ)}</div>
 </div></section>
-{cta_band("Le plan de départ <em>tient toujours.</em>", "")}
+{cta_band("<span class=\"cta-l\">Votre plan de départ : vivre de votre activité.</span> <em>Il tient toujours.</em>", "", try_label="Essayer Pixapop Studio gratuitement")}
 """
     ld = {"@context": "https://schema.org", "@type": "Organization", "name": "Pixapop", "url": SITE, "email": EMAIL,
           "description": "Pixapop aide les entrepreneurs solo et les petites entreprises à trouver des clients et à vendre au bon prix : Pixapop Studio (marketing préparé, validé par vous), Pixapop Pilot (CRM et devis, à venir), sites et applications sur mesure.",
