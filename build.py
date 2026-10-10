@@ -164,7 +164,7 @@ def cta_band(title_html, lead, second=None):
 HOME_FAQ = [
     ("Faut-il savoir utiliser l’intelligence artificielle ?", "Non. Vous parlez de votre activité avec vos mots, Studio prépare le reste. Votre seul geste : relire et valider."),
     ("Est-ce que quelque chose part sans mon accord ?", "Non. Chaque post, article ou e-mail attend votre validation. Si vous le souhaitez, vous pouvez laisser un type de contenu partir seul, et revenir en arrière quand vous voulez."),
-    ("Combien de temps faut-il par jour ?", "Environ 20 minutes. L’écran Aujourd’hui range vos actions du jour dans ce temps, les plus utiles d’abord ; le reste attend le lendemain."),
+    ("Combien de temps faut-il y passer ?", "Le temps de relire et de valider. Studio prépare la semaine ou le mois d’avance ; vous validez quand vous voulez, en une fois ou au fil des jours."),
     ("ChatGPT ne fait-il pas déjà la même chose ?", "ChatGPT écrit ce que vous lui demandez, une fois. Studio garde votre stratégie, votre ton et vos résultats, prépare le mois entier, publie à l’heure prévue et mesure ce qui marche. Vous pouvez aussi relier votre propre IA à Studio."),
     ("Mes textes vont-ils ressembler à ceux de tout le monde ?", "Studio écrit d’après la fiche de votre entreprise : votre métier, vos clients, vos mots, et ce que vous ne voulez jamais lire. Ce qui ne vous ressemble pas, vous le corrigez avant de valider, et Studio s’en souvient pour la suite."),
     ("Combien ça coûte ?", "Les tarifs de Pixapop Studio seront annoncés à l’ouverture de la bêta, le lundi 9 novembre 2026."),
@@ -175,7 +175,7 @@ HOME_FAQ = [
 def home():
     pains = [
         ("On est invisibles.", "Studio écrit vos posts et les articles de votre blog, et vérifie votre fiche Google en huit points. Votre entreprise se montre chaque semaine, là où vos clients cherchent."),
-        ("Je gère TOUT par moi-même.", "Studio prépare le mois entier en un clic, d’après votre stratégie. Votre part : relire et valider, environ 20 minutes par jour."),
+        ("Je gère TOUT par moi-même.", "Studio prépare le mois entier en un clic, d’après votre stratégie. Votre part : relire et valider."),
         ("Suis-je trop cher ?", "Dans votre stratégie, Studio donne son avis sur vos prix, comparés à votre marché. Pilot, à venir, préparera vos devis à partir de votre grille."),
         ("c’est pas le travail bien fait qui gagne, mais le devis le moins cher.", "Vos contenus montrent ce que vous faites mieux : vos réalisations, vos avis, votre méthode. Vos clients ont d’autres raisons de vous choisir que le prix."),
         ("Du trafic, mais aucune conversion.", "Studio crée vos pages et vos tunnels de vente : une page claire, un formulaire, une suite d’e-mails. Le visiteur laisse ses coordonnées et reçoit la suite."),
@@ -191,10 +191,9 @@ def home():
     sol_html = "".join(f'<article class="card lift rv" style="--d:{k * 70}ms"><div class="ico {c}">{icon(i)}</div><h3>{esc(n)}</h3>{t}<p style="margin-top:10px">{esc(d)}</p><a class="more" href="{u}">{esc(l)} {ARROW}</a></article>' for k, (i, c, n, t, d, u, l) in enumerate(sols))
     body = f"""
 <section class="hero"><div class="wrap center">
-  <p class="eyebrow rv">Pour les entrepreneurs solo et les petites entreprises</p>
-  <h1 class="rv" style="--d:60ms">Trouvez vos prochains clients <em>sans y passer vos soirées.</em></h1>
-  <p class="lead rv" style="--d:120ms">Chaque matin, Pixapop Studio prépare votre marketing du jour d’après votre métier : un post, un article, une page, un e-mail. Vous relisez, vous corrigez ce qui ne vous ressemble pas, vous validez. Comptez environ 20 minutes.</p>
-  <p class="relief rv" style="--d:150ms">Le soir, vous fermez l’ordinateur l’esprit léger : votre entreprise se voit, ceux qui vous cherchent vous trouvent sur Google et sur les réseaux, et les demandes peuvent arriver.</p>
+  <p class="eyebrow rv">Pour les solopreneurs</p>
+  <h1 class="rv" style="--d:60ms">Maintenant, vous savez <em>comment trouver vos clients.</em></h1>
+  <p class="lead rv" style="--d:120ms">Votre marketing est toujours à jour : vos posts, vos articles, vos pages, vos e-mails, vos réseaux. Le système tourne pour vous. Vous relisez, vous corrigez et vous validez. Rien de plus à faire.</p>
   <div class="btns rv" style="--d:180ms"><a class="btn primary" href="{TRY}">Essayer gratuitement {ARROW}</a><a class="btn ghost" href="/studio/">Voir Studio écran par écran</a></div>
   <p class="note rv" style="--d:210ms;margin-top:14px">Rien n’est publié sans votre accord. Bêta ouverte le lundi 9 novembre 2026.</p>
   <div class="hero-shot rv" style="--d:240ms">
@@ -248,12 +247,12 @@ def home():
 </div></section>
 
 <section class="alt"><div class="wrap">
-  <div class="head rv"><p class="eyebrow">Une semaine avec Studio</p><h2>Vous validez, <em>Studio publie.</em></h2></div>
+  <div class="head rv"><p class="eyebrow">Comment ça tourne</p><h2>Vous validez, <em>Studio publie.</em></h2></div>
   <div class="week rv">
-    <div><b>Lundi</b><p>Studio a préparé la semaine. Vous relisez, vous corrigez, vous validez.</p></div>
-    <div><b>Du mardi au vendredi</b><p>Vos posts, articles et e-mails partent à l’heure prévue, pendant que vous êtes avec vos clients.</p></div>
+    <div><b>Une fois</b><p>Studio a préparé la semaine ou le mois. Vous relisez, vous corrigez, vous validez.</p></div>
+    <div><b>Ensuite</b><p>Vos posts, articles et e-mails partent à l’heure prévue, pendant que vous êtes avec vos clients.</p></div>
     <div><b>Le week-end</b><p>Ce qui est prévu le samedi part le samedi. Vous, vous êtes en week-end.</p></div>
-    <div><b>Le lundi suivant</b><p>Le bilan de la semaine arrive : vos chiffres, et ce que Studio propose de changer.</p></div>
+    <div><b>Chaque semaine</b><p>Le bilan arrive : vos chiffres, et ce que Studio propose de changer.</p></div>
   </div>
 </div></section>
 
@@ -267,14 +266,14 @@ def home():
   <div class="head center rv"><h2>Vos <em>questions</em></h2></div>
   <div class="faq rv">{faq_block(HOME_FAQ)}</div>
 </div></section>
-{cta_band("Votre marketing du jour, <em>prêt demain matin.</em>", "Dites à Studio ce que vous faites : il prépare votre stratégie et vos premiers contenus. Rien ne part sans votre accord.")}
+{cta_band("Votre marketing du mois, <em>prêt d’avance.</em>", "Dites à Studio ce que vous faites : il prépare votre stratégie et votre premier mois de contenus. Rien ne part sans votre accord.")}
 """
     ld = {"@context": "https://schema.org", "@type": "Organization", "name": "Pixapop", "url": SITE, "email": EMAIL,
           "description": "Pixapop aide les entrepreneurs solo et les petites entreprises à trouver des clients et à vendre au bon prix : Pixapop Studio (marketing préparé, validé par vous), Pixapop Pilot (CRM et devis, à venir), sites et applications sur mesure.",
           "logo": SITE + "/favicon.svg", "sameAs": [YOUTUBE], "legalName": f"{PUB['name']}, entrepreneur individuel",
           "address": {"@type": "PostalAddress", "streetAddress": "4775 RD 2085", "postalCode": "06330", "addressLocality": "Roquefort-les-Pins", "addressCountry": "FR"}}
     return page("/", "Pixapop · Trouver des clients quand on travaille seul",
-                "Pixapop Studio prépare chaque matin votre marketing (posts, articles, pages, e-mails) d’après votre métier. Vous validez en 20 minutes environ. Pour les entrepreneurs solo et les petites entreprises.",
+                "Avec Pixapop Studio, votre marketing est toujours à jour : posts, articles, pages, e-mails et réseaux préparés d’avance d’après votre métier. Vous relisez et vous validez. Pour les solopreneurs et les petites entreprises.",
                 body, jsonld=ld)
 
 
@@ -301,7 +300,7 @@ def studio():
         ("5-tunnels", "Pages et tunnels de vente", "Les visiteurs laissent leurs coordonnées", "Studio crée la page, le formulaire et la suite d’e-mails. Le visiteur s’inscrit (avec son accord), reçoit vos e-mails aux bonnes dates et arrive dans vos contacts.", "des contacts qui s’ajoutent pendant que vous travaillez."),
         ("6-audit", "Audit Google et IA", "Votre site, vu par Google et par ChatGPT", "Collez l’adresse de votre site : Studio relève ce qui gêne Google, teste si les IA vous citent, et vous dit quoi corriger en premier.", "vous savez quoi corriger, et dans quel ordre."),
         ("7-analytics", "Analytics", "Chaque semaine, quoi changer", "Studio relève vos chiffres, explique ce qui marche et propose des changements : un sujet à creuser, une page à refaire, un test à lancer. Vous acceptez, il applique.", "des décisions prises sur des chiffres."),
-        ("8-aujourdhui", "Votre journée", "Chaque matin, environ 20 minutes", "L’écran Aujourd’hui range les actions du jour dans environ 20 minutes, les plus utiles d’abord, avec le temps que prend chacune.", "le reste de la journée pour vos clients."),
+        ("8-aujourdhui", "Ce qui attend votre accord", "Tout au même endroit", "L’écran Aujourd’hui montre ce qui attend votre validation et le temps que prend chaque action. Vous validez quand vous voulez, la semaine ou le mois d’un coup.", "votre temps pour vos clients."),
     ]
     html_steps = ""
     for k, (img, kick, title, text, gain) in enumerate(steps):
@@ -461,7 +460,7 @@ def a_propos():
 <section><div class="wrap">
   <div class="head center rv"><h2>Nos <em>règles</em></h2></div>
   <div class="grid g4">
-    <article class="card rv"><div class="ico i2">{icon("clock")}</div><h3>Simple</h3><p>Environ 20 minutes par jour, sans jargon ni formation à suivre.</p></article>
+    <article class="card rv"><div class="ico i2">{icon("clock")}</div><h3>Simple</h3><p>Votre marketing préparé d’avance ; vous relisez et vous validez, sans jargon ni formation à suivre.</p></article>
     <article class="card rv" style="--d:70ms"><div class="ico i1">{icon("heart")}</div><h3>Transparent</h3><p>Rien ne part sans votre accord, et chaque proposition dit pourquoi.</p></article>
     <article class="card rv" style="--d:140ms"><div class="ico i3">{icon("shield")}</div><h3>Vos données chez vous</h3><p>Hébergées en France, séparées de celles des autres, jamais revendues.</p></article>
     <article class="card rv" style="--d:210ms"><div class="ico i4">{icon("target")}</div><h3>Utile</h3><p>Chaque fonction doit vous aider à trouver des clients ou à vendre au bon prix.</p></article>
