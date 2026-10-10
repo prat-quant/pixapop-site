@@ -400,3 +400,23 @@ h1.h1-accueil em { font-size: 1.1em; }
 .float.rot.r2 { animation-delay: 6s; } .float.rot.r3 { animation-delay: 12s; } .float.rot.r4 { animation-delay: 18s; } .float.rot.r5 { animation-delay: 24s; } .float.rot.r6 { animation-delay: 30s; } .float.rot.r7 { animation-delay: 36s; }
 @keyframes px-rot { 0% { opacity: 0; transform: translateY(12px); } 2.4%, 11.4% { opacity: 1; transform: none; } 14.2%, 100% { opacity: 0; transform: translateY(-8px); } }
 @media (prefers-reduced-motion: reduce) { .float.rot { animation: none; } .float.rot.r1 { opacity: 1; } }
+
+/* Captures de Nouveau Cap en jeu de cartes (thème clair de l'app) : éventail, la carte du centre au-dessus ; au survol, l'éventail s'ouvre */
+.deck { position: relative; display: flex; justify-content: center; align-items: center; height: clamp(380px, 44vw, 560px); }
+.deck .dk { position: absolute; margin: 0; width: clamp(168px, 19vw, 250px); aspect-ratio: 540 / 960; border-radius: 22px; overflow: hidden; background: #fff;
+  border: 1px solid var(--line); box-shadow: 0 24px 48px -26px rgba(30, 32, 90, .45), 0 4px 12px -6px rgba(30, 32, 90, .2);
+  translate: calc(var(--o) * 56%) calc(var(--a) * 5%); rotate: calc(var(--o) * 5deg); z-index: calc(20 - var(--a) * 2);
+  transition: translate .6s cubic-bezier(.2, .7, .2, 1), rotate .6s cubic-bezier(.2, .7, .2, 1), scale .3s ease; }
+.deck .dk img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.deck:hover .dk { translate: calc(var(--o) * 74%) calc(var(--a) * 3%); rotate: calc(var(--o) * 3deg); }
+.deck .dk:hover { scale: 1.05; z-index: 40; }
+.deck-side .deck { height: clamp(360px, 36vw, 480px); }
+.deck-side .deck .dk { width: clamp(140px, 13vw, 190px); translate: calc(var(--o) * 40%) calc(var(--a) * 5%); }
+.deck-side .deck:hover .dk { translate: calc(var(--o) * 52%) calc(var(--a) * 3%); }
+.deck-side { min-width: 0; overflow: visible; }
+@media (max-width: 760px) {
+  .deck, .deck-side .deck { height: auto; justify-content: flex-start; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 8px 16px 18px; margin: 0 -16px; }
+  .deck .dk, .deck-side .deck .dk { position: relative; flex: none; width: 62vw; max-width: 240px; translate: none; rotate: none; scroll-snap-align: center; }
+  .deck:hover .dk { translate: none; rotate: none; }
+}
+@media (prefers-reduced-motion: reduce) { .deck .dk { transition: none; } }

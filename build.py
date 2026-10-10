@@ -146,6 +146,22 @@ def shot(src, alt, eager=False):
             f'<img src="/assets/visite/{src}.jpg" alt="{esc(alt)}" width="1440" height="900" loading="{"eager" if eager else "lazy"}" decoding="async"></div>')
 
 
+STORE = [("01_home", "Un copilote pour votre reconversion : l’accueil de Nouveau Cap"), ("02_financer", "Financez votre reconversion : le calendrier des démarches"),
+         ("03_idees", "Des idées de métier pour vous, proposées par le Copilote"), ("04_finances", "Sachez combien de temps vous pouvez tenir : le runway"),
+         ("05_pistes", "Comparez vos pistes de métier"), ("06_cv", "Un CV qui parle votre nouveau métier : le score et les critères"),
+         ("07_creer", "Un CV prêt à envoyer, rédigé par l’IA"), ("08_vae", "Transformez votre expérience en diplôme : le module VAE")]
+
+
+def deck(keys, label):
+    """The Nouveau Cap store visuals (light theme) laid out like a fanned hand of cards (Cyril, 10/10)."""
+    items = [x for x in STORE if x[0] in keys]
+    n = len(items)
+    cards = "".join(
+        f'<figure class="dk" style="--o:{k - (n - 1) / 2:g};--a:{abs(k - (n - 1) / 2):g}"><img src="/assets/app/store/light-{f}.webp" alt="{esc(alt)}" width="540" height="960" loading="lazy" decoding="async"></figure>'
+        for k, (f, alt) in enumerate(items))
+    return f'<div class="deck" role="group" aria-label="{esc(label)}">{cards}</div>'
+
+
 def phone(src, alt):
     return f'<div class="phone"><img src="/assets/app/{src}.jpg" alt="{esc(alt)}" width="390" height="844" loading="lazy" decoding="async"></div>'
 
@@ -420,7 +436,7 @@ def sur_mesure():
     <p class="lead">Pour les plus de 40 ans qui changent de métier. De l’idée au store.</p>
     <ul class="checks"><li>Conception : le parcours, les écrans, les textes</li><li>Développement : l’application, le serveur, l’IA, les abonnements</li><li>Publication sur Google Play, avec les pages légales et la fiche du store</li></ul>
     <div class="btns" style="margin-top:24px"><a class="btn ghost" href="/nouveau-cap/">Voir Nouveau Cap {ARROW}</a><a class="btn primary" href="/contact/">Parler de votre application</a></div></div>
-  <div class="phones rv" style="--d:100ms" aria-hidden="true">{phone("pistes", "Écran Pistes de Nouveau Cap")}{phone("home", "Écran d’accueil de Nouveau Cap")}{phone("finances", "Écran Finances de Nouveau Cap")}</div>
+  <div class="rv deck-side" style="--d:100ms">{deck(["03_idees", "05_pistes", "01_home", "04_finances", "06_cv"], "Écrans de Nouveau Cap")}</div>
 </div></section>
 {cta_band("Votre site, <em>parlons-en.</em>", "Quelques lignes suffisent.", '<a class="btn ghost" href="/contact/">Nous écrire</a>')}
 """
@@ -502,14 +518,14 @@ def nouveau_cap():
     ]
     feats = "".join(f'<article class="card rv" style="--d:{(k % 3) * 70}ms"><h3>{t}</h3><ul class="checks">{"".join(f"<li>{esc(x)}</li>" for x in items)}</ul></article>' for k, (t, items) in enumerate(features))
     shots = [("home", "Accueil : le mot du Copilote et le bilan"), ("finances", "Finances : votre runway en mois"), ("pistes", "Pistes : comparer les métiers visés"), ("plan", "Plan 90 jours : les étapes de la semaine")]
-    gallery = "".join(phone(f, alt) for f, alt in shots)
+    gallery = deck(["01_home", "02_financer", "03_idees", "04_finances", "05_pistes", "06_cv", "07_creer"], "Captures d’écran de l’app")
     body = f"""
 <section class="hero"><div class="wrap">
   <div class="apphead rv"><img class="appicon" src="/assets/nouveau-cap-icon.png" alt="Icône de Nouveau Cap : une boussole qui pointe vers le nord" width="128" height="128">
     <div><span class="pill"><b>Réalisation</b> Une application conçue, développée et publiée par Pixapop</span><h1 style="margin-top:12px">Nouveau Cap</h1></div></div>
   <p class="lead rv" style="--d:100ms;margin-top:24px">Vous avez plus de 40 ans, une carrière solide, et l’envie de changer de métier. Nouveau Cap vous aide à passer de l’idée au projet, puis du projet au nouveau poste, avec une méthode claire et un Copilote IA qui connaît votre parcours.</p>
   <div class="btns rv" style="--d:150ms;margin-top:24px"><a class="btn primary" href="{APP_SITE}">Le site de Nouveau Cap {ARROW}</a><a class="btn ghost" href="{APP_SITE}#liste">Être prévenu du lancement</a></div>
-  <div class="gallery rv" style="--d:200ms;margin-top:36px" aria-label="Captures d’écran de l’app">{gallery}</div>
+  <div class="rv" style="--d:200ms;margin-top:36px">{gallery}</div>
 </div></section>
 
 <section class="alt"><div class="wrap">
