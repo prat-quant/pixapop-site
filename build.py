@@ -186,7 +186,9 @@ def home():
   <div class="hero-shot rv" style="--d:240ms">
     {shot("8-aujourdhui", "Pixapop Studio, l’écran Aujourd’hui (exemple)", True)}
     <span class="float f1" aria-hidden="true"><i style="background:#2BB5A0"></i>Votre article est en ligne</span>
-    <span class="float f2" aria-hidden="true"><i style="background:#E0559A"></i>Un nouveau contact est arrivé</span>
+    <span class="float f2 rot r1" aria-hidden="true"><i style="background:#E0559A"></i>Un nouveau contact est arrivé</span>
+    <span class="float f2 rot r2" aria-hidden="true"><i style="background:#8B6CFF"></i>Vous avez un nouveau client</span>
+    <span class="float f2 rot r3" aria-hidden="true"><i style="background:#2BB5A0"></i>Vous venez de faire une nouvelle vente</span>
     <span class="float f3" aria-hidden="true"><i style="background:#F2A541"></i>Stratégie ajustée d’après vos résultats</span>
   </div>
 </div></section>

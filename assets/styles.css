@@ -394,3 +394,9 @@ h1.h1-accueil em { font-size: 1.1em; }
 .eyebrow .amp { display: inline-block; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 2em; line-height: 1; letter-spacing: 0; text-transform: none; vertical-align: -0.22em; margin: -0.3em .1em -0.3em .06em; padding-right: .05em;
   background: var(--grad-text); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* Capture de l'accueil : à droite, trois notifications qui se relaient au même endroit (apparition et disparition en fondu) */
+.float.rot { opacity: 0; animation: px-rot 12s ease-in-out infinite; }
+.float.rot.r2 { animation-delay: 4s; } .float.rot.r3 { animation-delay: 8s; }
+@keyframes px-rot { 0% { opacity: 0; transform: translateY(12px); } 6%, 27% { opacity: 1; transform: none; } 33%, 100% { opacity: 0; transform: translateY(-8px); } }
+@media (prefers-reduced-motion: reduce) { .float.rot { animation: none; } .float.rot.r1 { opacity: 1; } }
