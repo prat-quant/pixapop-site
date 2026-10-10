@@ -180,7 +180,7 @@ def home():
 <section class="hero"><div class="wrap center">
   <p class="eyebrow rv">Solopreneur</p>
   <h1 class="rv h1-accueil" style="--d:60ms"><span class="h1-l">Fini de courir après les clients.</span> <span class="h1-l"><em>Ils viennent à vous.</em></span></h1>
-  <p class="lead rv" style="--d:120ms">Avec Studio, votre marketing tourne pendant que vous travaillez. Vous validez, il s’occupe du reste.</p>
+  <p class="lead lead-accueil rv" style="--d:120ms"><span>Avec Studio, votre marketing tourne en permanence.</span> <span>Vous faites votre métier, Studio fait le reste.</span></p>
   <div class="btns rv" style="--d:180ms"><a class="btn primary" href="{TRY}">Essayer Studio gratuitement {ARROW}</a><a class="btn ghost" href="/studio/">Voir Studio en huit écrans</a></div>
   <p class="note rv" style="--d:210ms;margin-top:14px">Bêta le lundi 9 novembre 2026.</p>
   <div class="hero-shot rv" style="--d:240ms">
