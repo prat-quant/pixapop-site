@@ -477,7 +477,7 @@ def sur_mesure():
       <p class="lead">Le plombier, la coach, la boutique : chacun ses clients, chacun son site.</p>
       <div class="features">{feats}</div></div>
     <div class="card rv" style="--d:80ms"><div class="ico i2">{icon("price")}</div><h3>Combien coûte un site internet ?</h3>
-      <p>Un prix fixe, dans le devis, avant de commencer. Au tarif d’un freelance, souvent moins avec nos outils.</p>
+      <p>Un site vitrine coûte en général de 1 500 à 3 500 € chez un freelance, et de 2 500 à 6 000 € chez une agence. Chez Pixapop, un prix fixe dans le devis, avant de commencer, souvent plus bas grâce à nos outils.</p>
       <a class="more" href="/contact/">Demander un devis {ARROW}</a></div>
   </div>
 </div></section>
