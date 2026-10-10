@@ -496,7 +496,7 @@ def sur_mesure():
 
 <section class="alt" id="applications" style="scroll-margin-top:80px"><div class="wrap case">
   <div class="rv"><p class="eyebrow">Applications mobiles</p><h2>Nouveau Cap, <em>une application conçue, développée et publiée par Pixapop.</em></h2>
-    <p class="lead">Pour les personnes qui souhaitent réussir leur reconversion professionnelle. Un accompagnement guidé, personnalisé.</p>
+    <p class="lead">Pour les personnes qui veulent réussir leur reconversion après 40 ans. Un accompagnement guidé et personnalisé.</p>
     <ul class="checks"><li>Conception : le parcours, les écrans, les textes</li><li>Développement : l’application, le serveur, l’IA, les abonnements</li><li>Publication sur Google Play, avec les pages légales et la fiche du store</li></ul>
     <div class="btns" style="margin-top:24px"><a class="btn ghost" href="/nouveau-cap/">Voir Nouveau Cap {ARROW}</a><a class="btn primary" href="/contact/">Parler de votre application</a></div></div>
   <div class="rv deck-side" style="--d:100ms">{deck(["03_idees", "05_pistes", "01_home", "04_finances", "06_cv"], "Écrans de Nouveau Cap")}</div>
