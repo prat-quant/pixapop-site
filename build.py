@@ -218,7 +218,7 @@ def home():
     <p class="lead">Le post du dimanche soir. Le devis tapé à 23 h. Le client parti chez le moins cher. Et votre métier attend.</p></div>
   <div class="grid g4 pains">{pain_html}</div>
   <p class="note center rv" style="margin-top:14px">Ce qu’écrivent des entrepreneurs sur les forums.</p>
-  <p class="lead center rv" style="margin:34px auto 0">Le plan n’était pas mauvais. Il manquait juste un coup de main pour faire le reste.</p>
+  <p class="lead center rv" style="margin:34px auto 0">Le plan n’était pas mauvais. Il vous manquait juste un coup de pouce pour faire le reste.</p>
 </div></section>
 
 <section><div class="wrap narrow center">
