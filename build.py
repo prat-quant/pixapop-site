@@ -223,8 +223,8 @@ def home():
 
 <section><div class="wrap narrow center">
   <h2 class="rv h2-lignes"><span>Le reste n’est pas votre métier.</span> <em>Il prend pourtant vos soirées.</em></h2>
-  <blockquote class="villain rv">« J’ai créé ma boîte pour sauver le métier… et j’ai découvert que dans le bâtiment, c’est pas le travail bien fait qui gagne, mais le devis le moins cher. »</blockquote>
-  <p class="note center rv villain-by"><b>Julien, maçon</b><span>Prénom changé. Propos publiés sur un forum d’entrepreneurs.</span></p>
+  <blockquote class="villain rv">« J’ai créé ma boîte par amour du métier. Et j’ai découvert que, dans le bâtiment, ce n’est pas le travail bien fait qui gagne. C’est le devis le moins cher. »</blockquote>
+  <p class="note center rv villain-by"><b>Julien, maçon</b><span>Prénom changé, propos résumés. Publiés sur un forum d’entrepreneurs.</span></p>
   <p class="lead rv" style="margin:26px auto 0">Un bon professionnel ne devrait pas perdre un client faute d’avoir eu le temps de se montrer.</p>
 </div></section>
 
