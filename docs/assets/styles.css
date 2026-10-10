@@ -470,3 +470,13 @@ h2.h2-2l span, h2.h2-2l em { display: block; }
 .foot .brand { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 12px; }
 .cta-band h2 em { margin-top: .22em; }
 .cta-band .btns { margin-top: 30px; }
+
+/* Page Pilot : petites tuiles de chiffres dans les maquettes, maquettes alignées par paire */
+.mock-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.mock-stats > div { border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.mock-stats small { display: block; color: var(--muted); font-size: 12.5px; }
+.mock-stats b { font-size: 20px; font-variant-numeric: tabular-nums; }
+.pilot-pair > div { display: grid; grid-template-rows: subgrid; grid-row: span 3; row-gap: 0; }
+.pilot-pair > div > p.muted { margin-bottom: 16px; }
+@media (max-width: 860px) { .pilot-pair > div { grid-row: auto; display: block; } }
+.pilot-pair > div > .mock { height: 100%; display: flex; flex-direction: column; } .pilot-pair > div > .mock > .mock-body { flex: 1; align-content: start; }
