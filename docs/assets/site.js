@@ -65,3 +65,61 @@
     show(0);
   }
 })();
+// Pixapop motion (Cyril, 10/10/2026 : « des petites animations sympas, comme un site web moderne », the same on every site we
+// make) : pixels of light rising slowly in the hero with a soft glow behind, a light that follows the pointer on the cards, and
+// the title that rises gently when the page opens. Everything stays readable without it, and stops for people who ask for less.
+(function () {
+  'use strict';
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+  document.addEventListener('pointermove', function (ev) {
+    var el = ev.target.closest && ev.target.closest('[data-lit]');
+    if (!el) return;
+    var r = el.getBoundingClientRect();
+    el.style.setProperty('--mx', (ev.clientX - r.left) + 'px'); el.style.setProperty('--my', (ev.clientY - r.top) + 'px');
+  }, { passive: true });
+  Array.prototype.forEach.call(document.querySelectorAll('.card, .st-feat, .st-steps li, .st-card a, .st-plan, .loop li, .mock'), function (el) { el.setAttribute('data-lit', ''); });
+
+  var hero = document.querySelector('.hero, .st-hero');
+  if (!hero) return;
+  hero.classList.add('px-hero');
+  var canvas = document.createElement('canvas');
+  canvas.className = 'px-field'; canvas.setAttribute('aria-hidden', 'true');
+  hero.insertBefore(canvas, hero.firstChild);
+  var ctx = canvas.getContext('2d');
+  var dark = function () { return root.getAttribute('data-theme') === 'dark'; };
+  var colors = ['#FF4F8B', '#8B6CFF', '#F2A541', '#2BB5A0', '#5B8DEF', '#E0559A', '#FFC857'];
+  var dots = [], w = 0, h = 0, dpr = Math.min(2, window.devicePixelRatio || 1), mx = 0, my = 0, running = true;
+  function make(anywhere) {
+    return { x: Math.random() * w, y: anywhere ? Math.random() * h : h + 10, s: 3 + Math.random() * 5, v: 0.12 + Math.random() * 0.32,
+      z: 0.35 + Math.random() * 0.65, c: colors[(Math.random() * colors.length) | 0], t: Math.random() * Math.PI * 2 };
+  }
+  function size() {
+    var r = canvas.getBoundingClientRect(); w = r.width; h = r.height;
+    canvas.width = w * dpr; canvas.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var n = Math.round(Math.min(80, (w * h) / 15000)); dots = [];
+    for (var i = 0; i < n; i++) dots.push(make(true));
+  }
+  function frame() {
+    if (!running) return;
+    ctx.clearRect(0, 0, w, h);
+    var k = dark() ? 1 : 0.85;
+    for (var i = 0; i < dots.length; i++) {
+      var d = dots[i];
+      if (!reduce) { d.y -= d.v; d.t += 0.02; }
+      if (d.y < -10) dots[i] = d = make(false);
+      var a = (0.35 + 0.45 * Math.sin(d.t)) * d.z * Math.min(1, d.y / (h * 0.25)) * k;
+      var x = d.x + mx * 14 * d.z, y = d.y + my * 10 * d.z;
+      ctx.globalAlpha = Math.max(0, a); ctx.shadowColor = d.c; ctx.shadowBlur = (dark() ? 14 : 10) * d.z; ctx.fillStyle = d.c;
+      ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(x, y, d.s, d.s, d.s / 3); else ctx.rect(x, y, d.s, d.s); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    if (!reduce) requestAnimationFrame(frame);
+  }
+  size(); addEventListener('resize', size);
+  addEventListener('pointermove', function (ev) { mx = ev.clientX / innerWidth - 0.5; my = ev.clientY / innerHeight - 0.5; }, { passive: true });
+  if (reduce) { frame(); return; }
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { var was = running; running = e[0].isIntersecting; if (running && !was) frame(); }).observe(canvas);
+  document.addEventListener('visibilitychange', function () { var was = running; running = !document.hidden; if (running && !was) frame(); });
+  frame();
+})();
