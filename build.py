@@ -96,7 +96,7 @@ def page(path, title, description, body, *, canonical=None, jsonld=None, noindex
 </head>
 <body class="{body_class}">
 <header class="top"><div class="wrap bar">
-  <a class="brand" href="/" aria-label="Pixapop, accueil">{LOGO}<span>pixapop</span></a>
+  <a class="brand" href="/" aria-label="Pixapop, accueil">{LOGO}<span>Pixapop</span></a>
   <nav class="nav" aria-label="Menu principal">{nav}</nav>
   <button class="menu-btn" type="button" data-menu aria-expanded="false" aria-label="Ouvrir le menu">{BURGER}</button>
   <button class="theme" type="button" data-theme-toggle aria-pressed="false" aria-label="Passer en thème sombre ou clair">{SUN}{MOON}</button>
@@ -107,7 +107,7 @@ def page(path, title, description, body, *, canonical=None, jsonld=None, noindex
 </main>
 <footer><div class="wrap">
   <div class="foot">
-    <div><a class="brand" href="/" aria-label="Pixapop, accueil">{LOGO}<span>pixapop</span></a>
+    <div><a class="brand" href="/" aria-label="Pixapop, accueil">{LOGO}<span>Pixapop</span></a>
       <p>Pixapop aide les entrepreneurs solo et les petites entreprises à trouver des clients et à vendre au bon prix.</p></div>
     <div><b>Nos outils</b><a href="/studio/">Pixapop Studio</a><a href="/pilot/">Pixapop Pilot</a><a href="/sur-mesure/">Sites et applications</a><a href="/nouveau-cap/">Nouveau Cap</a></div>
     <div><b>Pixapop</b><a href="/a-propos/">À propos</a><a href="/contact/">Contact</a><a href="{YOUTUBE}" rel="me">YouTube</a></div>
@@ -278,7 +278,7 @@ def home():
   <div class="head center rv"><h2>Vos <em>questions</em></h2></div>
   <div class="faq rv">{faq_block(HOME_FAQ)}</div>
 </div></section>
-{cta_band("<span class=\"cta-l\">Votre plan de départ : vivre de votre activité.</span> <em>Il tient toujours.</em>", "", try_label="Essayer Pixapop Studio gratuitement")}
+{cta_band("<span class=\"cta-l\">Vivre de votre métier, c’était le plan.</span> <em>On s’occupe du reste.</em>", "", try_label="Essayer Pixapop Studio gratuitement")}
 """
     ld = {"@context": "https://schema.org", "@type": "Organization", "name": "Pixapop", "url": SITE, "email": EMAIL,
           "description": "Pixapop aide les entrepreneurs solo et les petites entreprises à trouver des clients et à vendre au bon prix : Pixapop Studio (marketing préparé, validé par vous), Pixapop Pilot (CRM et devis, à venir), sites et applications sur mesure.",
